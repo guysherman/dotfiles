@@ -4,5 +4,7 @@
   "diagnostic.checkCurrentLine": true,
   "eslint.autoFixOnSave": true,
   "javascript.format.enabled": true,
-  "javascript.showUnused": true
+  "javascript.showUnused": true,
+  "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.alwaysShowStatus": true
 } 
