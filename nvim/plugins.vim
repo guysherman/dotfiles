@@ -17,9 +17,6 @@ call plug#begin(stdpath('data').'/plugged')
   let g:vimspector_enable_mappings = 'HUMAN'
   let g:vimspector_install_gadgets = ['vscode-node-debug2']
 
-  let g:sw_exe = "/home/guy/.local/share/sqlworkbenchj/sqlwbconsole.sh"
-  let g:sw_config_dir = '/home/guy/.sqlworkbench'
-  let g:sw_cache = '/home/guy/.sqlworkbench/cache'
 	let g:coc_global_extensions = [
 		\ 'coc-tslint-plugin',
 		\ 'coc-tsserver',
@@ -46,8 +43,24 @@ call plug#begin(stdpath('data').'/plugged')
 
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
+  
   Plug 'tpope/vim-fugitive'
 
+  Plug 'hashivim/vim-terraform'
+  let g:terraform_align=1
+  let g:terraform_fmt_on_save=1
+
+  Plug 'itchyny/lightline.vim'
+  let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 call plug#end()
 
 
