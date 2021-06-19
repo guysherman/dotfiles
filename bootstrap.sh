@@ -14,7 +14,7 @@ then
   sudo apt update
   sudo apt install -y gnome-session gnome-terminal \
     gnome-tweaks zsh kitty \
-    python3 python3-pip nvim numix-icon-theme-circle
+    python3 python3-pip nvim numix-icon-theme-circle build-essential
 
   echo "# Apply kitty config"
   sudo echo "include /home/guy/dotfiles/kitty/kitty.conf" >> /etc/xdg/kitty/kitty.conf
