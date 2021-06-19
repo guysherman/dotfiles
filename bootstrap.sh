@@ -32,6 +32,7 @@ then
   extnUuid=`unzip -c .tmp/userthemes.zip metadata.json | grep uuid | cut -d \" -f4`
   mkdir -p ~/.local/share/gnome-shell/extensions/$extnUuid
   unzip -q .tmp/userthemes.zip -d ~/.local/share/gnome-shell/extensions/$extnUuid/
+  sudo cp $HOME/.local/share/gnome-shell/extensions/user-theme@gnome-shell-extensions.gcampax.github.com/schemas/org.gnome.shell.extensions.user-theme.gschema.xml /usr/share/glib-2.0/schemas && sudo glib-compile-schemas /usr/share/glib-2.0/schemas
   touch .tmp/stage-one
 
   echo "Please logout and log back in, then run this script again."
@@ -40,7 +41,7 @@ fi
   
 if [ ! -f .tmp/stage-two ]
 then
-  extnUuid = `unzip -c .tmp/userthemes.zip metadata.json | grep uuid | cut -d \" -f4`
+  extnUuid=`unzip -c .tmp/userthemes.zip metadata.json | grep uuid | cut -d \" -f4`
   gnome-shell-extension-tool -e $extnUuid
   mkdir -p ~/.local/share/fonts
   curl -fsSL "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Light/complete/Fira%20Code%20Light%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf" -o ~/.local/share/fonts/FiraCodeLightNerdFontCompleteWindowsCompatible.ttf
