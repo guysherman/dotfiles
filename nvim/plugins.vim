@@ -52,10 +52,10 @@ call plug#begin(stdpath('data').'/plugged')
 
   Plug 'itchyny/lightline.vim'
   let g:lightline = {
-      \ 'colorscheme': 'powerline',
+      \ 'colorscheme': 'molokai',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead'
