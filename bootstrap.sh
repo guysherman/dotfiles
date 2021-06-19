@@ -8,7 +8,7 @@ then
 
   echo "# Install some basic tools we need to install the rest"
   sudo apt update
-  sudo apt install wget curl ca-certificates apt-transport-https gnupg lsb-release
+  sudo apt install -y wget curl ca-certificates apt-transport-https gnupg lsb-release
   
   echo "# Install some basics"
   sudo apt update
@@ -92,7 +92,7 @@ then
     $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
   
   sudo apt update
-  sudo apt install docker-ce docker-ce-cli containerd.io
+  sudo apt install -y docker-ce docker-ce-cli containerd.io
   
   echo "# Install docker-compose"
   mkdir -p ~/.local/bin
