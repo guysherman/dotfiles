@@ -26,6 +26,7 @@ then
 fi
 
 if [! -f .tmp/stage-one ]
+then
   echo "# Install user themes extension"
   curl -L "https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v42.shell-extension.zip" -o .tmp/userthemes.zip
   extnUuid = `unzip -c .tmp/userthemes.zip metadata.json | grep uuid | cut -d \" -f4`
@@ -39,6 +40,7 @@ fi
   
 if [ ! -f .tmp/stage-two ]
 then
+  extnUuid = `unzip -c .tmp/userthemes.zip metadata.json | grep uuid | cut -d \" -f4`
   gnome-shell-extension-tool -e $extnUuid
   mkdir -p ~/.local/share/fonts
   curl -fsSL "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Light/complete/Fira%20Code%20Light%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf" -o ~/.local/share/fonts/FiraCodeLightNerdFontCompleteWindowsCompatible.ttf
