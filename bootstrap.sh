@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-mkdir .tmp
-if [ ! -f .tmp/stage-one ]
+mkdir -p .tmp
+if [ ! -f .tmp/stage-onea ]
 then
 
   echo "# Install some basic tools we need to install the rest"
@@ -14,15 +14,18 @@ then
   sudo apt update
   sudo apt install -y gnome-session gnome-terminal \
     gnome-tweaks zsh kitty \
-    python3 python3-pip nvim numix-icon-theme-circle build-essential
+    python3 python3-pip neovim numix-icon-theme-circle build-essential git
 
   echo "# Apply kitty config"
-  sudo echo "include /home/guy/dotfiles/kitty/kitty.conf" >> /etc/xdg/kitty/kitty.conf
+  echo "include /home/guy/dotfiles/kitty/kitty.conf" | sudo tee /etc/xdg/kitty/kitty.conf
 
   echo "# Install oh-my-zsh"
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  touch .tmp/stage-onea
+  echo "please run the script again now that we're in zsh"
+fi
 
-  
+if [! -f .tmp/stage-one ]
   echo "# Install user themes extension"
   curl -L "https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v42.shell-extension.zip" -o .tmp/userthemes.zip
   extnUuid = `unzip -c .tmp/userthemes.zip metadata.json | grep uuid | cut -d \" -f4`
