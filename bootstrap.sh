@@ -3,7 +3,7 @@
 set -euo pipefail
 
 mkdir -p .tmp
-if [ ! -f .tmp/stage-onea ]
+if [ ! -f .tmp/stage-zero ]
 then
 
   echo "# Install some basic tools we need to install the rest"
@@ -21,7 +21,7 @@ then
 
   echo "# Install oh-my-zsh"
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  touch .tmp/stage-onea
+  touch .tmp/stage-zero
   echo "please run the script again now that we're in zsh"
 fi
 
