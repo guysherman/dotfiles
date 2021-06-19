@@ -25,11 +25,11 @@ then
   echo "please run the script again now that we're in zsh"
 fi
 
-if [! -f .tmp/stage-one ]
+if [ ! -f .tmp/stage-one ]
 then
   echo "# Install user themes extension"
-  curl -L "https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v42.shell-extension.zip" -o .tmp/userthemes.zip
-  extnUuid = `unzip -c .tmp/userthemes.zip metadata.json | grep uuid | cut -d \" -f4`
+  curl -fsSL "https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v42.shell-extension.zip" -o .tmp/userthemes.zip
+  extnUuid=`unzip -c .tmp/userthemes.zip metadata.json | grep uuid | cut -d \" -f4`
   mkdir -p ~/.local/share/gnome-shell/extensions/$extnUuid
   unzip -q .tmp/userthemes.zip -d ~/.local/share/gnome-shell/extensions/$extnUuid/
   touch .tmp/stage-one
@@ -48,8 +48,7 @@ then
   
   echo "# Install the color theme"
   mkdir -p ~/.themes
-  curl -fsSL "https://dllb2.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE1NzYwNTQ3NTEiLCJ1IjpudWxsLCJsdCI6ImRvd25sb2FkIiwicyI6IjAyYmI1YTVhMTk3ZGNjYTNmNmE0NmUzMjZlMDMwMDUyZWVkOTJjNGNmODI5Y2ZlMzYzODU0ZWE3ZjAxNjcxZTYxYzg5YmQ2OGZjOTZlNjdkYzA0NGNhOWFjNDYyYjc5MWIzYWViMmM2MTM0NzhjYjBmMzgzMDgxMjIwN2Y2YzNlIiwidCI6MTYyNDA5NTEyMiwic3RmcCI6IjliZjAyZjExNmQwOTBlNDg3ZTJiYjU0ZmFlYjUwMDU5Iiwic3RpcCI6IjE1OC4xNDAuMjM1LjE5MCJ9.x2_mHSItzdaoiAEgMLXqvpm2f53HvNUVNITFckZ53qU/plata-theme-colors-0.9.1.tar.xz" -o .tmp/plata.tar.xz
-  tar -C ~/.themes --strip-components=1 -xJvf plata.tar.xz plata-theme-colors-0.9.1/Plata-Purple-Noir-Compact
+  tar -C ~/.themes --strip-components=1 -xJvf downloads/plata.tar.xz plata-theme-colors-0.9.1/Plata-Purple-Noir-Compact
   
   echo "# Install the Xenilism minimalism shell theme"
   bash <(wget -qO- https://raw.githubusercontent.com/xenlism/minimalism/master/INSTALL/online.install)
