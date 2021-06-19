@@ -37,6 +37,9 @@ fi
 if [ ! -f .tmp/stage-two ]
 then
   gnome-shell-extension-tool -e $extnUuid
+  mkdir -p ~/.local/share/fonts
+  curl -fsSL "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Light/complete/Fira%20Code%20Light%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf" -o ~/.local/share/fonts/FiraCodeLightNerdFontCompleteWindowsCompatible.ttf
+  fc-cache -f -v
   
   echo "# Install the color theme"
   mkdir -p ~/.themes
