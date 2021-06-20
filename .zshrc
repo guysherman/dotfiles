@@ -99,6 +99,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+if [ -f ~/.profile ]; then
+  source ~/.profile
+fi
+
 if [ -f ~/.dir_colors ]; then  
   eval `dircolors ~/.dir_colors`
 fi  

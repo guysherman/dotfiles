@@ -17,7 +17,7 @@ then
     python3 python3-pip neovim numix-icon-theme-circle build-essential git
 
   echo "# Apply kitty config"
-  echo "include /home/guy/dotfiles/kitty/kitty.conf" | sudo tee /etc/xdg/kitty/kitty.conf
+  echo "include $HOME/dotfiles/kitty/kitty.conf" | sudo tee /etc/xdg/kitty/kitty.conf
 
   touch .tmp/stage-zero
   echo "Once Oh-My-Zsh has installed, please run the script again now that we're in zsh"
@@ -108,16 +108,27 @@ then
   echo "# Install docker-compose"
   mkdir -p ~/.local/bin
   curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64" -o ~/.local/bin/docker-compose
+  chmod +x ~/.local/bin/docker-compose
   
+  sudo gpasswd -a $USER docker
+
   echo "# Install various terraforms"
   echo "# 1.0.0 -> terraform"
   curl -fsSL "https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_linux_amd64.zip" -o .tmp/terraform_1.zip
   unzip -p .tmp/terraform_1.zip > ~/.local/bin/terraform
+  chmod +x ~/.local/bin/terraform
   
   echo "# 0.14.11 -> terraform014"
   curl -fsSL "https://releases.hashicorp.com/terraform/0.14.11/terraform_0.14.11_linux_amd64.zip" -o .tmp/terraform_014.zip
   unzip -p .tmp/terraform_014.zip > ~/.local/bin/terraform014
+  chmod +x ~/.local/bin/terraform014
   
+  echo "# Install kubectl"
+  sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+  echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+  sudo apt update
+  sudo apt install -y kubectl
+
   echo "# Install nvm"
   curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
   source ~/.profile
@@ -190,7 +201,7 @@ then
   ln -s `pwd`/.dir_colors `echo ~`/.dir_colors
 
   touch .tmp/stage-three
-  echo "We're done, please log out and log back in again."
+  echo "Done, please reboot, and then you should be good to go!"
   exit 0
 fi
 
