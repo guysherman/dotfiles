@@ -164,7 +164,7 @@ then
   
   echo "# Setup nvim"
   mkdir -p ~/.config/nvim
-  ln -s `pwd`/nvim/coc-settins.json ~/.config/nvim/coc-settings.json
+  ln -s `pwd`/nvim/coc-settings.json $HOME/.config/nvim/coc-settings.json
   echo "source ~/dotfiles/nvim/init.vim" > ~/.config/nvim/init.vim
   nvim +:PlugInstall +:qa!
   nvim +:CocInstall +:qa!
