@@ -58,7 +58,7 @@ then
   bash <(wget -qO- https://raw.githubusercontent.com/xenlism/minimalism/master/INSTALL/online.install)
   
   echo "# Set the various UI settings"
-  gsettings set org.gnome.shell.extensions.user-theme name "Plata-Purple-Noir-Compact"
+  gsettings set org.gnome.shell.extensions.user-theme name "Xenlism-Minimalism"
   gsettings set org.gnome.desktop.interface gtk-theme "Plata-Purple-Noir-Compact"
   gsettings set org.gnome.desktop.interface icon-theme "Numix-Circle"
   gsettings set org.gnome.desktop.background picture-uri "file://`pwd`/wallpapers/pastel_mountains_v02_color_01_5120x2880.png"
