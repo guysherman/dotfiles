@@ -46,6 +46,8 @@ then
   gnome-shell-extension-tool -e $extnUuid
   mkdir -p ~/.local/share/fonts
   curl -fsSL "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Light/complete/Fira%20Code%20Light%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf" -o ~/.local/share/fonts/FiraCodeLightNerdFontCompleteWindowsCompatible.ttf
+  curl -fsSL "https://www.fontsquirrel.com/fonts/download/cantarell" -o .tmp/cantarell.zip
+  unzip .tmp/cantarell.zip -d ~/.local/share/fonts
   fc-cache -f -v
   
   echo "# Install the color theme"
@@ -63,6 +65,10 @@ then
   gsettings set org.gnome.desktop.background picture-options "zoom"
   gsettings set org.gnome.desktop.screensaver picture-uri "file://`pwd`/wallpapers/pastel_mountains_v02_color_01_5120x2880.png"
   gsettings set org.gnome.desktop.screensaver picture-options "zoom"
+  gsettings set org.gnome.desktop.interface font-name "Cantarell Medium 9"
+  gsettings set org.gnome.desktop.interface document-font-name "Cantarell Medium 9"
+  gsettings set org.gnome.desktop.interface monospace-font-name "Monospace 9"
+  gsettings set org.gnome.settings-daemon.plugins.xsettings antialiasing "rgba"
 
   echo "# Install Edge"
   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -158,12 +164,13 @@ then
   
   echo "# Setup nvim"
   mkdir -p ~/.config/nvim
+  ln -s `pwd`/nvim/coc-settins.json ~/.config/nvim/coc-settings.json
   echo "source ~/dotfiles/nvim/init.vim" > ~/.config/nvim/init.vim
   nvim +:PlugInstall +:qa!
   nvim +:CocInstall +:qa!
 
   gsettings set org.gnome.shell favorite-apps "['microsoft-edge-beta.desktop', \
-    'kitty.desktop', 'slack_slack.desktop', 'zoom-client.desktop', \
+    'kitty.desktop', 'slack_slack.desktop', 'zoom-client_zoom-client.desktop', \
     'todoist_todoist.desktop', 'org.gnome.Nautilis.desktop', 'nvim.desktop']"
 
   gsettings set org.gnome.desktop.default-applications.terminal exec kitty
