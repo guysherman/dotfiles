@@ -5,11 +5,6 @@ set -euo pipefail
 mkdir -p .tmp
 if [ ! -f .tmp/stage-zero ]
 then
-  if [ -f ~/.profile ]
-  then
-    mv ~/.profile ~/.profile.old
-  fi
-  ln -s `pwd`/.profile `echo ~`/.profile
 
   echo "# Install some basic tools we need to install the rest"
   sudo apt update
@@ -95,6 +90,12 @@ fi
 
 if [ ! -f .tmp/stage-three ]
 then
+  if [ -f ~/.profile ]
+  then
+    mv ~/.profile ~/.profile.old
+  fi
+  ln -s `pwd`/.profile `echo ~`/.profile
+
   echo "# Add the docker apt repo and install docker"
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
   echo \
