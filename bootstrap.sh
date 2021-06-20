@@ -5,6 +5,11 @@ set -euo pipefail
 mkdir -p .tmp
 if [ ! -f .tmp/stage-zero ]
 then
+  if [ -f ~/.profile ]
+  then
+    mv ~/.profile ~/.profile.old
+  fi
+  ln -s `pwd`/.profile `echo ~`/.profile
 
   echo "# Install some basic tools we need to install the rest"
   sudo apt update
@@ -19,10 +24,11 @@ then
   echo "# Apply kitty config"
   echo "include /home/guy/dotfiles/kitty/kitty.conf" | sudo tee /etc/xdg/kitty/kitty.conf
 
+  touch .tmp/stage-zero
+  echo "Once Oh-My-Zsh has installed, please run the script again now that we're in zsh"
+
   echo "# Install oh-my-zsh"
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  touch .tmp/stage-zero
-  echo "please run the script again now that we're in zsh"
 fi
 
 if [ ! -f .tmp/stage-one ]
@@ -55,13 +61,13 @@ then
   bash <(wget -qO- https://raw.githubusercontent.com/xenlism/minimalism/master/INSTALL/online.install)
   
   echo "# Set the various UI settings"
-  gsettings set org.gnome.shell.extensions.user-theme name "Xenlism-Minimalism"
+  gsettings set org.gnome.shell.extensions.user-theme name "Plata-Purple-Noir-Compact"
   gsettings set org.gnome.desktop.interface gtk-theme "Plata-Purple-Noir-Compact"
-  gsettings set org.gnome.dekstop.interface icon-theme "Numix-Circle"
-  gsettings set org.gnome.dekstop.background picture-uri "file://`pwd`/wallpapers/pastel_mountains_v02_color_01_5120x2880.png"
-  gsettings set org.gnome.desktop.background pcicture-options "wallpaper"
-  gsettings set org.gnome.dekstop.screensaver picture-uri "file://`pwd`/wallpapers/pastel_mountains_v02_color_01_5120x2880.png"
-  gsettings set org.gnome.desktop.screensaver pcicture-options "wallpaper"
+  gsettings set org.gnome.desktop.interface icon-theme "Numix-Circle"
+  gsettings set org.gnome.desktop.background picture-uri "file://`pwd`/wallpapers/pastel_mountains_v02_color_01_5120x2880.png"
+  gsettings set org.gnome.desktop.background picture-options "zoom"
+  gsettings set org.gnome.desktop.screensaver picture-uri "file://`pwd`/wallpapers/pastel_mountains_v02_color_01_5120x2880.png"
+  gsettings set org.gnome.desktop.screensaver picture-options "zoom"
 
   echo "# Install Edge"
   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -73,8 +79,7 @@ then
   sudo apt install -y microsoft-edge-beta
 
   echo "# Install Zoom"
-  curl -fsSL "https://cdn.zoom.us/prod/5.6.22045.0607/zoom_amd64.deb" -o .tmp/zoom.deb
-  sudo apt install -y .tmp/zoom.deb
+  sudo snap install zoom-client
 
   echo "# Install slack"
   sudo snap install slack --classic
@@ -106,15 +111,19 @@ then
   echo "# Install various terraforms"
   echo "# 1.0.0 -> terraform"
   curl -fsSL "https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_linux_amd64.zip" -o .tmp/terraform_1.zip
-  unzip .tmp/terraform_1.zip -p > ~/.local/bin/terraform
+  unzip -p .tmp/terraform_1.zip > ~/.local/bin/terraform
   
   echo "# 0.14.11 -> terraform014"
   curl -fsSL "https://releases.hashicorp.com/terraform/0.14.11/terraform_0.14.11_linux_amd64.zip" -o .tmp/terraform_014.zip
-  unzip .tmp/terraform_014.zip -p > ~/.local/bin/terraform014
+  unzip -p .tmp/terraform_014.zip > ~/.local/bin/terraform014
   
   echo "# Install nvm"
   curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
   source ~/.profile
+
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
   
   echo "# Install node"
   nvm install lts
@@ -161,17 +170,12 @@ then
     mv ~/.dir_colors ~/.dir_colors.old
   fi
 
-  if [ -f ~/.profile ]
-  then
-    mv ~/.profile ~/.profile.old
-  fi
 
 
   ln -s `pwd`/.bash_logout `echo ~`/.bash_logout
   ln -s `pwd`/.bashrc `echo ~`/.bashrc
   ln -s `pwd`/.zshrc `echo ~`/.zshrc
   ln -s `pwd`/.dir_colors `echo ~`/.dir_colors
-  ln -s `pwd`/.profile `echo ~`/.profile
 
   touch .tmp/stage-three
   echo "We're done, please log out and log back in again."
