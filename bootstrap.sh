@@ -126,7 +126,7 @@ then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
   
   echo "# Install node"
-  nvm install lts
+  nvm install --lts
   nvm install-latest-npm
   
   echo "# Install yarn"
@@ -142,10 +142,21 @@ then
   
   echo "# Install virtualenv"
   mkdir -p ~/.virtualenvs
-  pip install virtualenv virtualenvwrapper
+  sudo pip install virtualenv virtualenvwrapper
   
   echo "# Setup nvim"
-  nvim +:PlugInstall +:CocInstall +:qa!
+  mkdir -p ~/.config/nvim
+  echo "source ~/dotfiles/nvim/init.vim" > ~/.config/nvim/init.vim
+  nvim +:PlugInstall +:qa!
+  nvim +:CocInstall +:qa!
+
+  gsettings set org.gnome.shell favorite-apps "['microsoft-edge-beta.desktop', \
+    'kitty.desktop', 'slack_slack.desktop', 'zoom-client.desktop', \
+    'todoist_todoist.desktop', 'org.gnome.Nautilis.desktop', 'nvim.desktop']"
+
+  gsettings set org.gnome.desktop.default-applications.terminal exec kitty
+  gsettings set org.gnome.desktop.default-applications.terminal exec-arg ''
+
   
   echo "# Map over our bash/zsh files"
   
