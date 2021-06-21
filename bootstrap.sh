@@ -14,7 +14,7 @@ then
   sudo apt update
   sudo apt install -y gnome-session gnome-terminal \
     gnome-tweaks zsh kitty \
-    python3 python3-pip neovim numix-icon-theme-circle build-essential git
+    python3 python3-pip neovim numix-icon-theme-circle build-essential git silversearcher-ag
 
   echo "# Apply kitty config"
   echo "include $HOME/dotfiles/kitty/kitty.conf" | sudo tee /etc/xdg/kitty/kitty.conf
@@ -134,6 +134,10 @@ then
   echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
   sudo apt update
   sudo apt install -y kubectl
+
+  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o ".tmp/awscliv2.zip"
+  unzip -q .tmp/awscliv2.zip -d .tmp
+  sudo ./aws/install
 
   echo "# Install nvm"
   curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
