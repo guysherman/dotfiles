@@ -14,7 +14,7 @@ then
   sudo apt update
   sudo apt install -y gnome-session gnome-terminal \
     gnome-tweaks zsh kitty \
-    python3 python3-pip neovim numix-icon-theme-circle build-essential git silversearcher-ag
+    python3 python3-pip neovim numix-icon-theme-circle build-essential git silversearcher-ag libxml2-utils
 
   echo "# Apply kitty config"
   echo "include $HOME/dotfiles/kitty/kitty.conf" | sudo tee /etc/xdg/kitty/kitty.conf
