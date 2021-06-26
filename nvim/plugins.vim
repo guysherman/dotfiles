@@ -33,6 +33,7 @@ call plug#begin(stdpath('data').'/plugged')
 		\ 'coc-yaml',
 		\ 'coc-swagger',
     \ 'coc-markdownlint',
+    \ 'coc-pyright',
 		\ 'coc-docker']  " list of CoC extensions needed
 
 	Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {

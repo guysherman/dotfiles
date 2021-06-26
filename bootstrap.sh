@@ -16,6 +16,9 @@ then
     gnome-tweaks zsh kitty \
     python3 python3-pip neovim numix-icon-theme-circle build-essential git silversearcher-ag libxml2-utils
 
+  echo "# Setting python -> Python 3"
+  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+
   echo "# Apply kitty config"
   echo "include $HOME/dotfiles/kitty/kitty.conf" | sudo tee /etc/xdg/kitty/kitty.conf
 
