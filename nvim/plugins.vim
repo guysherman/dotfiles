@@ -63,6 +63,8 @@ call plug#begin(stdpath('data').'/plugged')
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
+
+  Plug 'moll/vim-bbye'
 call plug#end()
 
 
