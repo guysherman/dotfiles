@@ -9,12 +9,16 @@ then
   echo "# Install some basic tools we need to install the rest"
   sudo apt update
   sudo apt install -y wget curl ca-certificates apt-transport-https gnupg lsb-release
+
+  echo "# Add github gpg key"
+  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
   
   echo "# Install some basics"
   sudo apt update
   sudo apt install -y gnome-session gnome-terminal \
     gnome-tweaks zsh kitty \
-    python3 python3-pip neovim numix-icon-theme-circle build-essential git silversearcher-ag libxml2-utils
+    python3 python3-pip neovim numix-icon-theme-circle build-essential git silversearcher-ag libxml2-utils gh
 
   echo "# Setting python -> Python 3"
   sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10

@@ -65,6 +65,7 @@ call plug#begin(stdpath('data').'/plugged')
       \ }
 
   Plug 'moll/vim-bbye'
+  Plug 'tpope/vim-surround'
 call plug#end()
 
 

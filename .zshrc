@@ -121,3 +121,6 @@ autoload -Uz compinit
 compinit
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
+
+complete -c '/usr/local/bin/aws_completer' aws
+export EDITOR=nvim
