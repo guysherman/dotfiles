@@ -1,8 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/dotfiles/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/guy/.oh-my-zsh"
+export ZSH="/home/guy/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -41,7 +42,7 @@ PRIMARY_FG="255"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -67,6 +68,9 @@ PRIMARY_FG="255"
 plugins=(
   git
   virtualenv
+  aws
+  nvm
+  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -79,11 +83,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='nvim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -99,6 +103,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias gprm="git pull --rebase origin main"
+alias gprmm="git pull --rebase origin master"
+alias gnb="git-newtrackedbranch.sh"
+
 if [ -f ~/.profile ]; then
   source ~/.profile
 fi
@@ -107,10 +116,6 @@ if [ -f ~/.dir_colors ]; then
   eval `dircolors ~/.dir_colors`
 fi  
 
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # virtualenv and virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
@@ -121,6 +126,3 @@ autoload -Uz compinit
 compinit
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
-
-complete -c '/usr/local/bin/aws_completer' aws
-export EDITOR=nvim
