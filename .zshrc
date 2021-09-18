@@ -71,6 +71,7 @@ plugins=(
   aws
   nvm
   kubectl
+  yarn
 )
 
 source $ZSH/oh-my-zsh.sh

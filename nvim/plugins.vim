@@ -66,6 +66,8 @@ call plug#begin(stdpath('data').'/plugged')
 
   Plug 'moll/vim-bbye'
   Plug 'tpope/vim-surround'
+
+  Plug 'knubie/vim-kitty-navigator'
 call plug#end()
 
 
