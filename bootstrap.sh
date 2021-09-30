@@ -18,7 +18,7 @@ then
   sudo apt update
   sudo apt install -y gnome-session gnome-terminal \
     gnome-tweaks zsh kitty \
-    python3 python3-pip neovim numix-icon-theme-circle build-essential git silversearcher-ag libxml2-utils gh
+    python3 python3-pip neovim numix-icon-theme-circle build-essential git silversearcher-ag libxml2-utils gh autoconf automake libusb-dev libusb-1.0-0-dev libplist-dev libplist++-dev usbmuxd libtool libimobiledevice-dev libssl-dev
 
   echo "# Setting python -> Python 3"
   sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
@@ -112,6 +112,14 @@ fi
 
 if [ ! -f .tmp/stage-three ]
 then
+  echo "# install ios webkit debug proxy"
+  git clone https://github.com/google/ios-webkit-debug-proxy.git downloads/ios-webkit-debug-proxy
+  pushd downloads/ios-webkit-debug-proxy
+  ./autogen.sh
+  make
+  sudo make install
+  popd
+
   if [ -f ~/.profile ]
   then
     mv ~/.profile ~/.profile.old

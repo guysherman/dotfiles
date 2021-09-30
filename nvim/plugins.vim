@@ -68,6 +68,7 @@ call plug#begin(stdpath('data').'/plugged')
   Plug 'tpope/vim-surround'
 
   Plug 'knubie/vim-kitty-navigator'
+  Plug 'ruanyl/vim-gh-line'
 call plug#end()
 
 
