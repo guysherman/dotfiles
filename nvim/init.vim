@@ -13,6 +13,8 @@ source ~/dotfiles/nvim/coc.vim
 source ~/dotfiles/nvim/terminal.vim
 source ~/dotfiles/nvim/fzf.vim.vim
 source ~/dotfiles/nvim/grep.vim
+source ~/dotfiles/nvim/clang_format.vim
+source ~/dotfiles/nvim/cpp_format.vim
 
 set smartindent
 set backupcopy=yes
