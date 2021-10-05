@@ -69,6 +69,11 @@ call plug#begin(stdpath('data').'/plugged')
 
   Plug 'knubie/vim-kitty-navigator'
   Plug 'ruanyl/vim-gh-line'
+  Plug 'Yggdroot/indentLine'
+  set conceallevel=1
+  let g:indentLine_setConceal=0
+
+  Plug 'pedrohdz/vim-yaml-folds'
 call plug#end()
 
 
