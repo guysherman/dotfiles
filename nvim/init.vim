@@ -69,3 +69,5 @@ inoremap <Right> <nop>
 inoremap <Up> <nop>
 inoremap <Down> <nop>
 
+set errorformat+=%f(%l\\,%c):%m
+nnoremap <leader>tt :cexpr! system('tsc --noEmit') <cr>:copen 20<cr>
