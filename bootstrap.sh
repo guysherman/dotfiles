@@ -112,6 +112,14 @@ fi
 
 if [ ! -f .tmp/stage-three ]
 then
+  echo "# install GCM core"
+  curl -sSL https://packages.microsoft.com/config/ubuntu/21.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft-prod.list
+  curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc
+  sudo apt-get update
+  sudo apt-get install gcmcore
+  git-credential-manager-core configure
+  git config --global credential.credentialStore secretservice
+
   echo "# install ios webkit debug proxy"
   git clone https://github.com/google/ios-webkit-debug-proxy.git downloads/ios-webkit-debug-proxy
   pushd downloads/ios-webkit-debug-proxy
