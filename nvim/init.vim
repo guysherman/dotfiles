@@ -48,8 +48,8 @@ au BufNewFile,BufRead *.flow set filetype=javascript
 au BufNewFile,BufRead *.vue set filetype=javascript
 au BufNewFile,BufRead *Dockerfile* set filetype=dockerfile
 
-autocmd FileType javascript,typescript,javascriptreact,typescriptreact,json setlocal foldmethod=syntax
-autocmd FileType javascript,typescript,javascriptreact,typescriptreact,json,yaml setlocal nofoldenable
+autocmd FileType c,cpp,javascript,typescript,javascriptreact,typescriptreact,json setlocal foldmethod=syntax
+autocmd FileType c,cpp,javascript,typescript,javascriptreact,typescriptreact,json,yaml setlocal nofoldenable
 
 
 " Persistent undo
