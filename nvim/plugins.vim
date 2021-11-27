@@ -6,74 +6,31 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin(stdpath('data').'/plugged')
-	Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-	    \ Plug 'ryanoasis/vim-devicons' |
-	    \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-  Plug 'preservim/nerdcommenter'
-	Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} " this is for auto complete, prettier and tslinting
-  Plug 'puremourning/vimspector'
-  let g:vimspector_enable_mappings = 'HUMAN'
-  let g:vimspector_install_gadgets = ['vscode-node-debug2']
-
-	let g:coc_global_extensions = [
-		\ 'coc-tslint-plugin',
-		\ 'coc-tsserver',
-		\ 'coc-css',
-		\ 'coc-html',
-		\ 'coc-json',
-		\ 'coc-prettier',
-		\ 'coc-eslint',
-		\ 'coc-sql',
-		\ 'coc-jest',
-		\ 'coc-highlight',
-		\ 'coc-tslint-plugin',
-		\ 'coc-sh',
-		\ 'coc-yaml',
-		\ 'coc-swagger',
-    \ 'coc-markdownlint',
-    \ 'coc-pyright',
-		\ 'coc-docker']  " list of CoC extensions needed
-
-	Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
+  source ~/dotfiles/nvim/nerdtree.vim
+  source ~/dotfiles/nvim/nerdcommenter.vim
+  source ~/dotfiles/nvim/vimspector.vim
+  source ~/dotfiles/nvim/coc.vim
+  source ~/dotfiles/nvim/auto-pairs.vim
 
 	" these two plugins will add highlighting and indenting to JSX and TSX files.
-	Plug 'yuezk/vim-js'
-	Plug 'HerringtonDarkholme/yats.vim'
-	Plug 'maxmellon/vim-jsx-pretty'
+  source ~/dotfiles/nvim/vim-js.vim
+  source ~/dotfiles/nvim/yats.vim
+  source ~/dotfiles/nvim/vim-jsx-pretty.vim
 
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
-  
-  Plug 'tpope/vim-fugitive'
+  source ~/dotfiles/nvim/fzf.vim.vim
 
-  Plug 'hashivim/vim-terraform'
-  let g:terraform_align=1
-  let g:terraform_fmt_on_save=1
+  source ~/dotfiles/nvim/vimfugitive.vim
+  source ~/dotfiles/nvim/vim-terraform.vim
 
-  Plug 'itchyny/lightline.vim'
-  let g:lightline = {
-      \ 'colorscheme': 'molokai',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
+  source ~/dotfiles/nvim/lightline.vim
+  source ~/dotfiles/nvim/vim-bbye.vim
+  source ~/dotfiles/nvim/vim-surround.vim
+  source ~/dotfiles/nvim/vim-kitty-navigator.vim
+  source ~/dotfiles/nvim/vim-gh-line.vim
+  source ~/dotfiles/nvim/indentline.vim
+  source ~/dotfiles/nvim/vim-yaml-folds.vim
 
-  Plug 'moll/vim-bbye'
-  Plug 'tpope/vim-surround'
-
-  Plug 'knubie/vim-kitty-navigator'
-  Plug 'ruanyl/vim-gh-line'
-  Plug 'Yggdroot/indentLine'
-  set conceallevel=1
-  let g:indentLine_setConceal=0
-
-  Plug 'pedrohdz/vim-yaml-folds'
+  source ~/dotfiles/nvim/vimtest.vim
 call plug#end()
 
 

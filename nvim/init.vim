@@ -8,10 +8,9 @@ set background=dark
 colorscheme monokai-soda
 
 source ~/dotfiles/nvim/plugins.vim
-source ~/dotfiles/nvim/nerdtree.vim
-source ~/dotfiles/nvim/coc.vim
+source ~/dotfiles/nvim/coc-config.vim
 source ~/dotfiles/nvim/terminal.vim
-source ~/dotfiles/nvim/fzf.vim.vim
+source ~/dotfiles/nvim/fzf.vim-config.vim
 source ~/dotfiles/nvim/grep.vim
 
 set smartindent
@@ -71,3 +70,4 @@ inoremap <Down> <nop>
 
 set errorformat+=%f(%l\\,%c):%m
 nnoremap <leader>tt :cexpr! system('tsc --noEmit') <cr>:copen 20<cr>
+nnoremap <leader>RR :bufdo e<cr>

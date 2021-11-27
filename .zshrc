@@ -72,6 +72,7 @@ plugins=(
   nvm
   kubectl
   yarn
+  terraform
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -108,6 +109,7 @@ source $ZSH/oh-my-zsh.sh
 alias gprm="git pull --rebase origin main"
 alias gprmm="git pull --rebase origin master"
 alias gnb="git-newtrackedbranch.sh"
+alias cpc="yarn lint && yarn typecheck && yarn test"
 
 if [ -f ~/.profile ]; then
   source ~/.profile
