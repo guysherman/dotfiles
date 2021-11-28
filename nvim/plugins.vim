@@ -29,10 +29,9 @@ call plug#begin(stdpath('data').'/plugged')
   source ~/dotfiles/nvim/vim-gh-line.vim
   source ~/dotfiles/nvim/indentline.vim
   source ~/dotfiles/nvim/vim-yaml-folds.vim
+  source ~/dotfiles/nvim/vim-clang-format.vim
+  source ~/dotfiles/nvim/vim-cpp-modern.vim
 
-  Plug 'pedrohdz/vim-yaml-folds'
-  Plug 'rhysd/vim-clang-format'
-  Plug 'bfrg/vim-cpp-modern'
   source ~/dotfiles/nvim/vimtest.vim
 call plug#end()
 
