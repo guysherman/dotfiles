@@ -18,7 +18,12 @@ then
   sudo apt update
   sudo apt install -y gnome-session gnome-terminal \
     gnome-tweaks zsh kitty \
-    python3 python3-pip neovim numix-icon-theme-circle build-essential git silversearcher-ag libxml2-utils gh autoconf automake libusb-dev libusb-1.0-0-dev libplist-dev libplist++-dev usbmuxd libtool libimobiledevice-dev libssl-dev
+    python3 python3-pip \ 
+    neovim numix-icon-theme-circle build-essential \ 
+    git silversearcher-ag libxml2-utils gh autoconf \ 
+    automake libusb-dev libusb-1.0-0-dev libplist-dev \ 
+    libplist++-dev usbmuxd libtool \ 
+    libimobiledevice-dev libssl-dev lxappearance arandr scrot playerctl policykit-1-gnome
 
   echo "# Setting python -> Python 3"
   sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
@@ -54,7 +59,12 @@ then
   mkdir -p ~/.local/share/fonts
   curl -fsSL "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Light/complete/Fira%20Code%20Light%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf" -o ~/.local/share/fonts/FiraCodeLightNerdFontCompleteWindowsCompatible.ttf
   curl -fsSL "https://www.fontsquirrel.com/fonts/download/cantarell" -o .tmp/cantarell.zip
+  curl -fsSL "https://github.com/FortAwesome/Font-Awesome/releases/download/5.15.4/fontawesome-free-5.15.4-desktop.zip" -o .tmp/fontawesome.zip
+  
   unzip .tmp/cantarell.zip -d ~/.local/share/fonts
+  unzip .tmp/fontawesome.zip -d .tmp/fontawesome
+  cp .tmp/fontawesome/fontawesome-free-5.15.4-desktop/otfs/*.otf ~/.local/share/fonts/
+  rm -rf .tmp/fontawesome
   fc-cache -f -v
   
   echo "# Install the color theme"
