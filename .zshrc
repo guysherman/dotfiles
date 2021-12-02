@@ -5,6 +5,7 @@ export PATH=$HOME/dotfiles/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/home/guy/.oh-my-zsh"
 
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -73,9 +74,14 @@ plugins=(
   kubectl
   yarn
   terraform
+  fzf
 )
 
 source $ZSH/oh-my-zsh.sh
+# only show two levels in the zsh path
+prompt_dir() {
+  prompt_segment blue $CURRENT_FG '%2~'
+}
 
 # User configuration
 
@@ -110,6 +116,7 @@ alias gprm="git pull --rebase origin main"
 alias gprmm="git pull --rebase origin master"
 alias gnb="git-newtrackedbranch.sh"
 alias cpc="yarn lint && yarn typecheck && yarn test"
+alias gpc="gh pr create"
 
 if [ -f ~/.profile ]; then
   source ~/.profile
