@@ -6,33 +6,30 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin(stdpath('data').'/plugged')
-  source ~/dotfiles/nvim/nerdtree.vim
-  source ~/dotfiles/nvim/nerdcommenter.vim
-  source ~/dotfiles/nvim/vimspector.vim
-  source ~/dotfiles/nvim/coc.vim
-  source ~/dotfiles/nvim/auto-pairs.vim
-
-	" these two plugins will add highlighting and indenting to JSX and TSX files.
-  source ~/dotfiles/nvim/vim-js.vim
-  source ~/dotfiles/nvim/yats.vim
-  source ~/dotfiles/nvim/vim-jsx-pretty.vim
-
-  source ~/dotfiles/nvim/fzf.vim.vim
-
-  source ~/dotfiles/nvim/vimfugitive.vim
-  source ~/dotfiles/nvim/vim-terraform.vim
-
-  source ~/dotfiles/nvim/lightline.vim
-  source ~/dotfiles/nvim/vim-bbye.vim
-  source ~/dotfiles/nvim/vim-surround.vim
-  source ~/dotfiles/nvim/vim-kitty-navigator.vim
-  source ~/dotfiles/nvim/vim-gh-line.vim
-  source ~/dotfiles/nvim/indentline.vim
-  source ~/dotfiles/nvim/vim-yaml-folds.vim
-  source ~/dotfiles/nvim/vim-clang-format.vim
-  source ~/dotfiles/nvim/vim-cpp-modern.vim
-
-  source ~/dotfiles/nvim/vimtest.vim
+  source ~/dotfiles/nvim/plugins/nerdtree.vim
+  source ~/dotfiles/nvim/plugins/nerdcommenter.vim
+  source ~/dotfiles/nvim/plugins/vimspector.vim
+  source ~/dotfiles/nvim/plugins/coc.vim
+  source ~/dotfiles/nvim/plugins/auto-pairs.vim
+  source ~/dotfiles/nvim/plugins/vim-js.vim
+  source ~/dotfiles/nvim/plugins/yats.vim
+  source ~/dotfiles/nvim/plugins/vim-jsx-pretty.vim
+  source ~/dotfiles/nvim/plugins/fzf.vim.vim
+  source ~/dotfiles/nvim/plugins/grep.vim
+  source ~/dotfiles/nvim/plugins/vimfugitive.vim
+  source ~/dotfiles/nvim/plugins/vim-terraform.vim
+  source ~/dotfiles/nvim/plugins/lightline.vim
+  source ~/dotfiles/nvim/plugins/vim-bbye.vim
+  source ~/dotfiles/nvim/plugins/vim-surround.vim
+  source ~/dotfiles/nvim/plugins/vim-kitty-navigator.vim
+  source ~/dotfiles/nvim/plugins/vim-gh-line.vim
+  source ~/dotfiles/nvim/plugins/indentline.vim
+  source ~/dotfiles/nvim/plugins/vim-yaml-folds.vim
+  source ~/dotfiles/nvim/plugins/vim-clang-format.vim
+  source ~/dotfiles/nvim/plugins/vim-cpp-modern.vim
+  source ~/dotfiles/nvim/plugins/vimtest.vim
+  source ~/dotfiles/nvim/plugins/harpoon.vim
+  source ~/dotfiles/nvim/plugins/vim-rooter.vim
 call plug#end()
 
 

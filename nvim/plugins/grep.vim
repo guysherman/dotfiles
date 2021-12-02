@@ -14,8 +14,8 @@ endif
 nnoremap <leader>g :set operatorfunc=<SID>GrepOperator<cr>g@
 vnoremap <leader>g :<c-u>call <SID>GrepOperator(visualmode())<cr>
 
-nnoremap <leader>[ :cp<cr>
-nnoremap <leader>] :cn<cr>
+nnoremap <leader>[ :cp<cr>zzzv
+nnoremap <leader>] :cn<cr>zzzv
 nnoremap <leader>` :cclose<cr>
 
 function! s:GrepOperator(type)
