@@ -1,0 +1,33 @@
+layout tall
+
+# classroom frontend
+new_tab classroom-frontend
+cd ~/source/classroom-frontend
+launch zsh -c "source ~/.zshrc && nvim ."
+launch zsh
+launch zsh
+
+# classroom backend
+new_tab classroom-backend
+cd ~/source/classroom-backend
+launch zsh -c "source ~/.zshrc && nvim ."
+launch zsh
+launch zsh
+
+# dotfiles
+new_tab dotfiles
+cd ~/dotfiles
+launch zsh -c "source ~/.zshrc && nvim ."
+launch zsh
+launch zsh
+
+# btop 
+new_tab BTOP
+cd ~
+launch btop
+launch
+
+# dotfiles
+new_tab General
+cd ~
+launch zsh
