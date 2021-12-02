@@ -1,0 +1,23 @@
+[user]
+	email = guy@guysherman.com
+	name = Guy Sherman
+	signingkey = 020F3D8F4FE39EC9
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[merge]
+	tool = nvimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+[commit]
+	gpgsign = true
+[fetch]
+	prune = true
+[credential]
+	helper = 
+	helper = /usr/bin/git-credential-manager-core
+	credentialStore = secretservice
+[credential "https://dev.azure.com"]
+	useHttpPath = true
