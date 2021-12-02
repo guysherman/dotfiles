@@ -1,5 +1,5 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after 
-set runtimepath +=~/dotfiles/nvim
+set runtimepath +=~/dotfiles/nvim/.config/nvim
 let &packpath = &runtimepath
 
 syntax enable
@@ -7,9 +7,9 @@ set background=dark
 
 colorscheme monokai-soda
 
-source ~/dotfiles/nvim/plugins.vim
-source ~/dotfiles/nvim/config/clang_format.vim
-source ~/dotfiles/nvim/config/cpp_format.vim
+source ~/dotfiles/nvim/.config/nvim/plugins.vim
+source ~/dotfiles/nvim/.config/nvim/config/clang_format.vim
+source ~/dotfiles/nvim/.config/nvim/config/cpp_format.vim
 
 set smartindent
 set backupcopy=yes
