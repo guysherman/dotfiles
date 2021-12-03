@@ -21,6 +21,9 @@ font pango:cantarell 10
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
+exec --no-startup-id compton
+exec --no-startup-id start-polybar.sh
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -31,6 +34,20 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+# Restore GNOME's settings
+exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
+# Fix a bug in gnome-settings-daemon: http://feeding.cloud.geek.nz/posts/creating-a-modern-tiling-desktop-environment-using-i3/
+exec --no-startup-id dconf write /org/gnome/settings-daemon/plugins/cursor/active false
+# Run the system policy kit
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
+exec --no-startup-id 1password
+exec_always feh --bg-fill ~/Pictures/wallpaper
+exec --no-startup-id pasystray
+exec --no-startup-id slack
+exec --no-startup-id zoom
+exec --no-startup-id autorandr -c
+
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -48,7 +65,7 @@ bindsym XF86AudioPrev exec playerctl previous
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec kitty -o allow_remote_control=yes --single-instance --listen-on unix:@mykitty --session ~/.config/kitty/default.session
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -112,16 +129,16 @@ bindsym $mod+p focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: Terminals "
-set $ws2 "2: Dev Chrome "
-set $ws3 "3: Browser "
-set $ws4 "4: Chat "
-set $ws5 "5: Music "
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9: Settings "
-set $ws10 "10: Other "
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -152,9 +169,10 @@ assign [title="SoundCloud.*"] $ws5
 assign [class="kitty"] $ws1
 assign [class="Chromium"] $ws2
 assign [class="Microsoft-edge-dev"] $ws3
+assign [class="Microsoft-edge-beta"] $ws3
 assign [class="Slack"] $ws4
 assign [class="zoom"] $ws4
-assign [class="Jack-rack"] $ws9
+assign [class="DBeaver"] $ws7
 assign [class="QjackCtl"] $ws9
 assign [class="Pavucontrol"] $ws9
 
@@ -211,29 +229,8 @@ set $urgentBg #a3454e
 client.focused          $background $background $activeText $otherText    $background
 client.focused_inactive $background $background $otherText  $otherText    $background
 client.unfocused        $darkgBg    $darkgBg    $otherText  $otherText    $darkgBg
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-          colors {
-            background $darkgBg
-            focused_workspace $background $background $activeText
-            inactive_workspace $darkgBg $darkgBg $otherText
-            urgent_workspace $urgentBg $urgentBg $activeText
-          }
-}
 
 bindsym $mod+Escape exec i3lock
-# Restore GNOME's settings
-exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
-# Fix a bug in gnome-settings-daemon: http://feeding.cloud.geek.nz/posts/creating-a-modern-tiling-desktop-environment-using-i3/
-exec --no-startup-id dconf write /org/gnome/settings-daemon/plugins/cursor/active false
-# Run the system policy kit
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-
-exec 1password
-exec_always feh --bg-fill ~/Pictures/wallpaper
-exec pasystray
 
 exec --no-startup-id /home/guy/.local/bin/audio-setup.sh
 exec --no-startup-id /home/guy/.local/bin/jack-setup.sh

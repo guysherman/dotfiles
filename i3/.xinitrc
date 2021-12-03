@@ -47,5 +47,10 @@ export TERMINAL='gnome-terminal'
 # Launch i3 window manager
 eval $(dbus-launch --sh-syntax)
 export XDG_CURRENT_DESKTOP=GNOME
+
+# Make sure this is before the 'exec' command or it won't be sourced.
+[ -f /etc/xprofile ] && . /etc/xprofile
+[ -f ~/.xprofile ] && . ~/.xprofile
+
 exec i3
 

@@ -1,0 +1,367 @@
+;==========================================================
+;
+; THIS IS AN EXAMPLE CONFIGURATION FILE!
+; IT IS NOT SUPPOSED TO WORK OUT OF THE BOX SINCE IS CONTAINS
+; SETTINGS THAT ARE SPECIFIC TO THE MACHINE WHICH WAS USED
+; TO GENERATE IT.
+; Please refer to the web documentation hosted at:
+; https://github.com/polybar/polybar#configuration
+; and
+; https://github.com/polybar/polybar/wiki/Configuration
+; if you want to automatically generate one for you.
+;
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+mks_background = #1a1a1a
+mks_foreground = #c4c5b5
+mks_lightbg = #625e4c
+mks_orange = #fa8419
+mks_green = #98e024
+mks_purple = #9d65ff
+mks_pink = #f4005f
+mks_blue = #58d1eb
+;background = ${xrdb:color0:#222}
+background = ${colors.mks_background}
+background-alt = ${colors.mks_lightbg}
+;foreground = ${xrdb:color7:#222}
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+
+[bar/example]
+enable-ipc=true
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 27
+;offset-x = 1%
+;offset-y = 1%
+radius = 0.0
+fixed-center = false
+
+background = ${colors.mks_background}
+foreground = ${colors.mks_foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = fixed:pixelsize=10;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;1
+font-3 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid
+font-4 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular
+font-5 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular
+
+modules-left = i3
+modules-center = 
+modules-right = pulseaudio cpu battery temperature date powermenu 
+
+tray-position = right
+tray-padding = 2
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+bottom = true
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+
+mount-0 = /
+
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.mks_lightbg}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; ws-icon-[0-9]+ = <label>;<icon>
+; NOTE: The <label> needs to match the name of the i3 workspace
+; Neither <label> nor <icon> can contain a semicolon (;)
+;  
+; 
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = 
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-background = ${colors.mks_green}
+label-focused-foreground = ${colors.mks_background}
+label-focused-underline= ${colors.mks_green}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = 2
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-background = ${colors.mks_pink}
+label-urgent-foreground = ${colors.mks_background}
+label-urgent-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = BL
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #fff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = ""
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.mks_pink}
+format-background = ${colors.mks_pink}
+label-foreground = ${colors.mks_background}
+label-padding = 2
+label =  %percentage:2%%
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = " %Y-%m-%d"
+date-alt = " %Y-%m-%d"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format =  <label>
+format-margin = 2
+format-foreground = ${colors.mks_blue}
+format-underline = ${colors.mks_blue}
+
+label = %date% %time%
+label-foreground = ${colors.mks_blue}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume> <bar-volume>
+format-volume-padding = 2
+format-volume-background = ${colors.mks_lightbg}
+label-volume = VOL %percentage%%
+label-volume-foreground = ${colors.mks_foreground}
+label-volume-margin = 1
+
+label-muted =  muted
+label-muted-foreground = ${colors.mks_pink}
+label-muted-margin = 2
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.mks_green}
+bar-volume-foreground-1 = ${colors.mks_green} 
+bar-volume-foreground-2 = ${colors.mks_green}
+bar-volume-foreground-3 = ${colors.mks_green}
+bar-volume-foreground-4 = ${colors.mks_green}
+bar-volume-foreground-5 = ${colors.mks_orange}
+bar-volume-foreground-6 = ${colors.mks_pink}
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-indicator-foreground = ${colors.mks_foreground}
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+poll-interval = 5
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.mks_orange}
+format-charging-background = ${colors.mks_orange}
+format-charging-foreground = ${colors.mks_background}
+format-charging-padding = 2
+label-charging = %time%
+label-charging-foreground = ${colors.mks_background}
+
+format-discharging = <animation-discharging> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+format-discharging-background = ${self.format-charging-background}
+format-discharging-foreground = ${self.format-charging-foreground}
+format-discharging-padding = ${self.format-charging-padding}
+label-discharging = %percentage%
+label-discharging-foreground = ${colors.mks_background}
+
+format-full = <label-full>
+format-full-underline = ${self.format-charging-underline}
+format-full-background = ${self.format-charging-background}
+format-full-foreground = ${self.format-charging-foreground}
+format-full-padding = ${self.format-charging-padding}
+label-full =  FULL
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.mks_background}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.mks_background}
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-foreground = ${colors.mks_background}
+animation-discharging-framerate = 750
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 7
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = ${colors.mks_purple}
+format-background = ${colors.mks_purple}
+format-padding = 2
+format-warn = <ramp> <label-warn>
+format-warn-background = ${colors.mks_purple}
+format-warn-underline = ${colors.mks_pink}
+format-warn-padding = 2
+
+label = %temperature-c%
+label-foreground = ${colors.mks_background}
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.mks_background}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.mks_background}
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.secondary}
+label-close =  cancel
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
