@@ -24,7 +24,12 @@ then
     automake libusb-dev libusb-1.0-0-dev libplist-dev \ 
     libplist++-dev usbmuxd libtool \ 
     libimobiledevice-dev libssl-dev lxappearance arandr scrot playerctl policykit-1-gnome \
-    stow
+    stow pasystray pavucontrol pavumeter tlp tlprdw gucharmap polybar compton
+  
+  echo "# TLPUI"
+  sudo add-apt-repository -y ppa:linuxuprising/apps
+  sudo apt update
+  sudo apt install tlpui
 
   echo "# Setting python -> Python 3"
   sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
