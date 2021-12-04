@@ -41,8 +41,8 @@ exec --no-startup-id dconf write /org/gnome/settings-daemon/plugins/cursor/activ
 # Run the system policy kit
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
+exec --no-startup-id udiskie &
 exec --no-startup-id 1password
-exec_always feh --bg-fill ~/Pictures/wallpaper
 exec --no-startup-id pasystray
 exec --no-startup-id slack
 exec --no-startup-id zoom
@@ -164,6 +164,17 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+workspace $ws1 output HDMI-1 eDP-1
+workspace $ws2 output HDMI-1 eDP-1
+workspace $ws3 output HDMI-1 eDP-1
+workspace $ws4 output eDP-1 HDMI-1
+workspace $ws5 output eDP-1 HDMI-1
+workspace $ws6 output HDMI-1 eDP-1
+workspace $ws7 output HDMI-1 eDP-1
+workspace $ws8 output HDMI-1 eDP-1
+workspace $ws9 output HDMI-1 eDP-1
+workspace $ws0 output HDMI-1 eDP-1
+
 assign [title="YouTube Music"] $ws5
 assign [title="SoundCloud.*"] $ws5
 assign [class="kitty"] $ws1
@@ -178,7 +189,6 @@ assign [class="Pavucontrol"] $ws9
 
 # I want everything else to just go to WS10
 assign [class=".*"] $ws10
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -232,5 +242,6 @@ client.unfocused        $darkgBg    $darkgBg    $otherText  $otherText    $darkg
 
 bindsym $mod+Escape exec i3lock
 
+exec_always feh --bg-fill ~/Pictures/wallpaper
 exec --no-startup-id /home/guy/.local/bin/audio-setup.sh
 exec --no-startup-id /home/guy/.local/bin/jack-setup.sh

@@ -24,7 +24,7 @@ then
     automake libusb-dev libusb-1.0-0-dev libplist-dev \ 
     libplist++-dev usbmuxd libtool \ 
     libimobiledevice-dev libssl-dev lxappearance arandr scrot playerctl policykit-1-gnome \
-    stow pasystray pavucontrol pavumeter tlp tlprdw gucharmap polybar compton
+    stow pasystray pavucontrol pavumeter tlp tlprdw gucharmap polybar compton udisks2 udiskie at autorandr
   
   echo "# TLPUI"
   sudo add-apt-repository -y ppa:linuxuprising/apps
