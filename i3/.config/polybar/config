@@ -56,7 +56,6 @@ height = 27
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
-fixed-center = false
 
 background = ${colors.mks_background}
 foreground = ${colors.mks_foreground}
@@ -80,9 +79,10 @@ font-3 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid
 font-4 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular
 font-5 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular
 
+fixed-center = true
 modules-left = i3
-modules-center = 
-modules-right = pulseaudio cpu battery temperature date powermenu 
+modules-center = date
+modules-right = pulseaudio cpu battery temperature powermenu 
 
 tray-position = right
 tray-padding = 2
@@ -332,8 +332,10 @@ format-spacing = 1
 
 label-open = 
 label-open-foreground = ${colors.mks_pink}
+label-open-margin-left = 2
 label-close =   Cancel
 label-close-foreground = ${colors.mks_green}
+label-close-margin-left = 2
 label-separator = |
 label-separator-foreground = ${colors.mks_lightbg}
 

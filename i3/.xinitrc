@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-export XDG_DATA_DIRS="/usr/local/share/:/usr/share/:/usr/share/gdm/:/var/lib/menu-xdg/"
+export XDG_DATA_DIRS="/usr/share/i3:/home/guy/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop:/usr/local/share/:/usr/share/:/usr/share/gdm/:/var/lib/menu-xdg/"
 
 if [ -z "$XDG_CONFIG_HOME" ]; then
 	export XDG_CONFIG_HOME="$HOME/.config"
@@ -8,6 +8,14 @@ fi
 
 if [ -z "$XDG_DATA_HOME" ]; then
 	export XDG_DATA_HOME="$HOME/.local/share"
+fi
+
+if [ -z "$XDG_STATE_HOME" ]; then
+  export XDG_STATE_HOME=$HOME/.local/state
+fi
+
+if [ -z "$XDG_CACHE_HOME" ]; then
+  export XDG_CACHE_HOME=$HOME/.cache
 fi
 # $Id:$
 # In order to activate the session bus at X session launch
@@ -37,16 +45,15 @@ export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
 export GNOME_KEYRING_CONTROL
 export GNOME_KEYRING_PID
-export OOO_FORCE_DESKTOP=gnome
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
-export TERMINAL='gnome-terminal'
+export TERMINAL='kitty'
 
 # Launch i3 window manager
 eval $(dbus-launch --sh-syntax)
-export XDG_CURRENT_DESKTOP=GNOME
+export XDG_CURRENT_DESKTOP=i3
 
 # Make sure this is before the 'exec' command or it won't be sourced.
 [ -f /etc/xprofile ] && . /etc/xprofile
