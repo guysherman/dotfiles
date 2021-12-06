@@ -300,7 +300,7 @@ animation-charging-framerate = 750
 [module/temperature]
 type = internal/temperature
 thermal-zone = 7
-warn-temperature = 60
+warn-temperature = 80
 
 format = <ramp> <label>
 format-underline = ${colors.mks_purple}
@@ -316,9 +316,11 @@ label-foreground = ${colors.mks_background}
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.mks_background}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
 ramp-foreground = ${colors.mks_background}
 
 [module/powermenu]
@@ -328,27 +330,33 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
+label-open = 
+label-open-foreground = ${colors.mks_pink}
+label-close =   Cancel
+label-close-foreground = ${colors.mks_green}
 label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
+label-separator-foreground = ${colors.mks_lightbg}
 
-menu-0-0 = reboot
+menu-0-0 =  Reboot
 menu-0-0-exec = menu-open-1
-menu-0-1 = power off
+menu-0-0-foreground = ${colors.mks_orange}
+menu-0-1 =  Power Off
 menu-0-1-exec = menu-open-2
+menu-0-1-foreground = ${colors.mks_pink}
 
-menu-1-0 = cancel
+menu-1-0 = Cancel
 menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
+menu-1-0-foreground = ${colors.mks_green}
+menu-1-1 =  Reboot
 menu-1-1-exec = sudo reboot
+menu-1-1-foreground = ${colors.mks_orange}
 
-menu-2-0 = power off
+menu-2-0 =  Power Off
 menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
+menu-2-0-foreground = ${colors.mks_pink}
+menu-2-1 = Cancel
 menu-2-1-exec = menu-open-0
+menu-2-1-foreground = ${colors.mks_green}
 
 [settings]
 screenchange-reload = true
