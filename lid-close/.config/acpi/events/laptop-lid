@@ -1,0 +1,3 @@
+event=button/lid.*
+action=/home/guy/.local/bin/laptop-lid.sh
+

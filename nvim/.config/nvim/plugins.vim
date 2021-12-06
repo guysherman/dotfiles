@@ -6,6 +6,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin(stdpath('data').'/plugged')
+  source ~/dotfiles/nvim/.config/nvim/plugins/lua.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/nerdtree.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/nerdcommenter.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/vimspector.vim
@@ -14,7 +15,8 @@ call plug#begin(stdpath('data').'/plugged')
   source ~/dotfiles/nvim/.config/nvim/plugins/vim-js.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/yats.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/vim-jsx-pretty.vim
-  source ~/dotfiles/nvim/.config/nvim/plugins/fzf.vim.vim
+  source ~/dotfiles/nvim/.config/nvim/plugins/telescope.vim
+"  source ~/dotfiles/nvim/.config/nvim/plugins/fzf.vim.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/grep.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/vimfugitive.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/vim-terraform.vim
@@ -31,5 +33,7 @@ call plug#begin(stdpath('data').'/plugged')
   source ~/dotfiles/nvim/.config/nvim/plugins/harpoon.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/vim-rooter.vim
 call plug#end()
+
+doautocmd User PlugLoaded
 
 
