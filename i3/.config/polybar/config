@@ -256,7 +256,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/battery
 battery = BAT0
 adapter = AC
-full-at = 98
+full-at = 100
 poll-interval = 5
 
 format-charging = <animation-charging> <label-charging>
@@ -267,7 +267,7 @@ format-charging-padding = 2
 label-charging = %time%
 label-charging-foreground = ${colors.mks_background}
 
-format-discharging = <animation-discharging> <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 format-discharging-background = ${self.format-charging-background}
 format-discharging-foreground = ${self.format-charging-foreground}
@@ -280,24 +280,22 @@ format-full-underline = ${self.format-charging-underline}
 format-full-background = ${self.format-charging-background}
 format-full-foreground = ${self.format-charging-foreground}
 format-full-padding = ${self.format-charging-padding}
-label-full =  FULL
+label-full =  FULL
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 =  
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 =  
 ramp-capacity-foreground = ${colors.mks_background}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
 animation-charging-foreground = ${colors.mks_background}
 animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.mks_background}
-animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
