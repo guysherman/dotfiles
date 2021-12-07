@@ -99,10 +99,10 @@ mkdir -p .tmp
   curl -fsSL "https://github.com/daniruiz/flat-remix-gtk/archive/refs/heads/master.zip" -o downloads/flat-remix-gtk-master.zip
   curl -fsSL "https://github.com/daniruiz/flat-remix-gnome/archive/refs/heads/master.zip" -o downloads/flat-remix-gnome-master.zip
   unzip -q downloads/flat-remix-gnome-master.zip -d .tmp
-  cp -R .tmp/flat-remix-gnome-master/Flat-Remix-Blue-Dark-fullPanel ~/.themes/Flat-Remix-Blue-Dark-fullPanel
+  cp -R .tmp/flat-remix-gnome-master/themes/Flat-Remix-Blue-Dark-fullPanel ~/.themes/Flat-Remix-Blue-Dark-fullPanel
 
   unzip -q downloads/flat-remix-gtk-master.zip -d .tmp
-  cp -R .tmp/flat-remix-gtk-master/Flat-Remix-GTK-Blue-Dark-Solid ~/.themes/Flat-Remix-GTK-Blue-Dark-Solid
+  cp -R .tmp/flat-remix-gtk-master/themes/Flat-Remix-GTK-Blue-Dark-Solid ~/.themes/Flat-Remix-GTK-Blue-Dark-Solid
 
   echo "# Install Zoom"
   sudo snap install zoom-client
