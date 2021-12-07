@@ -7,8 +7,6 @@ mkdir -p .tmp
   sudo apt update
   sudo apt install -y wget curl ca-certificates apt-transport-https gnupg lsb-release
 
-  ubuntuVersion=$(`lsb_release -c -s`)
-
   echo "# Add github gpg key"
   curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
