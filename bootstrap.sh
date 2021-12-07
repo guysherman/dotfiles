@@ -68,6 +68,12 @@ mkdir -p .tmp
   sudo dpkg -i gcmcore-linux_amd64.2.0.567.18224.deb
   popd
 
+  echo "# Install dbeaver"
+  curl -fsSL https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -o downloads/dbeaver-ce_latest_amd64.deb
+  pushd downloads
+  sudo dpkg -i dbeaver-ce_latest_amd64.deb
+  popd
+
   echo "# Setting python -> Python 3"
   sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
