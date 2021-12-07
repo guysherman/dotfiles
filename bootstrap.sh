@@ -40,9 +40,11 @@ mkdir -p .tmp
   sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-dev.list'
   sudo rm microsoft.gpg
   
-  echo "# Add Git Credential Manager PPA"
-  curl -sSL https://packages.microsoft.com/config/ubuntu/21.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft-prod.list
-  curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc
+  echo "# Add virtualbox PPA"
+  curl https://www.virtualbox.org/download/oracle_vbox_2016.asc | gpg --dearmor > virtualbox.gpg
+  sudo install -o root -g root -m 644 virtualbox.gpg /etc/apt/trusted.gpg.d/
+  echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian hirsute contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+  sudo rm virtualbox.gpg
 
   echo "# Install packages via apt"
   sudo apt update
@@ -60,7 +62,7 @@ mkdir -p .tmp
     libxcb-util-dev libxcb-xrm-dev libxcb-xtest0-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev \
     fd-find ripgrep libxcb-ewmh-dev libxcb-ewmh2 libxcb-cursor-dev bison flex check libxcb-icccm4 \
     libpango-1.0-0 libpango1.0-dev libpangocairo-1.0-0 libstartup-notification0-dev libgdk-pixbuf-2.0-dev \
-    microsoft-edge-beta docker-ce docker-ce-cli containerd.io kubectl 1password i3
+    microsoft-edge-beta docker-ce docker-ce-cli containerd.io kubectl 1password i3 chromium virtualbox-6.1
 
   echo "# Install gcmcore"
   curl -fsSL https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.567/gcmcore-linux_amd64.2.0.567.18224.deb -o downloads/gcmcore-linux_amd64.2.0.567.18224.deb
