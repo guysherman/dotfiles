@@ -46,8 +46,7 @@ mkdir -p .tmp
 
   echo "# Install packages via apt"
   sudo apt update
-  sudo apt install -y \
-    gnome-session gnome-terminal \
+  sudo apt install -y gnome-session gnome-terminal \
     gnome-tweaks zsh kitty \
     python3 python3-pip \ 
     neovim numix-icon-theme-circle build-essential \ 
