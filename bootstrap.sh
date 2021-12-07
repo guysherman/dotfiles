@@ -60,7 +60,7 @@ mkdir -p .tmp
     libxcb-util-dev libxcb-xrm-dev libxcb-xtest0-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev \
     fd-find ripgrep libxcb-ewmh-dev libxcb-ewmh2 libxcb-cursor-dev bison flex check libxcb-icccm4 \
     libpango-1.0-0 libpango1.0-dev libpangocairo-1.0-0 libstartup-notification0-dev libgdk-pixbuf-2.0-dev \
-    microsoft-edge-beta docker-ce docker-ce-cli containerd.io kubectl
+    microsoft-edge-beta docker-ce docker-ce-cli containerd.io kubectl 1password i3
 
   echo "# Install gcmcore"
   curl -fsSL https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.567/gcmcore-linux_amd64.2.0.567.18224.deb -o downloads/gcmcore-linux_amd64.2.0.567.18224.deb
