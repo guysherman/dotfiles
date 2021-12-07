@@ -149,7 +149,7 @@ mkdir -p .tmp
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
   
   echo "# Install node"
-  nvm install --lts
+  nvm install 16 --lts
   nvm install-latest-npm
   
   echo "# Install yarn"
