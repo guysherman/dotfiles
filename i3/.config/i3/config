@@ -86,7 +86,7 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id /home/guy/.config/rofi/launchers/ribbon/launcher.sh
 
 # change focus
 bindsym $mod+h focus left
@@ -252,7 +252,7 @@ client.focused          $background $background $activeText $otherText    $backg
 client.focused_inactive $background $background $otherText  $otherText    $background
 client.unfocused        $darkgBg    $darkgBg    $otherText  $otherText    $darkgBg
 
-bindsym $mod+Escape exec betterlockscreen -l blur
+bindsym $mod+Escape exec /home/guy/.config/rofi/applets/applets/powermenu.sh
 
 exec_always feh --bg-fill ~/Pictures/wallpaper
 exec --no-startup-id /home/guy/.local/bin/audio-setup.sh

@@ -3,20 +3,53 @@
 set -euo pipefail
 
 mkdir -p .tmp
-if [ ! -f .tmp/stage-zero ]
-then
-
   echo "# Install some basic tools we need to install the rest"
   sudo apt update
   sudo apt install -y wget curl ca-certificates apt-transport-https gnupg lsb-release
 
+  ubuntuVersion=$(`lsb_release -c -s`)
+
   echo "# Add github gpg key"
   curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+
+  echo "# Add neovim PPA"
+  sudo add-apt-repository -y ppa:neovim-ppa/stable
+  echo "# Add linuxuprising PPA"
+  sudo add-apt-repository -y ppa:linuxuprising/apps
+
+  echo "# Add 1password PPA"
+  curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+  echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
+  sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
+  curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
+  sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
+  curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+
+  echo "# Add the docker PPA"
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+  echo \
+    "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+  echo "# Add kubernetes PPA"
+  sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+  echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+  echo "# Add edge PPA"
+  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+  sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-dev.list'
+  sudo rm microsoft.gpg
   
-  echo "# Install some basics"
+  echo "# Add Git Credential Manager PPA"
+  curl -sSL https://packages.microsoft.com/config/ubuntu/21.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft-prod.list
+  curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc
+
+  echo "# Install packages via apt"
   sudo apt update
-  sudo apt install -y gnome-session gnome-terminal \
+  sudo apt install -y \
+    gnome-session gnome-terminal \
     gnome-tweaks zsh kitty \
     python3 python3-pip \ 
     neovim numix-icon-theme-circle build-essential \ 
@@ -24,44 +57,20 @@ then
     automake libusb-dev libusb-1.0-0-dev libplist-dev \ 
     libplist++-dev usbmuxd libtool \ 
     libimobiledevice-dev libssl-dev lxappearance arandr scrot playerctl policykit-1-gnome \
-    stow pasystray pavucontrol pavumeter tlp tlprdw gucharmap polybar compton udisks2 udiskie at autorandr
-  
-  echo "# TLPUI"
-  sudo add-apt-repository -y ppa:linuxuprising/apps
-  sudo apt update
-  sudo apt install tlpui
+    stow pasystray pavucontrol pavumeter tlp tlprdw tlpui gucharmap polybar compton udisks2 udiskie at autorandr \
+    autoconf libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev \ 
+    libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev \
+    libxcb-util-dev libxcb-xrm-dev libxcb-xtest0-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev \
+    fd-find ripgrep libxcb-ewmh-dev libxcb-ewmh2 libxcb-cursor-dev bison flex check libxcb-icccm4 \ 
+    libpango-1.0-0 libpango1.0-dev libpangocairo-1.0-0 libstartup-notification0-dev libgdk-pixbuf-2.0-dev \
+    microsoft-edge-beta docker-ce docker-ce-cli containerd.io kubectl gcmcore
 
   echo "# Setting python -> Python 3"
   sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
-  echo "# Apply kitty config"
-  echo "include $HOME/dotfiles/kitty/kitty.conf" | sudo tee /etc/xdg/kitty/kitty.conf
-
-  touch .tmp/stage-zero
-  echo "Once Oh-My-Zsh has installed, please run the script again now that we're in zsh"
-
   echo "# Install oh-my-zsh"
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-
-if [ ! -f .tmp/stage-one ]
-then
-  echo "# Install user themes extension"
-  curl -fsSL "https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v42.shell-extension.zip" -o .tmp/userthemes.zip
-  extnUuid=`unzip -c .tmp/userthemes.zip metadata.json | grep uuid | cut -d \" -f4`
-  mkdir -p ~/.local/share/gnome-shell/extensions/$extnUuid
-  unzip -q .tmp/userthemes.zip -d ~/.local/share/gnome-shell/extensions/$extnUuid/
-  sudo cp $HOME/.local/share/gnome-shell/extensions/user-theme@gnome-shell-extensions.gcampax.github.com/schemas/org.gnome.shell.extensions.user-theme.gschema.xml /usr/share/glib-2.0/schemas && sudo glib-compile-schemas /usr/share/glib-2.0/schemas
-  touch .tmp/stage-one
-
-  echo "Please logout and log back in, then run this script again."
-  exit 0
-fi
   
-if [ ! -f .tmp/stage-two ]
-then
-  extnUuid=`unzip -c .tmp/userthemes.zip metadata.json | grep uuid | cut -d \" -f4`
-  gnome-shell-extension-tool -e $extnUuid
   mkdir -p ~/.local/share/fonts
   curl -fsSL "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Light/complete/Fira%20Code%20Light%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf" -o ~/.local/share/fonts/FiraCodeLightNerdFontCompleteWindowsCompatible.ttf
   curl -fsSL "https://www.fontsquirrel.com/fonts/download/cantarell" -o .tmp/cantarell.zip
@@ -84,80 +93,16 @@ then
   unzip -q downloads/flat-remix-gtk-master.zip -d .tmp
   cp -R .tmp/flat-remix-gtk-master/Flat-Remix-GTK-Blue-Dark-Solid ~/.themes/Flat-Remix-GTK-Blue-Dark-Solid
 
-
-
-  echo "# Install the Xenilism minimalism shell theme"
-  bash <(wget -qO- https://raw.githubusercontent.com/xenlism/minimalism/master/INSTALL/online.install)
-  
-  echo "# Set the various UI settings"
-  gsettings set org.gnome.shell.extensions.user-theme name "Flat-Remix-Blue-Dark-fullPanel"
-  gsettings set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK-Blue-Dark-Solid"
-  gsettings set org.gnome.desktop.interface icon-theme "Numix-Circle"
-  gsettings set org.gnome.desktop.background picture-uri "file://`pwd`/wallpapers/pastel_mountains_v02_color_01_5120x2880.png"
-  gsettings set org.gnome.desktop.background picture-options "zoom"
-  gsettings set org.gnome.desktop.screensaver picture-uri "file://`pwd`/wallpapers/pastel_mountains_v02_color_01_5120x2880.png"
-  gsettings set org.gnome.desktop.screensaver picture-options "zoom"
-  gsettings set org.gnome.desktop.interface font-name "Cantarell Medium 9"
-  gsettings set org.gnome.desktop.interface document-font-name "Cantarell Medium 9"
-  gsettings set org.gnome.desktop.interface monospace-font-name "Monospace 9"
-  gsettings set org.gnome.settings-daemon.plugins.xsettings antialiasing "rgba"
-
-  echo "# Install Edge"
-  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-  sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-dev.list'
-  sudo rm microsoft.gpg
-
-  sudo apt update
-  sudo apt install -y microsoft-edge-beta
-
   echo "# Install Zoom"
   sudo snap install zoom-client
+  sudo snap connect zoom-client:screencast-legacy
 
   echo "# Install slack"
   sudo snap install slack --classic
 
-
   echo "# Install todoist"
   sudo snap install todoist
 
-  touch .tmp/stage-two
-  echo "Please logout and log back in, then run this script one last time."
-  exit 0
-fi  
-
-if [ ! -f .tmp/stage-three ]
-then
-  echo "# install GCM core"
-  curl -sSL https://packages.microsoft.com/config/ubuntu/21.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft-prod.list
-  curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc
-  sudo apt-get update
-  sudo apt-get install gcmcore
-  git-credential-manager-core configure
-  git config --global credential.credentialStore secretservice
-
-  echo "# install ios webkit debug proxy"
-  git clone https://github.com/google/ios-webkit-debug-proxy.git downloads/ios-webkit-debug-proxy
-  pushd downloads/ios-webkit-debug-proxy
-  ./autogen.sh
-  make
-  sudo make install
-  popd
-
-  if [ -f ~/.profile ]
-  then
-    mv ~/.profile ~/.profile.old
-  fi
-  ln -s `pwd`/.profile `echo ~`/.profile
-
-  echo "# Add the docker apt repo and install docker"
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-  echo \
-    "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-  
-  sudo apt update
-  sudo apt install -y docker-ce docker-ce-cli containerd.io
   
   echo "# Install docker-compose"
   mkdir -p ~/.local/bin
@@ -177,12 +122,7 @@ then
   unzip -p .tmp/terraform_014.zip > ~/.local/bin/terraform014
   chmod +x ~/.local/bin/terraform014
   
-  echo "# Install kubectl"
-  sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-  echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-  sudo apt update
-  sudo apt install -y kubectl
-
+  echo "Install AWS CLI"
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o ".tmp/awscliv2.zip"
   unzip -q .tmp/awscliv2.zip -d .tmp
   sudo ./aws/install
@@ -202,66 +142,77 @@ then
   echo "# Install yarn"
   npm install -g yarn
   
-  echo "# Install sqlworkbench/j"
-  sudo apt install -y openjdk-16-jre
-  curl -fsSL "https://www.sql-workbench.eu/Workbench-Build127-with-optional-libs.zip" -o .tmp/sqlworkbench.zip
-  mkdir -p ~/.local/opt/sqlworkbench
-  unzip -q .tmp/sqlworkbench.zip -d ~/.local/opt/sqlworkbench
-  mkdir -p ~/.local/opt/jdbc
-  curl -fsSL "https://jdbc.postgresql.org/download/postgresql-42.2.22.jar" -o ~/.local/opt/jdbc/postgresql.jar
-  
   echo "# Install virtualenv"
   mkdir -p ~/.virtualenvs
   sudo pip install virtualenv virtualenvwrapper
+
+  echo "# Build and install i3lock-color"
+  pushd .tmp
+  curl -fsSL https://github.com/Raymo111/i3lock-color/archive/refs/tags/2.13.c.4.tar.gz -o ../downloads/i3lock-color.tgz
+  tar -xzf ../downloads/i3lock-color.tgz
+  pushd i3lock-color/2.13.c.4
+  sudo ./install-i3lock-color.sh
+  popd
+  popd
+
+  echo "# Build and install betterlockscreen"
+  pushd .tmp
+  curl -fsSL https://github.com/betterlockscreen/betterlockscreen/archive/refs/tags/v4.0.3.tar.gz -o ../downloads/betterlockscreen.tar.gz
+  tar -xzf ../downloads/betterlockscreen.tar.gz
+  pushd betterlockscreen-4.0.3
+  sudo ./install.sh system
+  popd
+  popd
+
+  echo "# Build and install rofi"
+  pushd .tmp
+  curl -fsSL https://github.com/davatorium/rofi/releases/download/1.7.2/rofi-1.7.2.tar.gz -o ../downloads/rofi.tar.gz
+  tar -xzf ../downloads/rofi.tar.gz
+  pushd rofi-1.7.2
+  mkdir build && cd build
+  ../configure
+  make
+  sudo make install
+  cd ..
+  popd
+  popd
+
+  echo "# Install rofi themes"
+  pushd .tmp
+  git clone git@github.com:adi1090x/rofi.git rofi-themes
+  pushd rofi-themes
+  ./setup.sh
+  popd
+  popd
   
+  echo "# Configure GCM core"
+  git-credential-manager-core configure
+  git config --global credential.credentialStore secretservice
+
+  echo "# Setup kitty"
+  stow kitty
+
   echo "# Setup nvim"
-  mkdir -p ~/.config/nvim
-  ln -s `pwd`/nvim/coc-settings.json $HOME/.config/nvim/coc-settings.json
-  echo "source ~/dotfiles/nvim/init.vim" > ~/.config/nvim/init.vim
+  stow nvim
   nvim +:PlugInstall +:qa!
   nvim +:CocInstall +:qa!
 
-  gsettings set org.gnome.shell favorite-apps "['microsoft-edge-beta.desktop', \
-    'kitty.desktop', 'slack_slack.desktop', 'zoom-client_zoom-client.desktop', \
-    'todoist_todoist.desktop', 'org.gnome.Nautilis.desktop', 'nvim.desktop']"
+  echo "# Setup scripts"
+  stow scripts
 
-  gsettings set org.gnome.desktop.default-applications.terminal exec kitty
-  gsettings set org.gnome.desktop.default-applications.terminal exec-arg ''
+  echo "# Setup profile"
+  stow profile
+  stow wallaper
 
-  
-  echo "# Map over our bash/zsh files"
-  
-  if [ -f ~/.bash_logout ]
-  then
-    mv ~/.bash_logout ~/.bash_logout.old
-  fi
-    
-  if [ -f ~/.bashrc ]
-  then
-    mv ~/.bashrc ~/.bashrc.old
-  fi
-  
-  
-  if [ -f ~/.zshrc ]
-  then
-    mv ~/.zshrc ~/.zshrc.old
-  fi
-
-  if [ -f ~/.dir_colors ]
-  then
-    mv ~/.dir_colors ~/.dir_colors.old
-  fi
-
-
-
-  ln -s `pwd`/.bash_logout `echo ~`/.bash_logout
-  ln -s `pwd`/.bashrc `echo ~`/.bashrc
-  ln -s `pwd`/.zshrc `echo ~`/.zshrc
-  ln -s `pwd`/.dir_colors `echo ~`/.dir_colors
-
-  touch .tmp/stage-three
-  echo "Done, please reboot, and then you should be good to go!"
-  exit 0
-fi
+  echo "# Setup i3"
+  rm ~/.config/rofi/applets/applets/powermenu.sh
+  rm ~/.config/rofi/applets/styles/colors.rasi
+  rm ~/.config/rofi/launchers/ribbon/launcher.sh
+  rm ~/.config/rofi/launchers/ribbon/styles/colors.rasi
+  stow i3
+  ln -s /etc/acpi/events/laptop-lid /home/guy/.config/acpi/events/laptop-lid
+  ln -s /etc/udev/rules.d/95-monitors.rules /home/guy/.config/udev/95-monitors.rules
+  ln -s /usr/local/bin/i3-session.sh /home/guy/.local/bin/i3-session.sh
+  ln -s /usr/share/xsessions/i3-session.desktop /home/guy/.local/share/xsession/i3-session.desktop
 
 echo "Everything is set up, nothing to do."

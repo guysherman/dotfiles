@@ -1,4 +1,4 @@
-;==========================================================
+;=======i3-dmenu-desktop===================================================
 ;
 ; THIS IS AN EXAMPLE CONFIGURATION FILE!
 ; IT IS NOT SUPPOSED TO WORK OUT OF THE BOX SINCE IS CONTAINS
@@ -82,7 +82,7 @@ font-5 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular
 fixed-center = true
 modules-left = i3
 modules-center = date
-modules-right = pulseaudio cpu battery temperature powermenu 
+modules-right = pulseaudio cpu battery temperature powerbutton 
 
 tray-position = right
 tray-padding = 2
@@ -322,6 +322,13 @@ ramp-2 = 
 ramp-3 = 
 ramp-4 = 
 ramp-foreground = ${colors.mks_background}
+
+[module/powerbutton]
+type = custom/text
+content =  
+content-foreground = ${colors.mks_pink}
+content-padding = 2
+click-left = /home/guy/.config/rofi/applets/applets/powermenu.sh
 
 [module/powermenu]
 type = custom/menu
