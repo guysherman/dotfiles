@@ -48,17 +48,17 @@ mkdir -p .tmp
   sudo apt update
   sudo apt install -y gnome-session gnome-terminal \
     gnome-tweaks zsh kitty \
-    python3 python3-pip \ 
-    neovim numix-icon-theme-circle build-essential \ 
-    git silversearcher-ag libxml2-utils gh autoconf \ 
-    automake libusb-dev libusb-1.0-0-dev libplist-dev \ 
-    libplist++-dev usbmuxd libtool \ 
+    python3 python3-pip \
+    neovim numix-icon-theme-circle build-essential \
+    git silversearcher-ag libxml2-utils gh autoconf \
+    automake libusb-dev libusb-1.0-0-dev libplist-dev \
+    libplist++-dev usbmuxd libtool \
     libimobiledevice-dev libssl-dev lxappearance arandr scrot playerctl policykit-1-gnome \
     stow pasystray pavucontrol pavumeter tlp tlprdw tlpui gucharmap polybar compton udisks2 udiskie at autorandr \
-    autoconf libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev \ 
+    autoconf libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev \
     libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev \
     libxcb-util-dev libxcb-xrm-dev libxcb-xtest0-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev \
-    fd-find ripgrep libxcb-ewmh-dev libxcb-ewmh2 libxcb-cursor-dev bison flex check libxcb-icccm4 \ 
+    fd-find ripgrep libxcb-ewmh-dev libxcb-ewmh2 libxcb-cursor-dev bison flex check libxcb-icccm4 \
     libpango-1.0-0 libpango1.0-dev libpangocairo-1.0-0 libstartup-notification0-dev libgdk-pixbuf-2.0-dev \
     microsoft-edge-beta docker-ce docker-ce-cli containerd.io kubectl gcmcore
 
