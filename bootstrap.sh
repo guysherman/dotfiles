@@ -139,7 +139,9 @@ mkdir -p .tmp
   echo "Install AWS CLI"
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o ".tmp/awscliv2.zip"
   unzip -q .tmp/awscliv2.zip -d .tmp
+  pushd .tmp
   sudo ./aws/install
+  popd
 
   echo "# Install nvm"
   curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
