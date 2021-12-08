@@ -198,7 +198,7 @@ mkdir -p .tmp
 
   echo "# Install rofi themes"
   pushd .tmp
-  git clone git@github.com:adi1090x/rofi.git rofi-themes
+  git clone https://github.com/adi1090x/rofi.git rofi-themes
   pushd rofi-themes
   ./setup.sh
   popd
@@ -222,13 +222,10 @@ mkdir -p .tmp
   echo "# Setup profile"
   rm ~/.bash_logout
   rm ~/.bashrc
-  rm ~/.dir_colors
   rm ~/.gitconfig
   rm ~/.profile
-  rm ~/.xprofile
   rm ~/.zshrc
   stow profile
-  stow wallaper
 
   echo "# Setup i3"
   rm ~/.config/rofi/applets/applets/powermenu.sh
@@ -236,9 +233,9 @@ mkdir -p .tmp
   rm ~/.config/rofi/launchers/ribbon/launcher.sh
   rm ~/.config/rofi/launchers/ribbon/styles/colors.rasi
   stow i3
-  ln -s /home/guy/.config/acpi/events/laptop-lid /etc/acpi/events/laptop-lid
-  ln -s /home/guy/.config/udev/95-monitors.rules /etc/udev/rules.d/95-monitors.rules
-  ln -s /home/guy/.local/bin/i3-session.sh /usr/local/bin/i3-session.sh
-  ln -s /home/guy/.local/share/xsession/i3-session.desktop /usr/share/xsessions/i3-session.desktop
+  sudo ln -s /home/guy/.config/acpi/events/laptop-lid /etc/acpi/events/laptop-lid
+  sudo ln -s /home/guy/.config/udev/95-monitors.rules /etc/udev/rules.d/95-monitors.rules
+  sudo ln -s /home/guy/.local/bin/i3-session.sh /usr/local/bin/i3-session.sh
+  sudo ln -s /home/guy/.local/share/xsession/i3-session.desktop /usr/share/xsessions/i3-session.desktop
 
 echo "Everything is set up, nothing to do."
