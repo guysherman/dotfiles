@@ -60,9 +60,9 @@ mkdir -p .tmp
     autoconf libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev \
     libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev \
     libxcb-util-dev libxcb-xrm-dev libxcb-xtest0-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev \
-    fd-find ripgrep libxcb-ewmh-dev libxcb-ewmh2 libxcb-cursor-dev bison flex check libxcb-icccm4 \
+    fd-find ripgrep libxcb-ewmh-dev libxcb-ewmh2 libxcb-cursor-dev bison flex check libxcb-icccm4 libxcb-icccm4-dev \
     libpango-1.0-0 libpango1.0-dev libpangocairo-1.0-0 libstartup-notification0-dev libgdk-pixbuf-2.0-dev \
-    microsoft-edge-beta docker-ce docker-ce-cli containerd.io kubectl 1password i3 virtualbox-6.1
+    microsoft-edge-beta docker-ce docker-ce-cli containerd.io kubectl 1password i3 virtualbox-6.1 imagemagick
 
   echo "# Install gcmcore"
   curl -fsSL https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.567/gcmcore-linux_amd64.2.0.567.18224.deb -o downloads/gcmcore-linux_amd64.2.0.567.18224.deb
@@ -166,7 +166,7 @@ mkdir -p .tmp
   pushd .tmp
   curl -fsSL https://github.com/Raymo111/i3lock-color/archive/refs/tags/2.13.c.4.tar.gz -o ../downloads/i3lock-color.tgz
   tar -xzf ../downloads/i3lock-color.tgz
-  pushd i3lock-color/2.13.c.4
+  pushd i3lock-color-2.13.c.4
   sudo ./install-i3lock-color.sh
   popd
   popd
@@ -176,7 +176,7 @@ mkdir -p .tmp
   curl -fsSL https://github.com/betterlockscreen/betterlockscreen/archive/refs/tags/v4.0.3.tar.gz -o ../downloads/betterlockscreen.tar.gz
   tar -xzf ../downloads/betterlockscreen.tar.gz
   pushd betterlockscreen-4.0.3
-  sudo ./install.sh system
+  sudo cp betterlockscreen /usr/local/bin/betterlockscreen
   popd
   popd
 
@@ -185,7 +185,7 @@ mkdir -p .tmp
   curl -fsSL https://github.com/davatorium/rofi/releases/download/1.7.2/rofi-1.7.2.tar.gz -o ../downloads/rofi.tar.gz
   tar -xzf ../downloads/rofi.tar.gz
   pushd rofi-1.7.2
-  mkdir build && cd build
+  mkdir -p build && cd build
   ../configure
   make
   sudo make install
@@ -217,6 +217,13 @@ mkdir -p .tmp
   stow scripts
 
   echo "# Setup profile"
+  rm ~/.bash_logout
+  rm ~/.bashrc
+  rm ~/.dir_colors
+  rm ~/.gitconfig
+  rm ~/.profile
+  rm ~/.xprofile
+  rm ~/.zshrc
   stow profile
   stow wallaper
 
@@ -226,9 +233,9 @@ mkdir -p .tmp
   rm ~/.config/rofi/launchers/ribbon/launcher.sh
   rm ~/.config/rofi/launchers/ribbon/styles/colors.rasi
   stow i3
-  ln -s /etc/acpi/events/laptop-lid /home/guy/.config/acpi/events/laptop-lid
-  ln -s /etc/udev/rules.d/95-monitors.rules /home/guy/.config/udev/95-monitors.rules
-  ln -s /usr/local/bin/i3-session.sh /home/guy/.local/bin/i3-session.sh
-  ln -s /usr/share/xsessions/i3-session.desktop /home/guy/.local/share/xsession/i3-session.desktop
+  ln -s /home/guy/.config/acpi/events/laptop-lid /etc/acpi/events/laptop-lid
+  ln -s /home/guy/.config/udev/95-monitors.rules /etc/udev/rules.d/95-monitors.rules
+  ln -s /home/guy/.local/bin/i3-session.sh /usr/local/bin/i3-session.sh
+  ln -s /home/guy/.local/share/xsession/i3-session.desktop /usr/share/xsessions/i3-session.desktop
 
 echo "Everything is set up, nothing to do."
