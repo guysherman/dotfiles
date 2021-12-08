@@ -117,6 +117,9 @@ mkdir -p .tmp
 
   echo "# Install Chromium"
   sudo snap install chromium
+
+  echo "# Install postman"
+  sudo snap install postman
   
   echo "# Install docker-compose"
   mkdir -p ~/.local/bin
