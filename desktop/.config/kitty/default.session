@@ -1,0 +1,19 @@
+layout tall
+
+# dotfiles
+new_tab dotfiles
+cd ~/dotfiles
+launch zsh -c "source ~/.zshrc && nvim ."
+launch zsh
+launch zsh
+
+# btop 
+new_tab BTOP
+cd ~
+launch btop
+launch
+
+# dotfiles
+new_tab General
+cd ~
+launch zsh
