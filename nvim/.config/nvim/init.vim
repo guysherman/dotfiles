@@ -1,3 +1,4 @@
+let mapleader="\<Space>"
 set runtimepath^=~/.vim runtimepath+=~/.vim/after 
 set runtimepath +=~/dotfiles/nvim/.config/nvim
 let &packpath = &runtimepath
@@ -52,7 +53,6 @@ set undofile
 set undolevels=1000
 set undoreload=10000
 
-let mapleader="\<Space>"
 
 nnoremap <Left> <nop>
 nnoremap <Right> <nop>
