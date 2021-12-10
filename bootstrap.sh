@@ -62,7 +62,7 @@ mkdir -p .tmp
     libxcb-util-dev libxcb-xrm-dev libxcb-xtest0-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev \
     fd-find ripgrep libxcb-ewmh-dev libxcb-ewmh2 libxcb-cursor-dev bison flex check libxcb-icccm4 libxcb-icccm4-dev \
     libpango-1.0-0 libpango1.0-dev libpangocairo-1.0-0 libstartup-notification0-dev libgdk-pixbuf-2.0-dev \
-    microsoft-edge-beta docker-ce docker-ce-cli containerd.io kubectl 1password i3 virtualbox-6.1 imagemagick pulseeffects
+    microsoft-edge-beta docker-ce docker-ce-cli containerd.io kubectl 1password i3 virtualbox-6.1 imagemagick pulseeffects fzf
 
   echo "# Install gcmcore"
   curl -fsSL https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.567/gcmcore-linux_amd64.2.0.567.18224.deb -o downloads/gcmcore-linux_amd64.2.0.567.18224.deb
@@ -120,6 +120,15 @@ mkdir -p .tmp
 
   echo "# Install postman"
   sudo snap install postman
+
+  echo "# Install btop"
+  sudo snap install btop
+  sudo snap connect btop:system-observe
+  sudo snap connect btop:physical-memory-observe
+  sudo snap connect btop:mount-observe
+  sudo snap connect btop:hardware-observe
+  sudo snap connect btop:network-observe
+  sudo snap connect btop:process-control
   
   echo "# Install docker-compose"
   mkdir -p ~/.local/bin
@@ -236,6 +245,6 @@ mkdir -p .tmp
   sudo ln -s /home/guy/.config/acpi/events/laptop-lid /etc/acpi/events/laptop-lid
   sudo ln -s /home/guy/.config/udev/95-monitors.rules /etc/udev/rules.d/95-monitors.rules
   sudo ln -s /home/guy/.local/bin/i3-session.sh /usr/local/bin/i3-session.sh
-  sudo ln -s /home/guy/.local/share/xsession/i3-session.desktop /usr/share/xsessions/i3-session.desktop
+  sudo cp /home/guy/.local/share/xsession/i3-session.desktop /usr/share/xsessions/i3-session.desktop
 
 echo "Everything is set up, nothing to do."

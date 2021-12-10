@@ -46,8 +46,8 @@ exec --no-startup-id udiskie &
 exec --no-startup-id 1password
 exec --no-startup-id pasystray
 exec --no-startup-id slack
-exec --no-startup-id zoom
-exec --no-startup-id autorandr -c
+exec --no-startup-id zoom-client
+exec autorandr -c
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -254,6 +254,7 @@ client.unfocused        $darkgBg    $darkgBg    $otherText  $otherText    $darkg
 
 bindsym $mod+Escape exec /home/guy/.config/rofi/applets/applets/powermenu.sh
 
+exec betterlockscreen -u ~/Pictures/wallpaper --blur 1 --fx blur
 exec_always feh --bg-fill ~/Pictures/wallpaper
 exec --no-startup-id /home/guy/.local/bin/audio-setup.sh
 exec --no-startup-id /home/guy/.local/bin/jack-setup.sh
