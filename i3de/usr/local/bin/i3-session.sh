@@ -38,7 +38,7 @@ fi
 [[ -f ~/.Xresources ]] && xrdb -merge "${HOME}/.Xresources"
 
 # Start GNOME Keyring
-eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+eval $(/usr/bin/gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
 export GNOME_KEYRING_CONTROL
@@ -50,8 +50,22 @@ export LC_CTYPE="en_US.UTF-8"
 export TERMINAL='kitty'
 
 # Launch i3 window manager
-eval $(dbus-launch --sh-syntax)
 export XDG_CURRENT_DESKTOP=i3
+if [ -n "$DBUS_SESSION_BUS_ADDRESS" ] && \
+    [ -x "/usr/bin/dbus-update-activation-environment" ]; then
+  # subshell so we can unset environment variables
+  (
+    # unset login-session-specifics
+    unset XDG_SEAT
+    unset XDG_SESSION_ID
+    unset XDG_VTNR
+
+    # tell dbus-daemon --session (and systemd --user, if running)
+    # to put the Xsession's environment in activated services'
+    # environments
+    dbus-update-activation-environment --verbose --systemd --all
+  )
+fi
 
 # Ensure that our default i3 config is installed if there is no config file already
 if [ ! -f "$XDG_CONFIG_HOME/i3/config" ]; then
