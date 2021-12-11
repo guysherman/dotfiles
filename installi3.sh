@@ -64,7 +64,7 @@ fi
 # https://computingforgeeks.com/automount-removable-media-on-linux-with-udiskie/
 
 echo "# Installing scripts"
-sudo cp -Rf i3de/ /
+sudo cp -Rf i3de/* /
 
 if [ $1 == "laptop" ]; then
   # restart the acpi daemon, so it picks up the hook we added for the laptop lid
