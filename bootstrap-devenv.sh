@@ -58,7 +58,7 @@ sudo apt install -y git build-essential autoconf automake make pkg-config gcc bi
 # Packages for both machines, no matter what DE
 sudo apt install -y \
   gnome-session gnome-terminal gnome-tweaks \
-  numix-icon-theme-circle microsoft-edge-beta 1password imagemagick \
+  microsoft-edge-beta 1password imagemagick \
   stow zsh kitty neovim silversearcher-ag ripgrep gh fzf \
   docker-ce docker-ce-cli containerd.io kubectl virtualbox-6.1 \
   libimobiledevice-dev libssl-dev  \

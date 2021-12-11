@@ -15,7 +15,7 @@ sudo apt install -y wget curl ca-certificates apt-transport-https gnupg lsb-rele
 echo "# Install packages via apt"
 sudo apt update
 # Polybar
-sudo apt install -y polybar
+sudo apt install -y polybar numix-icon-theme-circle
 
 if [ $1 == "laptop" ]; then
   # Packages for just the laptop
