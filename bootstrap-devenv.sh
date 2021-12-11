@@ -80,29 +80,6 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 echo "# Install oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-echo "# Installing fonts"
-mkdir -p ~/.local/share/fonts
-curl -fsSL "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Light/complete/Fira%20Code%20Light%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf" -o ~/.local/share/fonts/FiraCodeLightNerdFontCompleteWindowsCompatible.ttf
-curl -fsSL "https://www.fontsquirrel.com/fonts/download/cantarell" -o .tmp/cantarell.zip
-curl -fsSL "https://github.com/FortAwesome/Font-Awesome/releases/download/5.15.4/fontawesome-free-5.15.4-desktop.zip" -o .tmp/fontawesome.zip
-
-unzip .tmp/cantarell.zip -d ~/.local/share/fonts
-unzip .tmp/fontawesome.zip -d .tmp/fontawesome
-cp .tmp/fontawesome/fontawesome-free-5.15.4-desktop/otfs/*.otf ~/.local/share/fonts/
-rm -rf .tmp/fontawesome
-fc-cache -f -v
-
-echo "# Install the color theme"
-mkdir -p ~/.themes
-#tar -C ~/.themes --strip-components=1 -xJvf downloads/plata.tar.xz plata-theme-colors-0.9.1/Plata-Purple-Noir-Compact
-curl -fsSL "https://github.com/daniruiz/flat-remix-gtk/archive/refs/heads/master.zip" -o downloads/flat-remix-gtk-master.zip
-curl -fsSL "https://github.com/daniruiz/flat-remix-gnome/archive/refs/heads/master.zip" -o downloads/flat-remix-gnome-master.zip
-unzip -q downloads/flat-remix-gnome-master.zip -d .tmp
-cp -R .tmp/flat-remix-gnome-master/themes/Flat-Remix-Blue-Dark-fullPanel ~/.themes/Flat-Remix-Blue-Dark-fullPanel
-
-unzip -q downloads/flat-remix-gtk-master.zip -d .tmp
-cp -R .tmp/flat-remix-gtk-master/themes/Flat-Remix-GTK-Blue-Dark-Solid ~/.themes/Flat-Remix-GTK-Blue-Dark-Solid
-
 echo "# Install Zoom"
 sudo snap install zoom-client
 sudo snap connect zoom-client:screencast-legacy
@@ -157,6 +134,7 @@ popd
 echo "# Install nvm"
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 source ~/.profile
+source ~/.bashrc
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -179,46 +157,6 @@ pushd downloads
 sudo dpkg -i dbeaver-ce_latest_amd64.deb
 popd
 
-# Non apt installs specifically for i3 destktop environment
-echo "# Build and install i3lock-color"
-pushd .tmp
-curl -fsSL https://github.com/Raymo111/i3lock-color/archive/refs/tags/2.13.c.4.tar.gz -o ../downloads/i3lock-color.tgz
-tar -xzf ../downloads/i3lock-color.tgz
-pushd i3lock-color-2.13.c.4
-sudo ./install-i3lock-color.sh
-popd
-popd
-
-echo "# Build and install betterlockscreen"
-pushd .tmp
-curl -fsSL https://github.com/betterlockscreen/betterlockscreen/archive/refs/tags/v4.0.3.tar.gz -o ../downloads/betterlockscreen.tar.gz
-tar -xzf ../downloads/betterlockscreen.tar.gz
-pushd betterlockscreen-4.0.3
-sudo cp betterlockscreen /usr/local/bin/betterlockscreen
-popd
-popd
-
-echo "# Build and install rofi"
-pushd .tmp
-curl -fsSL https://github.com/davatorium/rofi/releases/download/1.7.2/rofi-1.7.2.tar.gz -o ../downloads/rofi.tar.gz
-tar -xzf ../downloads/rofi.tar.gz
-pushd rofi-1.7.2
-mkdir -p build && cd build
-../configure
-make
-sudo make install
-cd ..
-popd
-popd
-
-echo "# Install rofi themes"
-pushd .tmp
-git clone https://github.com/adi1090x/rofi.git rofi-themes
-pushd rofi-themes
-./setup.sh
-popd
-popd
-
 echo "# Configure GCM core"
 git-credential-manager-core configure
 git config --global credential.credentialStore secretservice
@@ -228,8 +166,6 @@ stow kitty
 
 echo "# Setup nvim"
 stow nvim
-nvim +:PlugInstall +:qa!
-nvim +:CocInstall +:qa!
 
 echo "# Setup scripts"
 stow scripts
