@@ -205,3 +205,7 @@ exec /usr/local/bin/update-lockscreen.sh
 
 # Update the wallpaper
 exec_always /usr/local/bin/update-wallpaper.sh
+
+bar {
+    status_command i3status
+}

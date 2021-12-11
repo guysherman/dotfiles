@@ -22,7 +22,7 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
 echo "# Installing packages for our i3-based desktop"
 sudo apt install -y \
-  i3 gucharmap compton udisks2 udiskie at autorandr pasystray pavucontrol pavumeter lxappearance arandr scrot playerctl policykit-1-gnome fd-find network-manager \
+  i3 feh gucharmap compton udisks2 udiskie at autorandr pasystray pavucontrol pavumeter lxappearance arandr scrot playerctl policykit-1-gnome fd-find network-manager \
 
 # Packages required to build i3lock-color
 sudo apt install -y \
