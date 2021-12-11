@@ -55,6 +55,7 @@ export XDG_CURRENT_DESKTOP=i3
 
 # Ensure that our default i3 config is installed if there is no config file already
 if [ ! -f "$XDG_CONFIG_HOME/i3/config" ]; then
+  mkdir -p $XDG_CONFIG_HOME/i3
   cp /usr/local/share/i3de/config/i3/config $XDG_CONFIG_HOME/i3/config
 fi
 
