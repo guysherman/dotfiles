@@ -200,7 +200,7 @@ assign [class="Pavucontrol"] $ws9
 assign [class="Pulseeffects"] $ws9
 
 # I want everything else to just go to WS10
-assign [class="^(?!.*(Polkit-gnome-authentication-agent-1|Xdg-desktop-portal-gtk)).*"] $ws10
+assign [class="^(?!.*(Polkit-gnome-authentication-agent-1|Xdg-desktop-portal-gtk|Gcr-prompter)).*"] $ws10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)

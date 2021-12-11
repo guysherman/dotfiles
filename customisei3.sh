@@ -79,6 +79,7 @@ rm ~/.config/rofi/applets/applets/powermenu.sh
 rm ~/.config/rofi/applets/styles/colors.rasi
 rm ~/.config/rofi/launchers/ribbon/launcher.sh
 rm ~/.config/rofi/launchers/ribbon/styles/colors.rasi
+rm ~/.config/i3/config
 stow i3
 
 if [ $1 == "laptop" ]; then
