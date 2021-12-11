@@ -7,14 +7,14 @@ echo "# Install some basic tools we need to install the rest"
 sudo apt update
 sudo apt install -y wget curl ca-certificates apt-transport-https gnupg lsb-release
 
+# PPAs for both computers
 echo "# Add github gpg key"
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 
 echo "# Add neovim PPA"
 sudo add-apt-repository -y ppa:neovim-ppa/stable
-echo "# Add linuxuprising PPA"
-sudo add-apt-repository -y ppa:linuxuprising/apps
+
 
 echo "# Add 1password PPA"
 curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
@@ -46,23 +46,44 @@ sudo install -o root -g root -m 644 virtualbox.gpg /etc/apt/trusted.gpg.d/
 echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian hirsute contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
 sudo rm virtualbox.gpg
 
+# PPAs for just the laptop
+echo "# Add linuxuprising PPA"
+sudo add-apt-repository -y ppa:linuxuprising/apps
+
+# PPAs for just the desktop
+
+
 echo "# Install packages via apt"
 sudo apt update
-sudo apt install -y gnome-session gnome-terminal \
-  gnome-tweaks zsh kitty \
-  python3 python3-pip \
-  neovim numix-icon-theme-circle build-essential \
-  git silversearcher-ag libxml2-utils gh autoconf \
-  automake libusb-dev libusb-1.0-0-dev libplist-dev \
-  libplist++-dev usbmuxd libtool \
-  libimobiledevice-dev libssl-dev lxappearance arandr scrot playerctl policykit-1-gnome \
-  stow pasystray pavucontrol pavumeter tlp tlp-rdw tlpui gucharmap polybar compton udisks2 udiskie at autorandr \
-  autoconf libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev \
+# Packages for both machines, no matter what DE
+sudo apt install -y \
+  gnome-session gnome-terminal gnome-tweaks \
+  numix-icon-theme-circle microsoft-edge-beta 1password imagemagick \
+  git build-essential autoconf automake autoconf bison flex check libtool \
+  stow zsh kitty neovim silversearcher-ag ripgrep gh fzf \
+  python3 python3-pip docker-ce docker-ce-cli containerd.io kubectl virtualbox-6.1 \
+  libimobiledevice-dev libssl-dev  \
+  libusb-dev libusb-1.0-0-dev libplist-dev libplist++-dev usbmuxd
+
+# Packages for both machines, specifically to setup the i3-based DE
+sudo apt install -y \
+  i3 gucharmap polybar compton udisks2 udiskie at autorandr pasystray pavucontrol pavumeter lxappearance arandr scrot playerctl policykit-1-gnome fd-find \
+  libpam0g-dev libxml2-utils libcairo2-dev libfontconfig1-dev libxcb-composite0-dev \
   libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev \
   libxcb-util-dev libxcb-xrm-dev libxcb-xtest0-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev \
-  fd-find ripgrep libxcb-ewmh-dev libxcb-ewmh2 libxcb-cursor-dev bison flex check libxcb-icccm4 libxcb-icccm4-dev \
-  libpango-1.0-0 libpango1.0-dev libpangocairo-1.0-0 libstartup-notification0-dev libgdk-pixbuf-2.0-dev \
-  microsoft-edge-beta docker-ce docker-ce-cli containerd.io kubectl 1password i3 virtualbox-6.1 imagemagick pulseeffects fzf
+  libxcb-ewmh-dev libxcb-ewmh2 libxcb-cursor-dev  libxcb-icccm4 libxcb-icccm4-dev \
+  libpango-1.0-0 libpango1.0-dev libpangocairo-1.0-0 libstartup-notification0-dev libgdk-pixbuf-2.0-dev
+     
+# Packages for just the laptop
+sudo apt install -y \
+  tlp tlp-rdw tlpui pulseeffects
+
+# Packages for just the desktop
+
+
+# Non apt installs
+
+# For both machines
 
 echo "# Install gcmcore"
 curl -fsSL https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.567/gcmcore-linux_amd64.2.0.567.18224.deb -o downloads/gcmcore-linux_amd64.2.0.567.18224.deb
@@ -70,11 +91,6 @@ pushd downloads
 sudo dpkg -i gcmcore-linux_amd64.2.0.567.18224.deb
 popd
 
-echo "# Install dbeaver"
-curl -fsSL https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -o downloads/dbeaver-ce_latest_amd64.deb
-pushd downloads
-sudo dpkg -i dbeaver-ce_latest_amd64.deb
-popd
 
 echo "# Setting python -> Python 3"
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
@@ -148,6 +164,7 @@ curl -fsSL "https://releases.hashicorp.com/terraform/0.14.11/terraform_0.14.11_l
 unzip -p .tmp/terraform_014.zip > ~/.local/bin/terraform014
 chmod +x ~/.local/bin/terraform014
 
+
 echo "Install AWS CLI"
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o ".tmp/awscliv2.zip"
 unzip -q .tmp/awscliv2.zip -d .tmp
@@ -174,6 +191,13 @@ echo "# Install virtualenv"
 mkdir -p ~/.virtualenvs
 sudo pip install virtualenv virtualenvwrapper
 
+echo "# Install dbeaver"
+curl -fsSL https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -o downloads/dbeaver-ce_latest_amd64.deb
+pushd downloads
+sudo dpkg -i dbeaver-ce_latest_amd64.deb
+popd
+
+# Non apt installs specifically for i3 destktop environment
 echo "# Build and install i3lock-color"
 pushd .tmp
 curl -fsSL https://github.com/Raymo111/i3lock-color/archive/refs/tags/2.13.c.4.tar.gz -o ../downloads/i3lock-color.tgz
@@ -245,8 +269,3 @@ stow i3
 sudo ln -s /home/guy/.local/bin/i3-session.sh /usr/local/bin/i3-session.sh
 sudo cp /home/guy/.local/share/xsession/i3-session.desktop /usr/share/xsessions/i3-session.desktop
 
-stow laptop
-sudo ln -s /home/guy/.config/acpi/events/laptop-lid /etc/acpi/events/laptop-lid
-sudo ln -s /home/guy/.config/udev/95-monitors.rules /etc/udev/rules.d/95-monitors.rules
-
-echo "Everything is set up, nothing to do."
