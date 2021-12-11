@@ -58,4 +58,8 @@ if [ ! -f "$XDG_CONFIG_HOME/i3/config" ]; then
   cp /usr/local/share/i3de/config/i3/config $XDG_CONFIG_HOME/i3/config
 fi
 
-source $HOME/.xinitrc
+if [ -f "$HOME/.xinitrc" ]; then
+  source $HOME/.xinitrc
+fi
+
+exec i3
