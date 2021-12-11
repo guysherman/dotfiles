@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+if [ -z "$1" ]; then
+  echo "Please pass either <latop> or <desktop> (without the angles) as a parameter"
+  exit
+fi
+
 mkdir -p .tmp
 
 echo "# Install some basic tools we need to install the rest"
