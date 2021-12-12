@@ -5,3 +5,5 @@ export XDG_DATA_DIRS="/usr/share/i3:/home/guy/.local/share/flatpak/exports/share
 [ -f /etc/xprofile ] && . /etc/xprofile
 [ -f ~/.xprofile ] && . ~/.xprofile
 
+export WALLPAPER="$HOME/Pictures/wallpaper"
+
