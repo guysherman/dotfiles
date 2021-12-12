@@ -194,10 +194,15 @@ assign [class="Microsoft-edge-dev"] $ws3
 assign [class="Microsoft-edge-beta"] $ws3
 assign [class="Slack"] $ws4
 assign [class="zoom"] $ws4
+assign [class="quassel"] $ws4
 assign [class="DBeaver"] $ws6
 assign [class="QjackCtl"] $ws9
 assign [class="Pavucontrol"] $ws9
 assign [class="Pulseeffects"] $ws9
+assign [class="Ardour-6.9.0"] $ws7
+assign [class="Ardour"] $ws7
+assign [title="VCV Rack Pro 2.0.3b"] $ws8
+assign [class="Carla2"] $ws8
 
 # I want everything else to just go to WS10
 assign [class="^(?!.*(Polkit-gnome-authentication-agent-1|Xdg-desktop-portal-gtk|Gcr-prompter)).*"] $ws10
@@ -254,5 +259,5 @@ client.unfocused        $darkgBg    $darkgBg    $otherText  $otherText    $darkg
 
 bindsym $mod+Escape exec /home/guy/.config/rofi/applets/applets/powermenu.sh
 
-exec --no-startup-id /home/guy/.local/bin/audio-setup.sh
-exec --no-startup-id /home/guy/.local/bin/jack-setup.sh
+#exec --no-startup-id /home/guy/.local/bin/audio-setup.sh
+#exec --no-startup-id /home/guy/.local/bin/jack-setup.sh
