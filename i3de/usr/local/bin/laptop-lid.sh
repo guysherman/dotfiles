@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /usr/bin/env bash
 
 # Thanks to the folks who answered here:
 # https://askubuntu.com/questions/1140329/how-to-run-a-script-when-the-lid-is-closed

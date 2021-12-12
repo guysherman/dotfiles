@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /usr/bin/env bash
 
 if [[ -z "$WALLPAPER" ]]; then
   WALLPAPER=/usr/local/share/i3de/ihearti3.jpg

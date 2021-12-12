@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /usr/bin/env bash
 
 if [[ -z "$LOCKSCREEN" ]]; then
   LOCKSCREEN=/usr/local/share/i3de/ihearti3.jpg
