@@ -59,7 +59,7 @@ sudo apt install -y git build-essential autoconf automake make pkg-config gcc bi
 sudo apt install -y \
   gnome-session gnome-terminal gnome-tweaks \
   microsoft-edge-beta 1password imagemagick \
-  stow zsh kitty neovim silversearcher-ag ripgrep gh fzf \
+  stow zsh kitty neovim silversearcher-ag ripgrep gh fzf ruby \
   docker-ce docker-ce-cli containerd.io kubectl virtualbox-6.1 \
   libimobiledevice-dev libssl-dev  \
   libusb-dev libusb-1.0-0-dev libplist-dev libplist++-dev usbmuxd

@@ -3,7 +3,7 @@ Plug 'preservim/nerdtree' |
     \ Plug 'ryanoasis/vim-devicons' |
     \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-nmap <C-n>n :NERDTreeToggle<CR>
+nmap <C-n>n :execute 'NERDTreeToggle' getcwd()<CR>
 nmap <C-n>f :NERDTreeFind<CR>
 
 " Start NERDTree when Vim starts with a directory argument.

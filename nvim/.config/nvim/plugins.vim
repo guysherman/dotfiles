@@ -16,6 +16,7 @@ call plug#begin(stdpath('data').'/plugged')
   source ~/dotfiles/nvim/.config/nvim/plugins/yats.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/vim-jsx-pretty.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/telescope.vim
+  source ~/dotfiles/nvim/.config/nvim/plugins/git-worktree.vim
 "  source ~/dotfiles/nvim/.config/nvim/plugins/fzf.vim.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/grep.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/vimfugitive.vim

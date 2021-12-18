@@ -1,3 +1,7 @@
-if [ -f "~/.add-extra-modes.sh" ]; then
-  source ~/.add-extra-modes.sh
+#!/bin/bash
+
+if [ -f "$HOME/.add-extra-modes.sh" ]; then
+  source "$HOME/.add-extra-modes.sh"
 fi
+
+export DBG_XPROFILE_RAN="Yes"

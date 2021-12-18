@@ -1,4 +1,6 @@
 require("guy.telescope")
+require("git-worktree").setup({})
+
 P = function(v)
   print(vim.inspect(v))
   return v

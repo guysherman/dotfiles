@@ -2,7 +2,7 @@ layout tall
 
 # classroom frontend
 new_tab classroom-frontend
-cd ~/source/classroom-frontend
+cd ~/source/classroom-frontend-bare
 launch zsh -c "source ~/.zshrc && nvim ."
 launch zsh
 launch zsh

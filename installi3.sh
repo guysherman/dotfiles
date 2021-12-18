@@ -22,13 +22,30 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
 echo "# Installing packages for our i3-based desktop"
 sudo apt install -y \
-  i3 feh gucharmap compton udisks2 udiskie at autorandr pasystray pavucontrol pavumeter lxappearance arandr scrot playerctl policykit-1-gnome fd-find network-manager \
+  feh gucharmap compton udisks2 udiskie at autorandr pasystray pavucontrol pavumeter lxappearance arandr scrot playerctl policykit-1-gnome fd-find network-manager \
+
+# Packages required to build i3-gaps
+sudo apt install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev \
+  libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
+  libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf xutils-dev libtool automake meson ninja-build
 
 # Packages required to build i3lock-color
 sudo apt install -y \
   libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev \
   libxcb-randr0-dev libxcb-image0-dev libxcb-util0-dev libxcb-xrm-dev libxcb-xtest0-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
 
+# Build i3-gaps
+echo "# Building i3-gaps"
+pushd .tmp
+git clone https://github.com/Airblader/i3.git i3-gaps
+pushd i3-gaps
+git checkout gaps && git pull
+mkdir -p build
+meson setup build --prefix=/usr/local
+meson compile -C build
+sudo meson install -C build
+popd
+popd
 
 # Non apt installs specifically for i3 destktop environment
 echo "# Build and install i3lock-color"
