@@ -18,6 +18,7 @@ font pango:cantarell 10
 
 gaps outer 1
 gaps inner 6
+gaps bottom 39
 for_window [class="^.*"] border pixel 0
 
 

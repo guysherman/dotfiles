@@ -30,6 +30,7 @@
 
 [colors]
 mks_background = #3a3a3a
+mks_darkbg = #2a2a2a
 mks_foreground = #c4c5b5
 mks_lightbg = #625e4c
 mks_orange = #fa8419
@@ -47,13 +48,23 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-[bar/dummy]
-width = 100% 
-height = 3.5% 
+[bar/tray]
+width=384
+height = 3.5%:-11
 dpi = ${xrdb:Xft.dpi:-1}
-bottom=true
-background = #00000000
+offset-x = 100%:-660 
+offset-y = 7
+radius = 5.00
+background = ${colors.mks_darkbg}
+foreground = ${colors.mks_foreground}
 modules-center = blank
+bottom=true
+override-redirect=true
+tray-position = center
+tray-padding = 2
+;tray-background = ${colors.mks_lightbg}
+tray-transparent = true
+wm-restack = i3
 
 [bar/main]
 enable-ipc=true
@@ -114,6 +125,16 @@ override-redirect = true
 cursor-click = pointer
 cursor-scroll = ns-resize
 bottom = true
+
+[bar/dummy]
+width = 100% 
+height = 3.5% 
+dpi = ${xrdb:Xft.dpi:-1}
+bottom=true
+background = #00000000
+modules-center = blank
+wm-restack = i3
+override-redirect = true
 
 [module/blank]
 type = custom/text
@@ -254,9 +275,9 @@ type = internal/pulseaudio
 format-volume = <ramp-volume> <label-volume>
 format-volume-background = ${colors.mks_background}
 format-volume-foreground = ${colors.mks_blue}
+format-volume-margin = 1
 label-volume = %percentage%%
 label-volume-foreground = ${colors.mks_blue}
-label-volume-margin = 1
 label-volume-font = 1
 
 format-muted =  <label-muted>
@@ -304,7 +325,7 @@ format-charging-font = 6
 format-charging-background = ${colors.mks_background}
 format-charging-foreground = ${colors.mks_orange}
 format-charging-padding = 1
-label-charging = %time%
+label-charging = %percentage%%
 label-charging-foreground = ${colors.mks_orange}
 
 format-discharging = <ramp-capacity> <label-discharging>
@@ -312,7 +333,7 @@ format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-background = ${self.format-charging-background}
 format-discharging-foreground = ${self.format-charging-foreground}
 format-discharging-padding = ${self.format-charging-padding}
-label-discharging = %percentage%
+label-discharging = %percentage%%
 label-discharging-foreground = ${colors.mks_orange}
 
 format-full =   <label-full>
