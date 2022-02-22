@@ -23,6 +23,7 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 echo "# Installing packages for our i3-based desktop"
 sudo apt install -y \
   feh gucharmap compton udisks2 udiskie at autorandr pasystray pavucontrol pavumeter lxappearance arandr scrot playerctl policykit-1-gnome fd-find network-manager \
+  bmon pulsemixer
 
 # Packages required to build i3-gaps
 sudo apt install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev \

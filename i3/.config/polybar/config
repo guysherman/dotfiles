@@ -29,7 +29,7 @@
 ;==========================================================
 
 [colors]
-mks_background = #1a1a1a
+mks_background = #3a3a3a
 mks_foreground = #c4c5b5
 mks_lightbg = #625e4c
 mks_orange = #fa8419
@@ -47,15 +47,24 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
+[bar/dummy]
+width = 100% 
+height = 3.5% 
+dpi = ${xrdb:Xft.dpi:-1}
+bottom=true
+background = #00000000
+modules-center = blank
 
-[bar/example]
+[bar/main]
 enable-ipc=true
 ;monitor = ${env:MONITOR:HDMI-1}
-width = 100%
-height = 27
-;offset-x = 1%
-;offset-y = 1%
-radius = 0.0
+width = 100%:-14 
+height = 3.5%:-3
+dpi = ${xrdb:Xft.dpi:-1}
+;dpi = 96
+offset-x = 7
+offset-y = 3
+radius = 5.0
 
 background = ${colors.mks_background}
 foreground = ${colors.mks_foreground}
@@ -64,34 +73,37 @@ line-size = 3
 line-color = #f00
 
 border-size = 0
-border-color = #00000000
+border-color = ${colors.mks_lightbg}
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
-font-3 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid
-font-4 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular
-font-5 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular
+;font-0 = Fantasque Sans Mono,Fantasque Sans Mono Regular:style=Regular:pixelsize=9;2
+;font-0 = Iosevka,Iosevka Regular:style=Regular:pixelsize=9;2
+font-0 = Hurmit Nerd Font Mono,Hurmit Nerd Font Mono medium:style=medium:pixelsize=9;2
+font-1 = fixed:pixelsize=10;1
+font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-3 = siji:pixelsize=10;1
+font-4 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:pixelsize=9;1
+font-5 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:pixelsize=9;1
+font-6 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:pixelsize=9;1
 
 fixed-center = true
 modules-left = i3
 modules-center = date
 modules-right = pulseaudio cpu battery temperature powerbutton 
 
-tray-position = right
-tray-padding = 2
+tray-position = none
+;tray-padding = 2
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
-;wm-restack = i3
+wm-restack = i3
 
-;override-redirect = true
+override-redirect = true
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
@@ -102,6 +114,10 @@ tray-padding = 2
 cursor-click = pointer
 cursor-scroll = ns-resize
 bottom = true
+
+[module/blank]
+type = custom/text
+content = " "
 
 [module/xwindow]
 type = internal/xwindow
@@ -139,32 +155,37 @@ ws-icon-default = 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
-
+label-mode-padding = 1
+label-mode-font = 6
+label-mode-foreground =${colors.primary}
+label-mode-background = #000
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-background = ${colors.mks_green}
-label-focused-foreground = ${colors.mks_background}
-label-focused-underline= ${colors.mks_green}
-label-focused-padding = 2
+label-focused-font = 6
+label-focused-background = ${colors.mks_background}
+label-focused-foreground = ${colors.mks_green}
+;label-focused-underline= ${colors.mks_green}
+label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon%
-label-unfocused-padding = 2
+label-unfocused-font = 6
+label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
+label-visible-font = 6
+label-visible-background = ${colors.mks_background}
+label-visible-foreground = ${colors.mks_blue}
+;label-visible-underline = ${colors.mks_blue}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
-label-urgent-background = ${colors.mks_pink}
-label-urgent-foreground = ${colors.mks_background}
-label-urgent-padding = 2
+label-urgent-font = 6
+label-urgent-background = ${colors.mks_background}
+label-urgent-foreground = ${colors.mks_pink}
+label-urgent-padding = 1
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -178,12 +199,12 @@ label = BL
 bar-width = 10
 bar-indicator = |
 bar-indicator-foreground = #fff
-bar-indicator-font = 2
+bar-indicator-font = 6
 bar-fill = ─
-bar-fill-font = 2
+bar-fill-font = 6
 bar-fill-foreground = #9f78e1
 bar-empty = ─
-bar-empty-font = 2
+bar-empty-font = 6
 bar-empty-foreground = ${colors.foreground-alt}
 
 [module/backlight-acpi]
@@ -196,11 +217,16 @@ type = internal/cpu
 interval = 2
 format-prefix = ""
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.mks_pink}
-format-background = ${colors.mks_pink}
-label-foreground = ${colors.mks_background}
-label-padding = 2
-label =  %percentage:2%%
+;format-underline = ${colors.mks_pink}
+format=  <label>
+format-font = 6
+format-background = ${colors.mks_background}
+format-foreground = ${colors.mks_green}
+format-margin = 1
+label-foreground = ${colors.mks_green}
+label-padding = 1
+label = %percentage:2%%
+label-font = 1
 
 [module/date]
 type = internal/date
@@ -213,26 +239,39 @@ time = %H:%M
 time-alt = %H:%M:%S
 
 format =  <label>
+format-font = 6
 format-margin = 2
 format-foreground = ${colors.mks_blue}
-format-underline = ${colors.mks_blue}
+;format-underline = ${colors.mks_blue}
 
 label = %date% %time%
 label-foreground = ${colors.mks_blue}
+label-font = 1
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-format-volume-padding = 2
-format-volume-background = ${colors.mks_lightbg}
-label-volume = VOL %percentage%%
-label-volume-foreground = ${colors.mks_foreground}
+format-volume = <ramp-volume> <label-volume>
+format-volume-background = ${colors.mks_background}
+format-volume-foreground = ${colors.mks_blue}
+label-volume = %percentage%%
+label-volume-foreground = ${colors.mks_blue}
 label-volume-margin = 1
+label-volume-font = 1
 
-label-muted =  muted
-label-muted-foreground = ${colors.mks_pink}
-label-muted-margin = 2
+format-muted =  <label-muted>
+format-muted-font = 6
+format-muted-foreground = ${colors.mks_foreground}
+label-muted = --%
+label-muted-foreground = ${colors.mks_foreground}
+label-muted-margin = 1
+label-muted-font = 1
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-font = 6
 
 bar-volume-width = 10
 bar-volume-foreground-0 = ${colors.mks_green}
@@ -244,12 +283,12 @@ bar-volume-foreground-5 = ${colors.mks_orange}
 bar-volume-foreground-6 = ${colors.mks_pink}
 bar-volume-gradient = false
 bar-volume-indicator = |
-bar-volume-indicator-font = 2
+bar-volume-indicator-font = 6
 bar-volume-indicator-foreground = ${colors.mks_foreground}
 bar-volume-fill = ─
-bar-volume-fill-font = 2
+bar-volume-fill-font = 6
 bar-volume-empty = ─
-bar-volume-empty-font = 2
+bar-volume-empty-font = 6
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
@@ -260,42 +299,47 @@ full-at = 100
 poll-interval = 5
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${colors.mks_orange}
-format-charging-background = ${colors.mks_orange}
-format-charging-foreground = ${colors.mks_background}
-format-charging-padding = 2
+format-charging-font = 6
+;format-charging-underline = ${colors.mks_orange}
+format-charging-background = ${colors.mks_background}
+format-charging-foreground = ${colors.mks_orange}
+format-charging-padding = 1
 label-charging = %time%
-label-charging-foreground = ${colors.mks_background}
+label-charging-foreground = ${colors.mks_orange}
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+;format-discharging-underline = ${self.format-charging-underline}
 format-discharging-background = ${self.format-charging-background}
 format-discharging-foreground = ${self.format-charging-foreground}
 format-discharging-padding = ${self.format-charging-padding}
 label-discharging = %percentage%
-label-discharging-foreground = ${colors.mks_background}
+label-discharging-foreground = ${colors.mks_orange}
 
-format-full = <label-full>
-format-full-underline = ${self.format-charging-underline}
+format-full =   <label-full>
+format-full-font = 6
+;format-full-underline = ${self.format-charging-underline}
 format-full-background = ${self.format-charging-background}
 format-full-foreground = ${self.format-charging-foreground}
 format-full-padding = ${self.format-charging-padding}
-label-full =  FULL
+label-full = 100% 
+label-full-font = 1
 
 ramp-capacity-0 =  
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 =  
-ramp-capacity-foreground = ${colors.mks_background}
+ramp-capacity-foreground = ${colors.mks_orange}
+ramp-capacity-font = 6
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-foreground = ${colors.mks_background}
+animation-charging-0 =  
+animation-charging-1 =  
+animation-charging-2 =  
+animation-charging-3 =  
+animation-charging-4 =  
+animation-charging-foreground = ${colors.mks_orange}
 animation-charging-framerate = 750
+animation-charging-font = 6
 
 [module/temperature]
 type = internal/temperature
@@ -303,31 +347,35 @@ thermal-zone = 7
 warn-temperature = 80
 
 format = <ramp> <label>
-format-underline = ${colors.mks_purple}
-format-background = ${colors.mks_purple}
-format-padding = 2
+;format-underline = ${colors.mks_purple}
+format-background = ${colors.mks_background}
+format-padding = 1
 format-warn = <ramp> <label-warn>
-format-warn-background = ${colors.mks_purple}
+format-warn-background = ${colors.mks_background}
 format-warn-underline = ${colors.mks_pink}
-format-warn-padding = 2
+format-warn-padding = 1
 
 label = %temperature-c%
-label-foreground = ${colors.mks_background}
+label-font = 1
+label-foreground = ${colors.mks_purple}
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.mks_background}
+label-warn-font = 1
+label-warn-foreground = ${colors.mks_purple}
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-3 = 
 ramp-4 = 
-ramp-foreground = ${colors.mks_background}
+ramp-foreground = ${colors.mks_purple}
+ramp-font = 6
 
 [module/powerbutton]
 type = custom/text
 content =  
 content-foreground = ${colors.mks_pink}
 content-padding = 2
+content-font = 6
 click-left = /home/guy/.config/rofi/applets/applets/powermenu.sh
 
 [module/powermenu]

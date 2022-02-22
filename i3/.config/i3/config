@@ -25,7 +25,7 @@ for_window [class="^.*"] border pixel 0
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-exec --no-startup-id compton
+exec --no-startup-id picom
 exec --no-startup-id start-polybar.sh
 exec --no-startup-id pulseeffects --gapplication-service &
 
@@ -56,14 +56,14 @@ exec /usr/local/bin/update-display.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # use pacmd to set the output device
-bindsym $mod+BackSpace exec --no-startup-id pacmd set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo
-bindsym $mod+equal exec --no-startup-id pacmd set-default-sink alsa_output.usb-Plantronics_Plantronics_Blackwire_5220_Series_37DD3B57D4F84208BB0D9748172A23C8-00.analog-stereo
+bindsym $mod+BackSpace exec --no-startup-id switch-audio.sh alsa_output.pci-0000_00_1f.3.analog-stereo krk
+bindsym $mod+equal exec --no-startup-id switch-audio.sh alsa_output.usb-Plantronics_Plantronics_Blackwire_5220_Series_37DD3B57D4F84208BB0D9748172A23C8-00.analog-stereo Plantronics
 
 # use pacmd to set input devices
 bindsym $mod+Shift+BackSpace exec --no-startup-id pacmd set-default-source alsa_input.pci-0000_00_1f.3.analog-stereo
@@ -79,8 +79,11 @@ bindsym XF86AudioPrev exec playerctl previous
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Set a key to set xrandr to laptop mode
+bindsym $mod+F8 exec --no-startup-id autorandr --load laptop
 # start a terminal
 bindsym $mod+Return exec kitty -o allow_remote_control=yes --single-instance --listen-on unix:@mykitty --session ~/.config/kitty/default.session
+bindsym $mod+Shift+Return exec kitty -o allow_remote_control=yes --single-instance --listen-on unix:@mykitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -194,6 +197,7 @@ assign [title="YouTube Music"] $ws5
 assign [title="SoundCloud.*"] $ws5
 assign [class="kitty"] $ws1
 assign [class="Chromium"] $ws2
+assign [class="Google-chrome"] $ws2
 assign [class="Microsoft-edge-dev"] $ws3
 assign [class="Microsoft-edge-beta"] $ws3
 assign [class="Slack"] $ws4

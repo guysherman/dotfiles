@@ -3,6 +3,7 @@
 killall polybar
 
 echo "---" | tee -a /tmp/polybar1.log
-polybar example 2>&1 | tee -a /tmp/polybar1.log & disown
+polybar dummy 2>&1 | tee -a /tmp/polybar-dummy1.log & disown
+polybar main 2>&1 | tee -a /tmp/polybar1.log & disown
 
 sleep 3s

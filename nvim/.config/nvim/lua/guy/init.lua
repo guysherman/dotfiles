@@ -1,4 +1,5 @@
 require("guy.telescope")
+require("guy.orgmode")
 require("git-worktree").setup({})
 
 P = function(v)
