@@ -62,12 +62,24 @@ sudo apt install -y git build-essential autoconf automake make pkg-config gcc bi
 sudo apt install -y \
   gnome-session gnome-terminal gnome-tweaks \
   microsoft-edge-beta 1password imagemagick chromium-browser \
-  stow zsh kitty neovim silversearcher-ag ripgrep gh fzf ruby \
+  stow zsh neovim silversearcher-ag ripgrep gh fzf ruby \
   docker-ce docker-ce-cli containerd.io kubectl virtualbox-6.1 \
   libimobiledevice-dev libssl-dev  \
-  libusb-dev libusb-1.0-0-dev libplist-dev libplist++-dev usbmuxd markdown xdotool
+  libusb-dev libusb-1.0-0-dev libplist-dev libplist++-dev usbmuxd markdown xdotool \
+  atool mediainfo libncurses-dev
 
 # Packages for just the desktop
+
+# Build and install cfiles
+echo "# Install cfiles"
+pushd .tmp
+curl -fsSL https://github.com/mananapr/cfiles/archive/refs/tags/v1.8.tar.gz -o ../downloads/cfiles.tar.gz
+tar -xzf ../downloads/cfiles.tar.gz
+pushd cfiles-1.8
+make
+sudo make install
+popd
+popd
 
 # Non apt installs
 echo "# Install gcmcore"
@@ -153,7 +165,7 @@ npm install -g yarn
 
 echo "# Install virtualenv"
 mkdir -p ~/.virtualenvs
-sudo pip install virtualenv virtualenvwrapper
+sudo pip install virtualenv virtualenvwrapper ueberzug
 
 echo "# Install dbeaver"
 curl -fsSL https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -o downloads/dbeaver-ce_latest_amd64.deb

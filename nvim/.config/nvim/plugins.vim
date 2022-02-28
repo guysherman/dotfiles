@@ -34,7 +34,7 @@ call plug#begin(stdpath('data').'/plugged')
   source ~/dotfiles/nvim/.config/nvim/plugins/harpoon.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/vim-rooter.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/vim-markdown-preview.vim
-  source ~/dotfiles/nvim/.config/nvim/plugins/nvim-orgmode.vim
+  "source ~/dotfiles/nvim/.config/nvim/plugins/nvim-orgmode.vim
 call plug#end()
 
 doautocmd User PlugLoaded

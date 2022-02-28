@@ -35,22 +35,23 @@ shaHdmi=$(sha1sum $cardPath/card0-HDMI-A-1/edid | cut -f1 -d " ")
 if [ -n "$conHdmi" ]; then
   echo "HDMI connected"
   if [ "$shaHdmi" = "b092b405f8cdfac144a759941fe6b2e28a21af74" ]; then    # Home
-    #echo "LG Ultrawide"
+    echo "LG Ultrawide"
     autorandr --load home
     runuser -l guy -c 'DISPLAY=:0 feh --bg-fill /home/guy/Pictures/wallpaper --bg-fill /home/guy/Pictures/wallpaper'
     runuser -l guy -c 'DISPLAY=:0 betterlockscreen -u /home/guy/Pictures/wallpaper --blur 1 --fx blur'
   elif [ "$shaHdmi" = "28e8d323e82234bb3792ab281d265a7edcbb1658" ]; then # Office
+    echo "Dell 4k"
     autorandr --load work
     runuser -l guy -c 'DISPLAY=:0 feh --bg-fill /home/guy/Pictures/wallpaper --bg-fill /home/guy/Pictures/wallpaper'
     runuser -l guy -c 'DISPLAY=:0 betterlockscreen -u /home/guy/Pictures/wallpaper --blur 1 --fx blur'
   else                                            # Probably a projector
-    #echo "Some other shit $shaHdmi"
+    echo "Some other shit $shaHdmi"
     xrandr --output eDP-1 --auto --output HDMI-1 --auto --same-as eDP-1
     runuser -l guy -c 'DISPLAY=:0 feh --bg-fill /home/guy/Pictures/wallpaper'
     runuser -l guy -c 'DISPLAY=:0 betterlockscreen -u /home/guy/Pictures/wallpaper --blur 1 --fx blur'
   fi
 else
-  #echo "HDMI not connected"
+  echo "HDMI not connected"
   autorandr --load laptop
   runuser -l guy -c 'DISPLAY=:0 feh --bg-fill /home/guy/Pictures/wallpaper'
   runuser -l guy -c 'DISPLAY=:0 betterlockscreen -u /home/guy/Pictures/wallpaper --blur 1 --fx blur'

@@ -3,7 +3,7 @@
 export PATH=$HOME/dotfiles/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/guy/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 
 # Set name of the theme to load --- if set to "random", it will
@@ -112,6 +112,7 @@ prompt_dir() {
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias cf="cfiles"
 alias gprm="git pull --rebase origin main"
 alias gprmm="git pull --rebase origin master"
 alias gnb="git-newtrackedbranch.sh"

@@ -5,6 +5,7 @@ let &packpath = &runtimepath
 
 syntax enable
 set background=dark
+set clipboard+=unnamedplus
 
 colorscheme monokai-soda
 

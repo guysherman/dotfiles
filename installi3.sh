@@ -35,6 +35,11 @@ sudo apt install -y \
   libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev \
   libxcb-randr0-dev libxcb-image0-dev libxcb-util0-dev libxcb-xrm-dev libxcb-xtest0-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
 
+# Packages required to build picom
+sudo apt install -y \
+  libxcb-damage0 libxcb-damage0-dev libxcb-sync-dev libxcb-sync1 libxcb-present-dev libxcb-present0 \
+    libxcb-glx0 libxcb-glx0-dev uthash-dev libev-dev libconfig-dev libglu1-mesa-dev freeglut3-dev mesa-common-dev libdbus-1-dev
+
 # Build i3-gaps
 echo "# Building i3-gaps"
 pushd .tmp
@@ -64,6 +69,17 @@ curl -fsSL https://github.com/betterlockscreen/betterlockscreen/archive/refs/tag
 tar -xzf ../downloads/betterlockscreen.tar.gz
 pushd betterlockscreen-4.0.3
 sudo cp betterlockscreen /usr/local/bin/betterlockscreen
+popd
+popd
+
+echo "# Build and install picom"
+pushd .tmp
+curl -fsSL https://github.com/yshui/picom/archive/refs/tags/v9.1.tar.gz -o ../downloads/picom.tar.gz
+tar -xzf ../downloads/picom.tar.gz
+pushd picom-9.1
+meson --buildtype=release . build
+ninja -C build
+sudo ninja -C build install
 popd
 popd
 
