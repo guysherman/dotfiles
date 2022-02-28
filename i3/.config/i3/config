@@ -81,7 +81,7 @@ bindsym XF86AudioPrev exec playerctl previous
 floating_modifier $mod
 
 # Set a key to set xrandr to laptop mode
-bindsym $mod+F8 exec --no-startup-id autorandr --load laptop
+bindsym $mod+F8 exec --no-startup-id auto-disp-user.sh
 # start a terminal
 bindsym $mod+Return exec kitty -o allow_remote_control=yes --single-instance --listen-on unix:@mykitty --session ~/.config/kitty/default.session
 bindsym $mod+Shift+Return exec kitty -o allow_remote_control=yes --single-instance --listen-on unix:@mykitty
