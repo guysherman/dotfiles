@@ -17,7 +17,8 @@
 		\ 'coc-swagger',
     \ 'coc-markdownlint',
     \ 'coc-pyright',
-		\ 'coc-docker']  " list of CoC extensions needed
+		\ 'coc-docker',
+    \ 'coc-vetur']  " list of CoC extensions needed
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
