@@ -127,6 +127,7 @@ if [ -f ~/.dir_colors ]; then
   eval `dircolors ~/.dir_colors`
 fi  
 
+export KITTYMUX_STATE_DIR=$HOME/.local/state
 
 # virtualenv and virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs

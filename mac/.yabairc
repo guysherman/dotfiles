@@ -1,0 +1,51 @@
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+yabai -m config layout bsp
+
+yabai -m config top_padding 5
+yabai -m config bottom_padding 5
+yabai -m config left_padding 5
+yabai -m config right_padding 5
+yabai -m config window_gap 10
+
+yabai -m config window_opacity on
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.75
+
+# float system preferences
+yabai -m rule --add app='^System Information$' manage=off
+yabai -m rule --add app='^System Preferences$' manage=off
+yabai -m rule --add title='Preferences$' manage=off
+
+# float settings windows
+yabai -m rule --add title='Settings$' manage=off
+
+# global settings
+yabai -m config mouse_follows_focus          off
+yabai -m config focus_follows_mouse          autofocus
+
+yabai -m config split_ratio                  0.50
+yabai -m config auto_balance                 off
+
+# Spaces
+yabai -m space --create
+yabai -m space --create
+yabai -m space --create
+yabai -m space --create
+yabai -m space --create
+
+yabai -m space 1 --label code
+yabai -m space 2 --label browser
+yabai -m space 3 --label otherbrowser
+yabai -m space 4 --label comms
+yabai -m space 5 --label media
+yabai -m space 6 --label data
+
+yabai -m rule --add app='^kitty$' space=code
+yabai -m rule --add app='^Google Chrome$' space=browser
+yabai -m rule --add app='^Safari$' space=otherbrowser
+yabai -m rule --add app='^Slack$' space=comms
+yabai -m rule --add app='.*[Zz]oom.*'space=comms
+
+
