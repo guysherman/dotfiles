@@ -1,0 +1,4 @@
+# input the line below into the file you are editing.
+# replace <user> with your username (output of: whoami). 
+# change the path to the yabai binary if necessary  (output of: which yabai)
+guy ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa
