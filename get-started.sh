@@ -3,11 +3,11 @@
 echo "Creating your new ssh key..."
 mkdir -p $HOME/.ssh
 ssh-keygen -f $HOME/.ssh/id_rsa
-cat $HOME/.ssh/id_rsa.pub | pbcopy
+cat $HOME/.ssh/id_rsa.pub
 
 echo ""
-echo "Your new ssh key has been copied to the clipboard."
-echo "Please add it to your GitHub account now."
+echo "This is your new ssh public key, please copy it and"
+echo "add it to your GitHub account now."
 echo ""
 read -n1 -s -r -p $'Once complete, press any key to continue...'
 echo ""
