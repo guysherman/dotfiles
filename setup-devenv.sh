@@ -53,7 +53,12 @@ sudo rm virtualbox.gpg
 echo "# Add chromium PPA"
 sudo add-apt-repository ppa:phd/chromium-browser
 
+echo "# Add the brave PPA"
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 echo "# Install packages via apt"
+
 sudo apt update
 # Packages for building things
 sudo apt install -y git build-essential autoconf automake make pkg-config gcc bison flex check libtool python3 python3-pip
@@ -61,7 +66,7 @@ sudo apt install -y git build-essential autoconf automake make pkg-config gcc bi
 # Packages for both machines, no matter what DE
 sudo apt install -y \
   gnome-session gnome-terminal gnome-tweaks \
-  microsoft-edge-beta 1password imagemagick chromium-browser \
+  microsoft-edge-beta 1password imagemagick chromium-browser brave-browser \
   stow zsh neovim silversearcher-ag ripgrep gh fzf ruby \
   docker-ce docker-ce-cli containerd.io kubectl virtualbox-6.1 \
   libimobiledevice-dev libssl-dev  \

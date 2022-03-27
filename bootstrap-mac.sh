@@ -5,7 +5,8 @@
 brew tap microsoft/git
 brew install ccls fzf gnutls koekeishiya/formulae/skhd koekeishiya/formulae/yabai \
   libgcrypt libksba libusb neovim npth nvm pinentry python@3.9 ripgrep stow \
-  virtualenvwrapper jenv java maven libpq btop kitty go
+  virtualenvwrapper jenv java maven libpq btop kitty go docker docker-compose \
+  the_silver_searcher
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -26,6 +27,12 @@ brew install --cask 1password
 brew install --cask cask
 brew install --cask kitty
 brew install --cask git-credential-manager-core
+brew install --cask google-chrome
+brew install --cask postman
+brew install --cask todoist
+brew install --cask slack
+
+
 
 FONTS_DIR=/Library/Fonts
 curl -fsSL "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Light/complete/Fira%20Code%20Light%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf" -o $FONTS_DIR/FiraCodeLightNerdFontCompleteWindowsCompatible.ttf
