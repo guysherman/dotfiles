@@ -94,6 +94,13 @@ sudo dpkg -i gcmcore-linux_amd64.2.0.567.18224.deb
 popd
 
 
+echo "# Install Roam"
+curl -fsSL https://roam-electron-deploy.s3.us-east-2.amazonaws.com/roam-research_0.0.14_amd64.deb -o downloads/roam-reserch_0.0.14_amd64.deb
+pushd downloads
+sudo dpkg -i roam-research_0.0.14_amd64.deb
+popd
+
+
 echo "# Setting python -> Python 3"
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
