@@ -202,6 +202,7 @@ assign [class="Brave-browser"] $ws2
 assign [title="Google Chrome"] $ws2
 assign [class="Microsoft-edge-dev"] $ws3
 assign [class="Microsoft-edge-beta"] $ws3
+assign [class="Roam Research"] $ws3
 assign [class="Slack"] $ws4
 assign [class="zoom"] $ws4
 assign [class="quassel"] $ws4
