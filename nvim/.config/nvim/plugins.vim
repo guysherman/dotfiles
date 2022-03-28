@@ -33,7 +33,8 @@ call plug#begin(stdpath('data').'/plugged')
   source ~/dotfiles/nvim/.config/nvim/plugins/vimtest.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/harpoon.vim
   source ~/dotfiles/nvim/.config/nvim/plugins/vim-rooter.vim
-  source ~/dotfiles/nvim/.config/nvim/plugins/vim-markdown-preview.vim
+  source ~/dotfiles/nvim/.config/nvim/plugins/markdown-preview.nvim.vim
+  "source ~/dotfiles/nvim/.config/nvim/plugins/vim-markdown-preview.vim
   "source ~/dotfiles/nvim/.config/nvim/plugins/nvim-orgmode.vim
   "
   source ~/dotfiles/nvim/.config/nvim/plugins/postgres-nvim.vim

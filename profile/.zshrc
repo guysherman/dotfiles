@@ -73,6 +73,7 @@ plugins=(
   nvm
   kubectl
   yarn
+  npm
   terraform
   fzf
 )
