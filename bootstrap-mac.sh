@@ -6,7 +6,7 @@ brew tap microsoft/git
 brew install ccls fzf gnutls koekeishiya/formulae/skhd koekeishiya/formulae/yabai \
   libgcrypt libksba libusb neovim npth nvm pinentry python@3.9 ripgrep stow \
   virtualenvwrapper jenv java maven libpq btop kitty go docker docker-compose \
-  the_silver_searcher
+  the_silver_searcher wget
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

@@ -1,6 +1,6 @@
 let mapleader="\<Space>"
 set runtimepath^=~/.vim runtimepath+=~/.vim/after 
-set runtimepath +=~/dotfiles/nvim/.config/nvim
+set runtimepath +=$HOME/.config/nvim
 let &packpath = &runtimepath
 
 syntax enable
@@ -9,9 +9,9 @@ set clipboard+=unnamedplus
 
 colorscheme monokai-soda
 
-source ~/dotfiles/nvim/.config/nvim/plugins.vim
-source ~/dotfiles/nvim/.config/nvim/config/clang_format.vim
-source ~/dotfiles/nvim/.config/nvim/config/cpp_format.vim
+source $HOME/.config/nvim/plugins.vim
+source $HOME/.config/nvim/config/clang_format.vim
+source $HOME/.config/nvim/config/cpp_format.vim
 
 set smartindent
 set backupcopy=yes
