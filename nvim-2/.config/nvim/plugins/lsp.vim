@@ -1,6 +1,9 @@
 " LSP Support
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
+Plug 'creativenull/diagnosticls-configs-nvim'
+
+Plug 'onsails/lspkind-nvim'
 
 " Autocompletion
 Plug 'hrsh7th/nvim-cmp'
@@ -14,15 +17,8 @@ Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'rafamadriz/friendly-snippets'
 
-Plug 'VonHeikemen/lsp-zero.nvim'
-
 function LSPSetup()
-lua <<EOF
-local lsp = require('lsp-zero')
-
-lsp.preset('recommended')
-lsp.setup()
-EOF
+  lua require('guy.lsp')
 endfunction
 
 augroup LSPSetup
