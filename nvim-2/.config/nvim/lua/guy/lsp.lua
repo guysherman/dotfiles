@@ -6,7 +6,20 @@ local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 
 local root_dir = lspconfig.util.root_pattern('.git', 'package.json', '.gitignore', 'pom.xml', 'go.mod')
-local desired_servers = { "gopls", "jdtls", "tsserver", "bashls", "vimls", "diagnosticls", "sumneko_lua" }
+local desired_servers = {
+  "gopls",
+  "jdtls",
+  "tsserver",
+  "bashls",
+  "vimls",
+  "diagnosticls",
+  "sumneko_lua",
+  "html",
+  "cssls",
+  "jsonls",
+  "terraformls"
+}
+
 local missing_servers = {}
 local installed_servers = {}
 
@@ -180,6 +193,17 @@ else
   -- tsserver
   require("lspconfig").tsserver.setup(config(with_defaults("tsserver")))
 
+  -- html
+  require("lspconfig").html.setup(config(with_defaults("html")))
+
+  -- css
+  require("lspconfig").cssls.setup(config(with_defaults("cssls")))
+
+  -- josn
+  require("lspconfig").jsonls.setup(config(with_defaults("jsonls")))
+
+  -- terraform
+  require("lspconfig").terraformls.setup(config(with_defaults("terraformls")))
 
   -- diagnosticls
   diagnosticls.init(config(with_defaults("diagnosticls")))
