@@ -27,9 +27,9 @@ brew install --cask gpg-utils
 brew install --cask 1password
 brew install --cask cask
 brew install --cask kitty
-brew install --cask git-credential-manager-core
-brew install --cask google-chrome
-brew install --cask postman
+#brew install --cask git-credential-manager-core
+#brew install --cask google-chrome
+#brew install --cask postman
 brew install --cask todoist
 brew install --cask slack
 
@@ -62,7 +62,7 @@ echo "# Setup kitty"
 stow kitty
 
 echo "# Setup nvim"
-stow nvim
+stow nvim-2
 
 echo "# Setup scripts"
 stow scripts
