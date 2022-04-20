@@ -105,3 +105,26 @@ hi cssClassName ctermfg=148 ctermbg=NONE cterm=NONE guifg=#a6e22e guibg=NONE gui
 hi cssValueLength ctermfg=141 ctermbg=NONE cterm=NONE guifg=#ae81ff guibg=NONE gui=NONE
 hi cssCommonAttr ctermfg=81 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=NONE
 hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+
+" gray
+highlight! CmpItemAbbrDeprecatedDefault ctermfg=59 guibg=NONE gui=strikethrough guifg=#3A3A3A
+" blue
+highlight! CmpItemAbbrMatchDefault ctermfg=148 guibg=NONE guifg=#98E024
+highlight! CmpItemAbbrMatchFuzzyDefault ctermfg=148 guibg=NONE guifg=#98E024
+" light blue
+highlight! CmpItemKindVariableDefault ctermfg=81 guibg=NONE guifg=#58D1EB
+highlight! CmpItemKindInterfaceDefault ctermfg=81 guibg=NONE guifg=#58D1EB
+highlight! CmpItemKindEnumDefault ctermfg=81 guibg=NONE guifg=#58D1EB
+highlight! CmpItemKindTextDefault ctermfg=81 guibg=NONE guifg=#58D1EB
+" orange
+highlight! CmpItemKindClassDefault ctermfg=208 guifg=#fd971f
+highlight! CmpItemKindModuleDefault ctermfg=208 guifg=#fd971f
+"
+" pink
+highlight! CmpItemKindFunctionDefault ctermfg=197 guibg=NONE guifg=#f4005f
+highlight! CmpItemKindMethodDefault ctermfg=197 guibg=NONE guifg=#f4005f
+highlight! CmpItemKindConstructorDefault ctermfg=197 guibg=NONE guifg=#f4005f
+" front
+highlight! CmpItemKindKeywordDefault guibg=NONE guifg=#c4c5b5
+highlight! CmpItemKindPropertyDefault guibg=NONE guifg=#c4c5b5
+highlight! CmpItemKindUnitDefault guibg=NONE guifg=#c4c5b5

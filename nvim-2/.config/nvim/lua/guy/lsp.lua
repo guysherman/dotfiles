@@ -99,7 +99,7 @@ else
 
     formatting = {
       format = function(entry, vim_item)
-        vim_item.kind = lspkind.presets.default[vim_item.kind]
+        vim_item.kind = string.format("%s %s", lspkind.presets.default[vim_item.kind], vim_item.kind)
         local menu = source_mapping[entry.source.name]
         vim_item.menu = menu
         return vim_item
