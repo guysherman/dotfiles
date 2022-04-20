@@ -17,7 +17,10 @@ local desired_servers = {
   "html",
   "cssls",
   "jsonls",
-  "terraformls"
+  "terraformls",
+  "yamlls",
+  "pyright",
+  "ccls"
 }
 
 local missing_servers = {}
@@ -204,6 +207,17 @@ else
 
   -- terraform
   require("lspconfig").terraformls.setup(config(with_defaults("terraformls")))
+
+  -- yaml
+  require("lspconfig").yamlls.setup(config(with_defaults("yamlls")))
+
+  -- python
+  require("lspconfig").pyright.setup(config(with_defaults("pyright")))
+
+  -- c++
+  require("lspconfig").ccls.setup(config(with_defaults("ccls")))
+
+
 
   -- diagnosticls
   diagnosticls.init(config(with_defaults("diagnosticls")))

@@ -71,7 +71,8 @@ sudo apt install -y \
   docker-ce docker-ce-cli containerd.io kubectl virtualbox-6.1 \
   libimobiledevice-dev libssl-dev  \
   libusb-dev libusb-1.0-0-dev libplist-dev libplist++-dev usbmuxd markdown xdotool \
-  atool mediainfo libncurses-dev
+  atool mediainfo libncurses-dev build-essential cmake ninja libclang-10-dev libclang-common-10-dev \
+  libclang-cpp10 libclang1-10
 
 # Packages for just the desktop
 
