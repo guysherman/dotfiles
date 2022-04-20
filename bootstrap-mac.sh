@@ -16,7 +16,8 @@ source ~/.profile
 source ~/.bashrc
 
 echo "# Install node"
-nvm install v16.13.1 
+nvm install v16.13.1
+nvm alias default v16.13.1
 npm install -g npm
 
 echo "# Install yarn"
