@@ -26,7 +26,7 @@ call plug#begin(stdpath('data').'/plugged')
   source $HOME/.config/nvim/plugins/lsp.vim
   source $HOME/.config/nvim/plugins/markdown-preview.nvim.vim
   source $HOME/.config/nvim/plugins/vim-yaml-folds.vim
-  source $HOME/.config/nvim/plugins/vim-clang-format.vim
+  "source $HOME/.config/nvim/plugins/vim-clang-format.vim
 
   " Navigation / Search
   source $HOME/.config/nvim/plugins/nerdtree.vim
