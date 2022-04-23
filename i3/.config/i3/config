@@ -50,8 +50,6 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 exec --no-startup-id udiskie &
 exec --no-startup-id 1password
 exec --no-startup-id pasystray
-exec --no-startup-id slack
-exec --no-startup-id zoom-client
 exec /usr/local/bin/update-display.sh
 
 
