@@ -92,30 +92,30 @@ pushd rofi-themes
 popd
 popd
 
-if [ $1 == "desktop" ]; then
-  sudo apt install build-essential git cmake cmake-data pkg-config \
-    python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev \
-    libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev \
-    python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev \
-    libxcb-icccm4-dev
+#if [ $1 == "desktop" ]; then
+  #sudo apt install -y build-essential git cmake cmake-data pkg-config \
+    #python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev \
+    #libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev \
+    #python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev \
+    #libxcb-icccm4-dev
 
-  sudo apt install libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev \
-    libasound2-dev libpulse-dev i3-wm libjsoncpp-dev libmpdclient-dev \
-    libcurl4-openssl-dev libnl-genl-3-dev
+  #sudo apt install -y libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev \
+    #libasound2-dev libpulse-dev i3-wm libjsoncpp-dev libmpdclient-dev \
+    #libcurl4-openssl-dev libnl-genl-3-dev
 
-  curl -fsSL https://github.com/polybar/polybar/releases/download/3.5.7/polybar-3.5.7.tar.gz -o downloads/polybar.tar.gz
-  pushd .tmp
-  tar -xzf ../downloads/polybar.tar.gz
-  pushd polybar-3.5.7
-  mkdir -p build
-  pushd build
-  cmake ..
-  make -j$(nproc)
-  sudo make install
-  popd
-  popd
-  popd
-fi
+  #curl -fsSL https://github.com/polybar/polybar/releases/download/3.5.7/polybar-3.5.7.tar.gz -o downloads/polybar.tar.gz
+  #pushd .tmp
+  #tar -xzf ../downloads/polybar.tar.gz
+  #pushd polybar-3.5.7
+  #mkdir -p build
+  #pushd build
+  #cmake ..
+  #make -j$(nproc)
+  #sudo make install
+  #popd
+  #popd
+  #popd
+#fi
 
 echo "# Setup i3"
 rm -rf ~/.config/rofi/applets/applets/powermenu.sh
