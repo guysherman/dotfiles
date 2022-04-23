@@ -16,3 +16,6 @@ echo "Setting up ui customisations for i3"
 echo "Setting up dev tools"
 ./setup-devenv.sh $1
 
+echo "Adding final profile touches"
+stow linux
+

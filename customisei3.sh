@@ -123,6 +123,7 @@ rm ~/.config/rofi/applets/styles/colors.rasi
 rm ~/.config/rofi/launchers/ribbon/launcher.sh
 rm ~/.config/rofi/launchers/ribbon/styles/colors.rasi
 rm ~/.config/i3/config
+rm ~/.config/gtk-3.0/bookmarks
 stow i3
 
 if [ $1 == "laptop" ]; then

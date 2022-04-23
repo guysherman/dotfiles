@@ -71,8 +71,8 @@ sudo apt install -y \
   docker-ce docker-ce-cli containerd.io kubectl virtualbox-6.1 \
   libimobiledevice-dev libssl-dev  \
   libusb-dev libusb-1.0-0-dev libplist-dev libplist++-dev usbmuxd markdown xdotool \
-  atool mediainfo libncurses-dev build-essential cmake ninja libclang-10-dev libclang-common-10-dev \
-  libclang-cpp10 libclang1-10
+  atool mediainfo libncurses-dev build-essential cmake ninja-build libclang-13-dev libclang-common-13-dev \
+  libclang-cpp13 libclang1-13
 
 # Packages for just the desktop
 
@@ -194,7 +194,7 @@ echo "# Setup kitty"
 stow kitty
 
 echo "# Setup nvim"
-stow nvim
+stow nvim-2
 
 echo "# Setup scripts"
 stow scripts
