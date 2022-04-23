@@ -8,11 +8,11 @@ if [ -z "$1" ]; then
 fi
 
 echo "Installing i3 and related tools"
-installi3.sh $1
+./installi3.sh $1
 
 echo "Setting up ui customisations for i3"
-customisei3.sh $1
+./customisei3.sh $1
 
 echo "Setting up dev tools"
-setup-devenv.sh $1
+./setup-devenv.sh $1
 
