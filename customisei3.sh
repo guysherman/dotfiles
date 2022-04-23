@@ -118,12 +118,12 @@ if [ $1 == "desktop" ]; then
 fi
 
 echo "# Setup i3"
-rm ~/.config/rofi/applets/applets/powermenu.sh
-rm ~/.config/rofi/applets/styles/colors.rasi
-rm ~/.config/rofi/launchers/ribbon/launcher.sh
-rm ~/.config/rofi/launchers/ribbon/styles/colors.rasi
-rm ~/.config/i3/config
-rm ~/.config/gtk-3.0/bookmarks
+rm -rf ~/.config/rofi/applets/applets/powermenu.sh
+rm -rf ~/.config/rofi/applets/styles/colors.rasi
+rm -rf ~/.config/rofi/launchers/ribbon/launcher.sh
+rm -rf ~/.config/rofi/launchers/ribbon/styles/colors.rasi
+rm -rf ~/.config/i3/config
+rm -rf ~/.config/gtk-3.0/bookmarks
 stow i3
 
 if [ $1 == "laptop" ]; then
