@@ -44,11 +44,11 @@ sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-beta.list'
 sudo rm microsoft.gpg
 
-echo "# Add virtualbox PPA"
-curl https://www.virtualbox.org/download/oracle_vbox_2016.asc | gpg --dearmor > virtualbox.gpg
-sudo install -o root -g root -m 644 virtualbox.gpg /etc/apt/trusted.gpg.d/
-echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian hirsute contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
-sudo rm virtualbox.gpg
+#echo "# Add virtualbox PPA"
+#curl https://www.virtualbox.org/download/oracle_vbox_2016.asc | gpg --dearmor > virtualbox.gpg
+#sudo install -o root -g root -m 644 virtualbox.gpg /etc/apt/trusted.gpg.d/
+#echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian hirsute contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+#sudo rm virtualbox.gpg
 
 echo "# Add chromium PPA"
 sudo add-apt-repository ppa:phd/chromium-browser
@@ -68,7 +68,7 @@ sudo apt install -y \
   gnome-session gnome-terminal gnome-tweaks \
   microsoft-edge-beta 1password imagemagick chromium-browser brave-browser \
   stow zsh neovim silversearcher-ag ripgrep gh fzf ruby \
-  docker-ce docker-ce-cli containerd.io kubectl virtualbox-6.1 \
+  docker-ce docker-ce-cli containerd.io kubectl \
   libimobiledevice-dev libssl-dev  \
   libusb-dev libusb-1.0-0-dev libplist-dev libplist++-dev usbmuxd markdown xdotool \
   atool mediainfo libncurses-dev build-essential cmake ninja-build libclang-13-dev libclang-common-13-dev \
