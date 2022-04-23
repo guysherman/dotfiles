@@ -16,6 +16,7 @@ sudo apt install -y wget curl ca-certificates apt-transport-https gnupg lsb-rele
 echo "# Installing packages for building things"
 # Packages for building things
 sudo apt install -y git build-essential autoconf gcc make pkg-config automake autoconf bison flex check libtool python3 python3-pip \
+  python3-gi python3-setuptools python3-stdeb dh-python
 
 echo "# Setting python -> Python 3"
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
@@ -85,13 +86,16 @@ popd
 
 if [ $1 == "laptop" ]; then
   echo "# Installing some extra packages because we're on a laptop"
-  # PPAs for just the laptop
-  echo "# Add linuxuprising PPA"
-  sudo add-apt-repository -y ppa:linuxuprising/apps
   # Packages for just the laptop
   sudo apt update
   sudo apt install -y \
-    tlp tlp-rdw tlpui
+    tlp tlp-rdw
+
+  git clone https://github.com/d4nj1/TLPUI ./.tmp/TLPUI
+  cd ./.tmp/TLPUI
+  python3 setup.py --command-packages=stdeb.command bdist_deb
+  sudo dpkg -i deb_dist/python3-tlpui_*all.deb  # PPAs for just the laptop
+  cd ../..
 fi
 
 # TODO: Configuration for udiskie if needed, going to assume it is ok by default these days
