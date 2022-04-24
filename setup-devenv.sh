@@ -134,6 +134,9 @@ sudo snap connect btop:network-observe
 sudo snap connect btop:process-control
 sudo snap connect btop:removable-media
 
+echo "# Setup scripts"
+stow scripts
+
 echo "# Install docker-compose"
 mkdir -p ~/.local/bin
 curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64" -o ~/.local/bin/docker-compose
@@ -216,8 +219,6 @@ stow kitty
 echo "# Setup nvim"
 stow nvim-2
 
-echo "# Setup scripts"
-stow scripts
 
 echo "# Setup profile"
 rm ~/.bash_logout
