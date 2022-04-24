@@ -72,7 +72,7 @@ sudo apt install -y \
   libimobiledevice-dev libssl-dev  \
   libusb-dev libusb-1.0-0-dev libplist-dev libplist++-dev usbmuxd markdown xdotool \
   atool mediainfo libncurses-dev build-essential cmake ninja-build libclang-13-dev libclang-common-13-dev \
-  libclang-cpp13 libclang1-13
+  libclang-cpp13 libclang1-13 openjdk-11-jdk openjdk-17-jdk
 
 # Packages for just the desktop
 
@@ -181,6 +181,17 @@ echo "# Install virtualenv"
 mkdir -p ~/.virtualenvs
 sudo pip install virtualenv virtualenvwrapper ueberzug
 
+echo "# Install maven"
+curl -fsSL https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz -o ./downloads/maven.tar.gz
+sudo tar -C /opt -xzf ./downloads/maven.tar.gz
+
+echo "# Install jEnv"
+git clone https://github.com/jenv/jenv.git ~/.jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+jenv add /usr/lib/jvm/java-11-openjdk-amd64
+jenv add /usr/lib/jvm/java-17-openjdk-amd64
+
 echo "# Install dbeaver"
 curl -fsSL https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -o downloads/dbeaver-ce_latest_amd64.deb
 pushd downloads
@@ -207,6 +218,7 @@ rm ~/.gitconfig
 rm ~/.profile
 rm ~/.zshrc
 stow profile
+stow linux
 
 if [ $1 == "laptop" ]; then
   stow laptop
