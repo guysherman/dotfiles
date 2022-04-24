@@ -106,7 +106,7 @@ sudo cp -Rf i3de/* /
 
 if [ $1 == "laptop" ]; then
   # restart the acpi daemon, so it picks up the hook we added for the laptop lid
-  /etc/init.d/acpid restart
+  sudo /etc/init.d/acpid restart
   
   # reload udev rules to pick up the rules we added for hdmi hotplug
   sudo udevadm control --reload-rules
