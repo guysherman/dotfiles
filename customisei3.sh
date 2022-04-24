@@ -15,11 +15,11 @@ sudo apt install -y wget curl ca-certificates apt-transport-https gnupg lsb-rele
 echo "# Install packages via apt"
 sudo apt update
 # Polybar
-sudo apt install -y numix-icon-theme-circle stow
+sudo apt install -y numix-icon-theme-circle stow polybar
 
 if [ $1 == "laptop" ]; then
   # Packages for just the laptop
-  sudo apt install -y pulseeffects polybar
+  sudo apt install -y pulseeffects 
 fi
 
 # Packages for building things
