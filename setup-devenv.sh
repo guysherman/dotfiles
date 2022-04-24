@@ -185,6 +185,10 @@ echo "# Install maven"
 curl -fsSL https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz -o ./downloads/maven.tar.gz
 sudo tar -C /opt -xzf ./downloads/maven.tar.gz
 
+echo "# Install go"
+curl -fsSL https://go.dev/dl/go1.18.1.linux-amd64.tar.gz -o ./downloads/go.tar.gz
+sudo tar -C /opt -xzf ./downloads/go.tar.gz
+
 echo "# Install jEnv"
 git clone https://github.com/jenv/jenv.git ~/.jenv
 export PATH="$HOME/.jenv/bin:$PATH"
