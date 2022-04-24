@@ -126,12 +126,13 @@ sudo snap install postman
 
 echo "# Install btop"
 sudo snap install btop
+sudo snap connect btop:home
 sudo snap connect btop:system-observe
-sudo snap connect btop:physical-memory-observe
 sudo snap connect btop:mount-observe
 sudo snap connect btop:hardware-observe
 sudo snap connect btop:network-observe
 sudo snap connect btop:process-control
+sudo snap connect btop:removable-media
 
 echo "# Install docker-compose"
 mkdir -p ~/.local/bin
