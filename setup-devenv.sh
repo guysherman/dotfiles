@@ -207,6 +207,10 @@ git-credential-manager-core configure
 git config --global credential.credentialStore secretservice
 
 echo "# Setup kitty"
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+pushd ~/.local/bin
+ln -s ~/.local/kitty.app/bin/kitty ./kitty
+popd
 stow kitty
 
 echo "# Setup nvim"
