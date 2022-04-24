@@ -89,9 +89,9 @@ popd
 
 # Non apt installs
 echo "# Install gcmcore"
-curl -fsSL https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.567/gcmcore-linux_amd64.2.0.567.18224.deb -o downloads/gcmcore-linux_amd64.2.0.567.18224.deb
+curl -fsSL https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.696/gcmcore-linux_amd64.2.0.696.deb -o ./downloads/gcmcore-linux_amd64.2.0.696.deb
 pushd downloads
-sudo dpkg -i gcmcore-linux_amd64.2.0.567.18224.deb
+sudo dpkg -i gcmcore-linux_amd64.2.0.696.deb
 popd
 
 
