@@ -96,7 +96,7 @@ popd
 
 
 echo "# Install Roam"
-curl -fsSL https://roam-electron-deploy.s3.us-east-2.amazonaws.com/roam-research_0.0.14_amd64.deb -o downloads/roam-reserch_0.0.14_amd64.deb
+curl -fsSL https://roam-electron-deploy.s3.us-east-2.amazonaws.com/roam-research_0.0.14_amd64.deb -o downloads/roam-research_0.0.14_amd64.deb
 pushd downloads
 sudo dpkg -i roam-research_0.0.14_amd64.deb
 popd
