@@ -58,18 +58,18 @@ cp -R .tmp/flat-remix-gnome-master/themes/Flat-Remix-Blue-Dark-fullPanel ~/.them
 unzip -q downloads/flat-remix-gtk-master.zip -d .tmp
 cp -R .tmp/flat-remix-gtk-master/themes/Flat-Remix-GTK-Blue-Dark-Solid ~/.themes/Flat-Remix-GTK-Blue-Dark-Solid
 
-if [ $1 == "desktop" ]; then
-  echo "# Install check from source because Ubuntu 20.04 is so old"
-  curl -fsSL https://github.com/libcheck/check/releases/download/0.15.2/check-0.15.2.tar.gz -o downloads/check.tar.gz
-  pushd .tmp
-  tar -xzv ../downloads/check.tar.gz
-  pushd check-0.15.2
-  ./configure
-  make
-  sudo make install
-  popd
-  popd
-fi
+#if [ $1 == "desktop" ]; then
+  #echo "# Install check from source because Ubuntu 20.04 is so old"
+  #curl -fsSL https://github.com/libcheck/check/releases/download/0.15.2/check-0.15.2.tar.gz -o downloads/check.tar.gz
+  #pushd .tmp
+  #tar -xzvf ../downloads/check.tar.gz
+  #pushd check-0.15.2
+  #./configure
+  #make
+  #sudo make install
+  #popd
+  #popd
+#fi
 
 echo "# Build and install rofi"
 pushd .tmp
