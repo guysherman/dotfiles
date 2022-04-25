@@ -1,0 +1,50 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<>
+	a pset:Preset ;
+	lv2:appliesTo <http://harrisonconsoles.com/lv2/gverb_plus/stereo> ;
+	rdfs:label "SoftArena" ;
+	lv2:port [
+		lv2:symbol "bal" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "bandwidth" ;
+		pset:value 0.191
+	] , [
+		lv2:symbol "damping" ;
+		pset:value 0.023
+	] , [
+		lv2:symbol "early" ;
+		pset:value 0.69
+	] , [
+		lv2:symbol "hipass" ;
+		pset:value 113.04088593
+	] , [
+		lv2:symbol "inhp" ;
+		pset:value 106.90715027
+	] , [
+		lv2:symbol "lopass" ;
+		pset:value 70.93714142
+	] , [
+		lv2:symbol "mix" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "predelay" ;
+		pset:value 71.14994049
+	] , [
+		lv2:symbol "size" ;
+		pset:value 194.35299683
+	] , [
+		lv2:symbol "time" ;
+		pset:value 2.88789248
+	] , [
+		lv2:symbol "wet" ;
+		pset:value 0.0
+	] .
+

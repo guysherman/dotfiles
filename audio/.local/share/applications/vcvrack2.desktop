@@ -1,0 +1,23 @@
+[Desktop Entry]
+Name=Rack 2
+GenericName=Virtual Eurorack System
+Comment=Build virtual modular synthesizers
+
+X-GNOME-FullName=VCV Rack Eurorack Simulator
+
+Version=2.0.6
+
+Type=Application
+Categories=Audio;
+# TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords=audio;synthesizer;synth;rack;eurorack;
+
+Path=/home/guy/.local/share/VCV/Rack2Pro
+Exec=/home/guy/.local/share/VCV/Rack2Pro/Rack
+TryExec=/home/guy/.local/share/VCV/Rack2Pro/Rack
+Terminal=false
+StartupNotify=true
+
+Icon=vcvrack
+
+

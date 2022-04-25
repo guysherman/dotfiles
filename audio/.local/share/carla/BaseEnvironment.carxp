@@ -1,0 +1,1366 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE CARLA-PROJECT>
+<CARLA-PROJECT VERSION='2.4'>
+ <EngineSettings>
+  <ForceStereo>false</ForceStereo>
+  <PreferPluginBridges>false</PreferPluginBridges>
+  <PreferUiBridges>true</PreferUiBridges>
+  <UIsAlwaysOnTop>false</UIsAlwaysOnTop>
+  <MaxParameters>200</MaxParameters>
+  <UIBridgesTimeout>4000</UIBridgesTimeout>
+ </EngineSettings>
+
+ <Transport>
+  <BeatsPerMinute>120</BeatsPerMinute>
+ </Transport>
+
+ <!-- LSP Graphic Equalizer x32 Stereo -->
+ <Plugin>
+  <Info>
+   <Type>LV2</Type>
+   <Name>LSP Graphic Equalizer x32 Stereo</Name>
+   <URI>http://lsp-plug.in/plugins/lv2/graph_equalizer_x32_stereo</URI>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x1</Options>
+
+   <Parameter>
+    <Index>0</Index>
+    <Name>Enabled</Name>
+    <Symbol>enabled</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>1</Index>
+    <Name>Input gain</Name>
+    <Symbol>g_in</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>2</Index>
+    <Name>Output gain</Name>
+    <Symbol>g_out</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>3</Index>
+    <Name>Equalizer mode</Name>
+    <Symbol>mode</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>4</Index>
+    <Name>Filter slope</Name>
+    <Symbol>slope</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>5</Index>
+    <Name>FFT analysis</Name>
+    <Symbol>fft</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>6</Index>
+    <Name>FFT reactivity</Name>
+    <Symbol>react</Symbol>
+    <Value>0.200000002980232</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>7</Index>
+    <Name>Shift gain</Name>
+    <Symbol>shift</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>8</Index>
+    <Name>Graph zoom</Name>
+    <Symbol>zoom</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>9</Index>
+    <Name>Band select</Name>
+    <Symbol>fsel</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>10</Index>
+    <Name>Output balance</Name>
+    <Symbol>bal</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>13</Index>
+    <Name>FFT visibility Left</Name>
+    <Symbol>fftv_l</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>16</Index>
+    <Name>FFT visibility Right</Name>
+    <Symbol>fftv_r</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>17</Index>
+    <Name>Band solo 16</Name>
+    <Symbol>xs_0</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>18</Index>
+    <Name>Band mute 16</Name>
+    <Symbol>xm_0</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>19</Index>
+    <Name>Band on 16</Name>
+    <Symbol>xe_0</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>21</Index>
+    <Name>Band gain 16</Name>
+    <Symbol>g_0</Symbol>
+    <Value>1.05706894397736</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>22</Index>
+    <Name>Band solo 20</Name>
+    <Symbol>xs_1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>23</Index>
+    <Name>Band mute 20</Name>
+    <Symbol>xm_1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>24</Index>
+    <Name>Band on 20</Name>
+    <Symbol>xe_1</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>26</Index>
+    <Name>Band gain 20</Name>
+    <Symbol>g_1</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>27</Index>
+    <Name>Band solo 25</Name>
+    <Symbol>xs_2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>28</Index>
+    <Name>Band mute 25</Name>
+    <Symbol>xm_2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>29</Index>
+    <Name>Band on 25</Name>
+    <Symbol>xe_2</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>31</Index>
+    <Name>Band gain 25</Name>
+    <Symbol>g_2</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>32</Index>
+    <Name>Band solo 31.5</Name>
+    <Symbol>xs_3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>33</Index>
+    <Name>Band mute 31.5</Name>
+    <Symbol>xm_3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>34</Index>
+    <Name>Band on 31.5</Name>
+    <Symbol>xe_3</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>36</Index>
+    <Name>Band gain 31.5</Name>
+    <Symbol>g_3</Symbol>
+    <Value>0.992102801799774</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>37</Index>
+    <Name>Band solo 40</Name>
+    <Symbol>xs_4</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>38</Index>
+    <Name>Band mute 40</Name>
+    <Symbol>xm_4</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>39</Index>
+    <Name>Band on 40</Name>
+    <Symbol>xe_4</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>41</Index>
+    <Name>Band gain 40</Name>
+    <Symbol>g_4</Symbol>
+    <Value>0.931129038333893</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>42</Index>
+    <Name>Band solo 50</Name>
+    <Symbol>xs_5</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>43</Index>
+    <Name>Band mute 50</Name>
+    <Symbol>xm_5</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>44</Index>
+    <Name>Band on 50</Name>
+    <Symbol>xe_5</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>46</Index>
+    <Name>Band gain 50</Name>
+    <Symbol>g_5</Symbol>
+    <Value>0.0949142426252365</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>47</Index>
+    <Name>Band solo 63</Name>
+    <Symbol>xs_6</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>48</Index>
+    <Name>Band mute 63</Name>
+    <Symbol>xm_6</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>49</Index>
+    <Name>Band on 63</Name>
+    <Symbol>xe_6</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>51</Index>
+    <Name>Band gain 63</Name>
+    <Symbol>g_6</Symbol>
+    <Value>0.43496111035347</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>52</Index>
+    <Name>Band solo 80</Name>
+    <Symbol>xs_7</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>53</Index>
+    <Name>Band mute 80</Name>
+    <Symbol>xm_7</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>54</Index>
+    <Name>Band on 80</Name>
+    <Symbol>xe_7</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>56</Index>
+    <Name>Band gain 80</Name>
+    <Symbol>g_7</Symbol>
+    <Value>1.16258120536804</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>57</Index>
+    <Name>Band solo 100</Name>
+    <Symbol>xs_8</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>58</Index>
+    <Name>Band mute 100</Name>
+    <Symbol>xm_8</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>59</Index>
+    <Name>Band on 100</Name>
+    <Symbol>xe_8</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>61</Index>
+    <Name>Band gain 100</Name>
+    <Symbol>g_8</Symbol>
+    <Value>3.75868201255798</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>62</Index>
+    <Name>Band solo 125</Name>
+    <Symbol>xs_9</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>63</Index>
+    <Name>Band mute 125</Name>
+    <Symbol>xm_9</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>64</Index>
+    <Name>Band on 125</Name>
+    <Symbol>xe_9</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>66</Index>
+    <Name>Band gain 125</Name>
+    <Symbol>g_9</Symbol>
+    <Value>0.0890809297561646</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>67</Index>
+    <Name>Band solo 160</Name>
+    <Symbol>xs_10</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>68</Index>
+    <Name>Band mute 160</Name>
+    <Symbol>xm_10</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>69</Index>
+    <Name>Band on 160</Name>
+    <Symbol>xe_10</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>71</Index>
+    <Name>Band gain 160</Name>
+    <Symbol>g_10</Symbol>
+    <Value>0.261864960193634</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>72</Index>
+    <Name>Band solo 200</Name>
+    <Symbol>xs_11</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>73</Index>
+    <Name>Band mute 200</Name>
+    <Symbol>xm_11</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>74</Index>
+    <Name>Band on 200</Name>
+    <Symbol>xe_11</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>76</Index>
+    <Name>Band gain 200</Name>
+    <Symbol>g_11</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>77</Index>
+    <Name>Band solo 250</Name>
+    <Symbol>xs_12</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>78</Index>
+    <Name>Band mute 250</Name>
+    <Symbol>xm_12</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>79</Index>
+    <Name>Band on 250</Name>
+    <Symbol>xe_12</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>81</Index>
+    <Name>Band gain 250</Name>
+    <Symbol>g_12</Symbol>
+    <Value>1.02407050132751</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>82</Index>
+    <Name>Band solo 315</Name>
+    <Symbol>xs_13</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>83</Index>
+    <Name>Band mute 315</Name>
+    <Symbol>xm_13</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>84</Index>
+    <Name>Band on 315</Name>
+    <Symbol>xe_13</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>86</Index>
+    <Name>Band gain 315</Name>
+    <Symbol>g_13</Symbol>
+    <Value>0.253690451383591</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>87</Index>
+    <Name>Band solo 400</Name>
+    <Symbol>xs_14</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>88</Index>
+    <Name>Band mute 400</Name>
+    <Symbol>xm_14</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>89</Index>
+    <Name>Band on 400</Name>
+    <Symbol>xe_14</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>91</Index>
+    <Name>Band gain 400</Name>
+    <Symbol>g_14</Symbol>
+    <Value>0.253690451383591</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>92</Index>
+    <Name>Band solo 500</Name>
+    <Symbol>xs_15</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>93</Index>
+    <Name>Band mute 500</Name>
+    <Symbol>xm_15</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>94</Index>
+    <Name>Band on 500</Name>
+    <Symbol>xe_15</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>96</Index>
+    <Name>Band gain 500</Name>
+    <Symbol>g_15</Symbol>
+    <Value>0.636399805545807</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>97</Index>
+    <Name>Band solo 630</Name>
+    <Symbol>xs_16</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>98</Index>
+    <Name>Band mute 630</Name>
+    <Symbol>xm_16</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>99</Index>
+    <Name>Band on 630</Name>
+    <Symbol>xe_16</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>101</Index>
+    <Name>Band gain 630</Name>
+    <Symbol>g_16</Symbol>
+    <Value>0.931129038333893</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>102</Index>
+    <Name>Band solo 800</Name>
+    <Symbol>xs_17</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>103</Index>
+    <Name>Band mute 800</Name>
+    <Symbol>xm_17</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>104</Index>
+    <Name>Band on 800</Name>
+    <Symbol>xe_17</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>106</Index>
+    <Name>Band gain 800</Name>
+    <Symbol>g_17</Symbol>
+    <Value>0.873903512954712</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>107</Index>
+    <Name>Band solo 1K</Name>
+    <Symbol>xs_18</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>108</Index>
+    <Name>Band mute 1K</Name>
+    <Symbol>xm_18</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>109</Index>
+    <Name>Band on 1K</Name>
+    <Symbol>xe_18</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>111</Index>
+    <Name>Band gain 1K</Name>
+    <Symbol>g_18</Symbol>
+    <Value>1.16258120536804</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>112</Index>
+    <Name>Band solo 1.25K</Name>
+    <Symbol>xs_19</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>113</Index>
+    <Name>Band mute 1.25K</Name>
+    <Symbol>xm_19</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>114</Index>
+    <Name>Band on 1.25K</Name>
+    <Symbol>xe_19</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>116</Index>
+    <Name>Band gain 1.25K</Name>
+    <Symbol>g_19</Symbol>
+    <Value>1.05706894397736</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>117</Index>
+    <Name>Band solo 1.6K</Name>
+    <Symbol>xs_20</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>118</Index>
+    <Name>Band mute 1.6K</Name>
+    <Symbol>xm_20</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>119</Index>
+    <Name>Band on 1.6K</Name>
+    <Symbol>xe_20</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>121</Index>
+    <Name>Band gain 1.6K</Name>
+    <Symbol>g_20</Symbol>
+    <Value>0.616533696651459</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>122</Index>
+    <Name>Band solo 2K</Name>
+    <Symbol>xs_21</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>123</Index>
+    <Name>Band mute 2K</Name>
+    <Symbol>xm_21</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>124</Index>
+    <Name>Band on 2K</Name>
+    <Symbol>xe_21</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>126</Index>
+    <Name>Band gain 2K</Name>
+    <Symbol>g_21</Symbol>
+    <Value>1.70099461078644</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>127</Index>
+    <Name>Band solo 2.5K</Name>
+    <Symbol>xs_22</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>128</Index>
+    <Name>Band mute 2.5K</Name>
+    <Symbol>xm_22</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>129</Index>
+    <Name>Band on 2.5K</Name>
+    <Symbol>xe_22</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>131</Index>
+    <Name>Band gain 2.5K</Name>
+    <Symbol>g_22</Symbol>
+    <Value>1.45156514644623</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>132</Index>
+    <Name>Band solo 3.15K</Name>
+    <Symbol>xs_23</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>133</Index>
+    <Name>Band mute 3.15K</Name>
+    <Symbol>xm_23</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>134</Index>
+    <Name>Band on 3.15K</Name>
+    <Symbol>xe_23</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>136</Index>
+    <Name>Band gain 3.15K</Name>
+    <Symbol>g_23</Symbol>
+    <Value>1.64789497852325</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>137</Index>
+    <Name>Band solo 4K</Name>
+    <Symbol>xs_24</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>138</Index>
+    <Name>Band mute 4K</Name>
+    <Symbol>xm_24</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>139</Index>
+    <Name>Band on 4K</Name>
+    <Symbol>xe_24</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>141</Index>
+    <Name>Band gain 4K</Name>
+    <Symbol>g_24</Symbol>
+    <Value>0.578642606735229</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>142</Index>
+    <Name>Band solo 5K</Name>
+    <Symbol>xs_25</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>143</Index>
+    <Name>Band mute 5K</Name>
+    <Symbol>xm_25</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>144</Index>
+    <Name>Band on 5K</Name>
+    <Symbol>xe_25</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>146</Index>
+    <Name>Band gain 5K</Name>
+    <Symbol>g_25</Symbol>
+    <Value>0.463443726301193</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>147</Index>
+    <Name>Band solo 6.3K</Name>
+    <Symbol>xs_26</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>148</Index>
+    <Name>Band mute 6.3K</Name>
+    <Symbol>xm_26</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>149</Index>
+    <Name>Band on 6.3K</Name>
+    <Symbol>xe_26</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>151</Index>
+    <Name>Band gain 6.3K</Name>
+    <Symbol>g_26</Symbol>
+    <Value>0.656906604766846</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>152</Index>
+    <Name>Band solo 8K</Name>
+    <Symbol>xs_27</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>153</Index>
+    <Name>Band mute 8K</Name>
+    <Symbol>xm_27</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>154</Index>
+    <Name>Band on 8K</Name>
+    <Symbol>xe_27</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>156</Index>
+    <Name>Band gain 8K</Name>
+    <Symbol>g_27</Symbol>
+    <Value>0.745756149291992</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>157</Index>
+    <Name>Band solo 10K</Name>
+    <Symbol>xs_28</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>158</Index>
+    <Name>Band mute 10K</Name>
+    <Symbol>xm_28</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>159</Index>
+    <Name>Band on 10K</Name>
+    <Symbol>xe_28</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>161</Index>
+    <Name>Band gain 10K</Name>
+    <Symbol>g_28</Symbol>
+    <Value>0.699922621250153</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>162</Index>
+    <Name>Band solo 12.5K</Name>
+    <Symbol>xs_29</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>163</Index>
+    <Name>Band mute 12.5K</Name>
+    <Symbol>xm_29</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>164</Index>
+    <Name>Band on 12.5K</Name>
+    <Symbol>xe_29</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>166</Index>
+    <Name>Band gain 12.5K</Name>
+    <Symbol>g_29</Symbol>
+    <Value>1.2387101650238</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>167</Index>
+    <Name>Band solo 16K</Name>
+    <Symbol>xs_30</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>168</Index>
+    <Name>Band mute 16K</Name>
+    <Symbol>xm_30</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>169</Index>
+    <Name>Band on 16K</Name>
+    <Symbol>xe_30</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>171</Index>
+    <Name>Band gain 16K</Name>
+    <Symbol>g_30</Symbol>
+    <Value>1.54661822319031</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>172</Index>
+    <Name>Band solo 20K</Name>
+    <Symbol>xs_31</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>173</Index>
+    <Name>Band mute 20K</Name>
+    <Symbol>xm_31</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>174</Index>
+    <Name>Band on 20K</Name>
+    <Symbol>xe_31</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>176</Index>
+    <Name>Band gain 20K</Name>
+    <Symbol>g_31</Symbol>
+    <Value>2.33580160140991</Value>
+   </Parameter>
+
+   <CustomData>
+    <Type>http://kxstudio.sf.net/ns/carla/property</Type>
+    <Key>CarlaSkinIsCompacted</Key>
+    <Value>false</Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Object</Type>
+    <Key>http://lsp-plug.in/plugins/lv2/graph_equalizer_x32_stereo/KVT</Key>
+    <Value>AAAAAEAAAAA=</Value>
+   </CustomData>
+  </Data>
+ </Plugin>
+
+ <!-- x42-eq - Parametric Equalizer Stereo -->
+ <Plugin>
+  <Info>
+   <Type>LV2</Type>
+   <Name>x42-eq - Parametric Equalizer Stereo</Name>
+   <URI>http://gareus.org/oss/lv2/fil4#stereo</URI>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x0</Options>
+
+   <Parameter>
+    <Index>0</Index>
+    <Name>Enable</Name>
+    <Symbol>enable</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>1</Index>
+    <Name>Gain</Name>
+    <Symbol>gain</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>3</Index>
+    <Name>Reset Peak Hold</Name>
+    <Symbol>peakreset</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>4</Index>
+    <Name>Highpass</Name>
+    <Symbol>HighPass</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>5</Index>
+    <Name>Highpass Frequency</Name>
+    <Symbol>HPfreq</Symbol>
+    <Value>20</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>6</Index>
+    <Name>HighPass Resonance</Name>
+    <Symbol>HPQ</Symbol>
+    <Value>0.699999988079071</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>7</Index>
+    <Name>Lowpass</Name>
+    <Symbol>LowPass</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>8</Index>
+    <Name>Lowpass Frequency</Name>
+    <Symbol>LPfreq</Symbol>
+    <Value>20000</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>9</Index>
+    <Name>LowPass Resonance</Name>
+    <Symbol>LPQ</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>10</Index>
+    <Name>Lowshelf</Name>
+    <Symbol>LSsec</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>11</Index>
+    <Name>Lowshelf Frequency</Name>
+    <Symbol>LSfreq</Symbol>
+    <Value>90.4259643554688</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>12</Index>
+    <Name>Lowshelf Bandwidth</Name>
+    <Symbol>LSq</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>13</Index>
+    <Name>Lowshelf Gain</Name>
+    <Symbol>LSgain</Symbol>
+    <Value>-5.59999942779541</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>14</Index>
+    <Name>Section 1</Name>
+    <Symbol>sec1</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>15</Index>
+    <Name>Frequency 1</Name>
+    <Symbol>freq1</Symbol>
+    <Value>199.394989013672</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>16</Index>
+    <Name>Bandwidth 1</Name>
+    <Symbol>q1</Symbol>
+    <Value>0.954841673374176</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>17</Index>
+    <Name>Gain 1</Name>
+    <Symbol>gain1</Symbol>
+    <Value>5.20000076293945</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>18</Index>
+    <Name>Section 2</Name>
+    <Symbol>sec2</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>19</Index>
+    <Name>Frequency 2</Name>
+    <Symbol>freq2</Symbol>
+    <Value>2341.267578125</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>20</Index>
+    <Name>Bandwidth 2</Name>
+    <Symbol>q2</Symbol>
+    <Value>0.0947322770953178</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>21</Index>
+    <Name>Gain 2</Name>
+    <Symbol>gain2</Symbol>
+    <Value>-15.1999998092651</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>22</Index>
+    <Name>Section 3</Name>
+    <Symbol>sec3</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>23</Index>
+    <Name>Frequency 3</Name>
+    <Symbol>freq3</Symbol>
+    <Value>4039.17993164062</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>24</Index>
+    <Name>Bandwidth 3</Name>
+    <Symbol>q3</Symbol>
+    <Value>0.189464583992958</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>25</Index>
+    <Name>Gain 3</Name>
+    <Symbol>gain3</Symbol>
+    <Value>3</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>26</Index>
+    <Name>Section 4</Name>
+    <Symbol>sec4</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>27</Index>
+    <Name>Frequency 4</Name>
+    <Symbol>freq4</Symbol>
+    <Value>7986.302734375</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>28</Index>
+    <Name>Bandwidth 4</Name>
+    <Symbol>q4</Symbol>
+    <Value>0.150378122925758</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>29</Index>
+    <Name>Gain 4</Name>
+    <Symbol>gain4</Symbol>
+    <Value>7.60000038146973</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>30</Index>
+    <Name>Highshelf</Name>
+    <Symbol>HSsec</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>31</Index>
+    <Name>Highshelf Frequency</Name>
+    <Symbol>HSfreq</Symbol>
+    <Value>8588.6494140625</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>32</Index>
+    <Name>Highshelf Bandwidth</Name>
+    <Symbol>HSq</Symbol>
+    <Value>1.01395916938782</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>33</Index>
+    <Name>Highshelf Gain</Name>
+    <Symbol>HSgain</Symbol>
+    <Value>-4.19999980926514</Value>
+   </Parameter>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Float</Type>
+    <Key>http://gareus.org/oss/lv2/fil4#dbscale</Key>
+    <Value>AADwQQ==</Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Float</Type>
+    <Key>http://gareus.org/oss/lv2/fil4#fftgain</Key>
+    <Value>AAAAAA==</Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Float</Type>
+    <Key>http://gareus.org/oss/lv2/fil4#uiscale</Key>
+    <Value>AACAPw==</Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Int</Type>
+    <Key>http://gareus.org/oss/lv2/fil4#fftmode</Key>
+    <Value>ARIAAA==</Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Int</Type>
+    <Key>http://gareus.org/oss/lv2/fil4#fftchannel</Key>
+    <Value>/////w==</Value>
+   </CustomData>
+  </Data>
+ </Plugin>
+
+ <ExternalPatchbay>
+  <Connection>
+   <Source>system:capture_1</Source>
+   <Target>PulseAudio JACK Source:front-left</Target>
+  </Connection>
+  <Connection>
+   <Source>system:capture_2</Source>
+   <Target>PulseAudio JACK Source:front-right</Target>
+  </Connection>
+  <Connection>
+   <Source>PulseAudio JACK Sink:front-left</Source>
+   <Target>LSP Graphic Equalizer x32 Stereo:Input L</Target>
+  </Connection>
+  <Connection>
+   <Source>PulseAudio JACK Sink:front-left</Source>
+   <Target>x42-eq - Parametric Equalizer Stereo:In Left</Target>
+  </Connection>
+  <Connection>
+   <Source>PulseAudio JACK Sink:front-right</Source>
+   <Target>LSP Graphic Equalizer x32 Stereo:Input R</Target>
+  </Connection>
+  <Connection>
+   <Source>PulseAudio JACK Sink:front-right</Source>
+   <Target>x42-eq - Parametric Equalizer Stereo:In Right</Target>
+  </Connection>
+  <Connection>
+   <Source>LSP Graphic Equalizer x32 Stereo:Output L</Source>
+   <Target>system:playback_3</Target>
+  </Connection>
+  <Connection>
+   <Source>LSP Graphic Equalizer x32 Stereo:Output R</Source>
+   <Target>system:playback_4</Target>
+  </Connection>
+  <Connection>
+   <Source>x42-eq - Parametric Equalizer Stereo:Out Left</Source>
+   <Target>system:playback_1</Target>
+  </Connection>
+  <Connection>
+   <Source>x42-eq - Parametric Equalizer Stereo:Out Right</Source>
+   <Target>system:playback_2</Target>
+  </Connection>
+  <Positions>
+   <Position x1="1228" y1="810" x2="1888" y2="1172">
+    <Name>system</Name>
+   </Position>
+   <Position x1="1055" y1="1181">
+    <Name>PulseAudio JACK Sink</Name>
+   </Position>
+   <Position x1="1657" y1="837">
+    <Name>PulseAudio JACK Source</Name>
+   </Position>
+   <Position x1="1441" y1="1325" pluginId="0">
+    <Name>LSP Graphic Equalizer x32 Stereo</Name>
+   </Position>
+   <Position x1="1441" y1="1077" pluginId="1">
+    <Name>x42-eq - Parametric Equalizer Stereo</Name>
+   </Position>
+  </Positions>
+ </ExternalPatchbay>
+</CARLA-PROJECT>
