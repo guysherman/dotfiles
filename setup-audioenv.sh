@@ -16,7 +16,7 @@ echo "# Installing audio stuff"
 sudo apt install \
   jackd2 libjack-jackd2-0 libjack-jackd2-dev pulseaudio-module-jack carla guitarix-lv2 \
   dpf-plugins-lv2 lsp-plugins-lv2 x42-plugins hydrogen hydrogen-drumkits \
-  hydrogen-drumkits-effects zynaddsubfx zyaddsubfx-lv2 a2jmidid surge japa
+  hydrogen-drumkits-effects zynaddsubfx zyaddsubfx-lv2 a2jmidid surge japa linux-lowlatency
 
 echo ""
 echo "Please download the latest ardour installer to $HOME/dotfiles/downloads/ardour.run"
@@ -34,7 +34,7 @@ read -n1 -s -r -p $'Once complete, press any key to continue...'
 echo ""
 
 sudo mkdir -p /usr/lib/lv2
-tar -C /usr/lib/lv2 -xzf ./downloads/Harrison.lv2.tar.gz
+sudo tar -C /usr/lib/lv2 -xzf ./downloads/Harrison.lv2.tar.gz
 
 echo ""
 echo "Please download the harrison and ardour license files tarball to"
