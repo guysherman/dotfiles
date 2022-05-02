@@ -49,6 +49,9 @@ call plug#begin(stdpath('data').'/plugged')
   
   " Databases
   source $HOME/.config/nvim/plugins/postgres-nvim.vim
+
+  " Extra
+  source $HOME/.config/nvim/plugins/vim-wiki.vim
 call plug#end()
 
 doautocmd User PlugLoaded
