@@ -46,6 +46,7 @@ au BufNewFile,BufRead *Dockerfile* set filetype=dockerfile
 
 autocmd FileType c,cpp,javascript,typescript,javascriptreact,typescriptreact,json setlocal foldmethod=syntax
 autocmd FileType c,cpp,javascript,typescript,javascriptreact,typescriptreact,json,yaml setlocal nofoldenable
+autocmd FileType java setlocal shiftwidth=4 softtabstop=4 expandtab
 
 
 " Persistent undo
