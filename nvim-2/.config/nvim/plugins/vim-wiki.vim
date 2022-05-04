@@ -1,6 +1,6 @@
 Plug 'lervag/wiki.vim'
 
-let g:wikiw_root = '~/Documents/notes'
+let g:wikiw_root = '~/Amazon WorkDocs Drive/My Documents/notes'
 let g:wiki_filetypes = ['md']
 let g:wiki_link_extension = '.md'
 
