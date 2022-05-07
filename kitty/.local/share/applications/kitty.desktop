@@ -5,7 +5,7 @@ Name=Kitty
 GenericName=Terminal emulator
 Comment=A fast, feature full, GPU based terminal emulator
 TryExec=kitty
-Exec=kitty -o allow_remote_control=yes --single-instance --listen-on unix:@mykitty
+Exec=kitty -o allow_remote_control=yes --single-instance --listen-on=tcp:locahost:45876
 Icon=kitty
 Categories=System;TerminalEmulator;
 

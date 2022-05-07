@@ -81,7 +81,7 @@ floating_modifier $mod
 # Set a key to set xrandr to laptop mode
 bindsym $mod+F8 exec --no-startup-id auto-disp-user.sh
 # start a terminal
-bindsym $mod+Return exec kitty -o allow_remote_control=yes --single-instance --listen-on unix:@mykitty
+bindsym $mod+Return exec kitty -o allow_remote_control=yes --single-instance --listen-on=tcp:localhost:45876
 
 # kill focused window
 bindsym $mod+Shift+q kill
