@@ -1,7 +1,7 @@
 Plug 'vim-test/vim-test'
 let test#strategy = "kitty"
-let test#javascript#jest#executable = "yarn test"
-let test#javascript#reactscripts#executable = "yarn test"
+
+source $HOME/.config/nvim/plugins/vim-test-config.vim
 
 " VimTest
 nmap <silent> <leader>tn :TestNearest<CR>
