@@ -1,5 +1,6 @@
 " LSP Support
 Plug 'neovim/nvim-lspconfig'
+Plug 'mfussenegger/nvim-jdtls'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'creativenull/diagnosticls-configs-nvim'
 

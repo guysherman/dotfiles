@@ -1,5 +1,6 @@
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-telescope/telescope-ui-select.nvim'
 
 function TelescopeSetup()
 lua require("guy")

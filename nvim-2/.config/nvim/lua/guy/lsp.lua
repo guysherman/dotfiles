@@ -8,7 +8,7 @@ local lspkind = require("lspkind")
 local root_dir = lspconfig.util.root_pattern('.git', 'package.json', '.gitignore', 'pom.xml', 'go.mod')
 local desired_servers = {
   "gopls",
-  "jdtls",
+  --"jdtls",
   "tsserver",
   "bashls",
   "vimls",
@@ -145,8 +145,8 @@ else
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
         vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', '[g', ':lua vim.diagnostic.goto_next()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', ']g', ':lua vim.diagnostic.goto_prev()<CR>', opts)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', ']g', ':lua vim.diagnostic.goto_next()<CR>', opts)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '[g', ':lua vim.diagnostic.goto_prev()<CR>', opts)
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
       end,
       root_dir = root_dir
@@ -195,7 +195,18 @@ else
   require("lspconfig").vimls.setup(config(with_defaults("vimls")))
 
   -- jdtls
-  require("lspconfig").jdtls.setup(config(with_defaults("jdtls")))
+  --require("lspconfig").jdtls.setup(config(with_defaults("jdtls", {
+  --settings = {
+  --java = {
+  --format = {
+  --settings = {
+  --url = "~/.config/jdtls-format.xml",
+  --profile = "GoogleStyle",
+  --}
+  --}
+  --}
+  --}
+  --})))
 
   -- tsserver
   require("lspconfig").tsserver.setup(config(with_defaults("tsserver")))
