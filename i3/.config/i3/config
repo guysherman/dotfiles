@@ -197,6 +197,7 @@ assign [class="kitty"] $ws1
 assign [class="Chromium"] $ws2
 assign [class="Google-chrome"] $ws2
 assign [class="Brave-browser"] $ws2
+assign [class="firefox"] $ws2
 assign [title="Google Chrome"] $ws2
 assign [class="Microsoft-edge-dev"] $ws3
 assign [class="Microsoft-edge-beta"] $ws3
