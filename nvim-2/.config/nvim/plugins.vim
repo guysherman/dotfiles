@@ -7,7 +7,8 @@ endif
 
 call plug#begin(stdpath('data').'/plugged')
   source $HOME/.config/nvim/plugins/lua.vim
-  source $HOME/.config/nvim/plugins/vimspector.vim
+  source $HOME/.config/nvim/plugins/nvim-dap.vim
+  "source $HOME/.config/nvim/plugins/vimspector.vim
 
   " Editing Enhancements
   source $HOME/.config/nvim/plugins/nerdcommenter.vim
