@@ -229,6 +229,7 @@ else
   require("lspconfig").ccls.setup(config(with_defaults("ccls")))
 
 
+  require("lspconfig").metals.setup({})
 
   -- diagnosticls
   diagnosticls.init(config(with_defaults("diagnosticls")))

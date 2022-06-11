@@ -1,3 +1,16 @@
+local util = require 'lspconfig.util'
+
+local env = {
+  HOME = vim.loop.os_homedir(),
+  JAVA_HOME = os.getenv 'JAVA_HOME',
+  JDTLS_HOME = os.getenv 'JDTLS_HOME',
+  WORKSPACE = os.getenv 'WORKSPACE',
+}
+
+local function get_workspace_dir()
+  return env.WORKSPACE and env.WORKSPACE or util.path.join(env.HOME, 'workspace')
+end
+
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
   -- The command that starts the language server
@@ -14,6 +27,7 @@ local config = {
     '-Dlog.protocol=true',
     '-Dlog.level=ALL',
     '-Xms1g',
+    '-Xmx2G',
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
@@ -34,13 +48,13 @@ local config = {
 
     -- 💀
     -- See `data directory configuration` section in the README
-    '-data', '~/workspace'
+    '-data', get_workspace_dir()
   },
 
   -- 💀
   -- This is the default if not provided, you can remove it. Or adjust as needed.
   -- One dedicated LSP server & client will be started per unique root_dir
-  root_dir = require('jdtls.setup').find_root({ '.git', 'mvnw', 'gradlew', 'Config' }),
+  root_dir = require('jdtls.setup').find_root({ 'build.xml', 'pom.xml', 'settings.gradle', 'setting.gradle.kts', '.git', 'mvnw', 'gradlew', 'Config' }),
 
   -- Here you can configure eclipse.jdt.ls specific settings
   -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
@@ -73,7 +87,7 @@ local config = {
 require('jdtls').start_or_attach(config)
 local opts = { noremap = true, silent = true }
 local bufnr = 0
-vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+--vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
 vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
