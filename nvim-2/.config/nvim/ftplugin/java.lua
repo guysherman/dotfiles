@@ -11,6 +11,22 @@ local function get_workspace_dir()
   return env.WORKSPACE and env.WORKSPACE or util.path.join(env.HOME, 'workspace')
 end
 
+local root_dir = require('jdtls.setup').find_root({ 'packageInfo', 'pom.xml', 'settings.gradle', 'setting.gradle.kts', 'mvnw', 'gradlew' }, 'Config')
+
+local ws_folders_lsp = {}
+local ws_folders_jdtls = {}
+if root_dir then
+  local file = io.open(root_dir .. "/.bemol/ws_root_folders", "r");
+  if file then
+    for line in file:lines() do
+      table.insert(ws_folders_lsp, line);
+      table.insert(ws_folders_jdtls, string.format("file://%s", line))
+    end
+    file:close()
+  end
+end
+
+
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
   -- The command that starts the language server
@@ -54,7 +70,7 @@ local config = {
   -- 💀
   -- This is the default if not provided, you can remove it. Or adjust as needed.
   -- One dedicated LSP server & client will be started per unique root_dir
-  root_dir = require('jdtls.setup').find_root({ 'build.xml', 'pom.xml', 'settings.gradle', 'setting.gradle.kts', '.git', 'mvnw', 'gradlew', 'Config' }),
+  root_dir = root_dir,
 
   -- Here you can configure eclipse.jdt.ls specific settings
   -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
@@ -79,12 +95,18 @@ local config = {
   --
   -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
   init_options = {
-    bundles = {}
+    bundles = {},
+    workspaceFolders = ws_folders_jdtls
   },
 }
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 require('jdtls').start_or_attach(config)
+
+for _, line in ipairs(ws_folders_lsp) do
+  vim.lsp.buf.add_workspace_folder(line)
+end
+
 local opts = { noremap = true, silent = true }
 local bufnr = 0
 --vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
