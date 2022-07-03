@@ -8,8 +8,8 @@ echo "Stowing audio"
 stow audio
 
 echo "# Add KXStudio Repos"
-wget https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_11.0.1_all.deb
-sudo dpkg -i kxstudio-repos_11.0.1_all.deb
+wget https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_11.1.0_all.deb
+sudo dpkg -i kxstudio-repos_11.1.0_all.deb
 sudo apt update
 
 echo "# Installing audio stuff"
