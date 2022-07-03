@@ -1,4 +1,5 @@
 Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
 Plug 'leoluz/nvim-dap-go'
 
 nnoremap <silent> <F5> <Cmd>lua require'dap'.continue()<CR>

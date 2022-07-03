@@ -5,7 +5,9 @@ export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
 
-export PATH=/opt/go/bin:$PATH
+export GOPATH=/opt/go
+
+export PATH=$GOPATH/bin:$PATH
 
 # jEnv
 export PATH="$HOME/.jenv/bin:$PATH"
