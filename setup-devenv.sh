@@ -185,7 +185,7 @@ mkdir -p ~/.virtualenvs
 sudo pip install virtualenv virtualenvwrapper ueberzug
 
 echo "# Install maven"
-curl -fsSL https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz -o ./downloads/maven.tar.gz
+curl -fsSL https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz -o ./downloads/maven.tar.gz
 sudo tar -C /opt -xzf ./downloads/maven.tar.gz
 
 echo "# Install go"
