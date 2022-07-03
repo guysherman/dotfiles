@@ -72,7 +72,7 @@ sudo apt install -y \
   libimobiledevice-dev libssl-dev  \
   libusb-dev libusb-1.0-0-dev libplist-dev libplist++-dev usbmuxd markdown xdotool \
   atool mediainfo libncurses-dev build-essential cmake ninja-build libclang-13-dev libclang-common-13-dev \
-  libclang-cpp13 libclang1-13 openjdk-11-jdk openjdk-17-jdk
+  libclang-cpp13 libclang1-13 openjdk-11-jdk openjdk-17-jdk meson
 
 # Packages for just the desktop
 
