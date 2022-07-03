@@ -61,7 +61,7 @@ echo "# Install packages via apt"
 
 sudo apt update
 # Packages for building things
-sudo apt install -y git build-essential autoconf automake make pkg-config gcc bison flex check libtool python3 python3-pip
+sudo apt install -y git build-essential autoconf automake make pkg-config gcc bison flex check libtool python3 python3-pip maven
 
 # Packages for both machines, no matter what DE
 sudo apt install -y \
@@ -183,10 +183,6 @@ npm install -g yarn
 echo "# Install virtualenv"
 mkdir -p ~/.virtualenvs
 sudo pip install virtualenv virtualenvwrapper ueberzug
-
-echo "# Install maven"
-curl -fsSL https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz -o ./downloads/maven.tar.gz
-sudo tar -C /opt -xzf ./downloads/maven.tar.gz
 
 echo "# Install go"
 curl -fsSL https://go.dev/dl/go1.18.1.linux-amd64.tar.gz -o ./downloads/go.tar.gz
