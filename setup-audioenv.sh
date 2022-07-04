@@ -44,18 +44,19 @@ read -n1 -s -r -p $'Once complete, press any key to continue...'
 echo ""
 
 sudo mkdir -p /usr/lib/lxvst
-sudo tar -C ./tmp/ava -xzvf ./downloads/harrison-ava-linx.tgz
+mkdir -p ./tmp/ava
+tar -C ./tmp/ava -xzvf ./downloads/harrison-ava-linx.tgz
 sudo cp ./tmp/ava/Harrison_AVA/vst/* /usr/lib/lxvst/
 
 
 echo ""
 echo "Please download the harrison and ardour license files tarball to"
-echo "$HOME/dotfiles/downloads/harrison-licenses.tar.gz"
+echo "$HOME/dotfiles/downloads/harrison-licenses.tgz"
 echo ""
 read -n1 -s -r -p $'Once complete, press any key to continue...'
 echo ""
 
-tar -C $HOME ./downloads/harrison-licenses.tar.gz
+tar -C $HOME -xzf ./downloads/harrison-licenses.tgz
 
 echo ""
 echo "Please download VCVRack2 to $HOME/dotfiles/downloads/rack2.zip"
@@ -80,4 +81,3 @@ meson setup build
 cd build
 ninja
 meson install
-
