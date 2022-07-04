@@ -16,7 +16,7 @@ echo "# Installing audio stuff"
 sudo apt install \
   jackd2 libjack-jackd2-0 libjack-jackd2-dev pulseaudio-module-jack carla guitarix-lv2 \
   dpf-plugins-lv2 lsp-plugins-lv2 x42-plugins hydrogen hydrogen-drumkits \
-  hydrogen-drumkits-effects zynaddsubfx zyaddsubfx-lv2 a2jmidid surge japa linux-lowlatency \
+  hydrogen-drumkits-effects zynaddsubfx zynaddsubfx-lv2 a2jmidid surge japa linux-lowlatency \
   libfmt-dev
 
 echo ""
