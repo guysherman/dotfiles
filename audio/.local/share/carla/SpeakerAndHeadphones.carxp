@@ -1,0 +1,640 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE CARLA-PROJECT>
+<CARLA-PROJECT VERSION='2.4'>
+ <EngineSettings>
+  <ForceStereo>false</ForceStereo>
+  <PreferPluginBridges>false</PreferPluginBridges>
+  <PreferUiBridges>true</PreferUiBridges>
+  <UIsAlwaysOnTop>false</UIsAlwaysOnTop>
+  <MaxParameters>200</MaxParameters>
+  <UIBridgesTimeout>4000</UIBridgesTimeout>
+ </EngineSettings>
+
+ <Transport>
+  <BeatsPerMinute>120</BeatsPerMinute>
+ </Transport>
+
+ <!-- x42-eq - Parametric Equalizer Stereo -->
+ <Plugin>
+  <Info>
+   <Type>LV2</Type>
+   <Name>x42-eq - Parametric Equalizer Stereo</Name>
+   <URI>http://gareus.org/oss/lv2/fil4#stereo</URI>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x0</Options>
+
+   <Parameter>
+    <Index>0</Index>
+    <Name>Enable</Name>
+    <Symbol>enable</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>1</Index>
+    <Name>Gain</Name>
+    <Symbol>gain</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>3</Index>
+    <Name>Reset Peak Hold</Name>
+    <Symbol>peakreset</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>4</Index>
+    <Name>Highpass</Name>
+    <Symbol>HighPass</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>5</Index>
+    <Name>Highpass Frequency</Name>
+    <Symbol>HPfreq</Symbol>
+    <Value>20</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>6</Index>
+    <Name>HighPass Resonance</Name>
+    <Symbol>HPQ</Symbol>
+    <Value>0.699999988079071</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>7</Index>
+    <Name>Lowpass</Name>
+    <Symbol>LowPass</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>8</Index>
+    <Name>Lowpass Frequency</Name>
+    <Symbol>LPfreq</Symbol>
+    <Value>20000</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>9</Index>
+    <Name>LowPass Resonance</Name>
+    <Symbol>LPQ</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>10</Index>
+    <Name>Lowshelf</Name>
+    <Symbol>LSsec</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>11</Index>
+    <Name>Lowshelf Frequency</Name>
+    <Symbol>LSfreq</Symbol>
+    <Value>90.4259643554688</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>12</Index>
+    <Name>Lowshelf Bandwidth</Name>
+    <Symbol>LSq</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>13</Index>
+    <Name>Lowshelf Gain</Name>
+    <Symbol>LSgain</Symbol>
+    <Value>-5.59999942779541</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>14</Index>
+    <Name>Section 1</Name>
+    <Symbol>sec1</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>15</Index>
+    <Name>Frequency 1</Name>
+    <Symbol>freq1</Symbol>
+    <Value>199.394989013672</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>16</Index>
+    <Name>Bandwidth 1</Name>
+    <Symbol>q1</Symbol>
+    <Value>0.954841673374176</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>17</Index>
+    <Name>Gain 1</Name>
+    <Symbol>gain1</Symbol>
+    <Value>5.20000076293945</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>18</Index>
+    <Name>Section 2</Name>
+    <Symbol>sec2</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>19</Index>
+    <Name>Frequency 2</Name>
+    <Symbol>freq2</Symbol>
+    <Value>2341.267578125</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>20</Index>
+    <Name>Bandwidth 2</Name>
+    <Symbol>q2</Symbol>
+    <Value>0.0947322770953178</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>21</Index>
+    <Name>Gain 2</Name>
+    <Symbol>gain2</Symbol>
+    <Value>-15.1999998092651</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>22</Index>
+    <Name>Section 3</Name>
+    <Symbol>sec3</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>23</Index>
+    <Name>Frequency 3</Name>
+    <Symbol>freq3</Symbol>
+    <Value>4039.17993164062</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>24</Index>
+    <Name>Bandwidth 3</Name>
+    <Symbol>q3</Symbol>
+    <Value>0.189464583992958</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>25</Index>
+    <Name>Gain 3</Name>
+    <Symbol>gain3</Symbol>
+    <Value>3</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>26</Index>
+    <Name>Section 4</Name>
+    <Symbol>sec4</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>27</Index>
+    <Name>Frequency 4</Name>
+    <Symbol>freq4</Symbol>
+    <Value>7986.302734375</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>28</Index>
+    <Name>Bandwidth 4</Name>
+    <Symbol>q4</Symbol>
+    <Value>0.150378122925758</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>29</Index>
+    <Name>Gain 4</Name>
+    <Symbol>gain4</Symbol>
+    <Value>4.60000038146973</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>30</Index>
+    <Name>Highshelf</Name>
+    <Symbol>HSsec</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>31</Index>
+    <Name>Highshelf Frequency</Name>
+    <Symbol>HSfreq</Symbol>
+    <Value>8588.6494140625</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>32</Index>
+    <Name>Highshelf Bandwidth</Name>
+    <Symbol>HSq</Symbol>
+    <Value>1.01395916938782</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>33</Index>
+    <Name>Highshelf Gain</Name>
+    <Symbol>HSgain</Symbol>
+    <Value>-4.19999980926514</Value>
+   </Parameter>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Float</Type>
+    <Key>http://gareus.org/oss/lv2/fil4#dbscale</Key>
+    <Value>AADwQQ==</Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Float</Type>
+    <Key>http://gareus.org/oss/lv2/fil4#fftgain</Key>
+    <Value>AAAAAA==</Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Float</Type>
+    <Key>http://gareus.org/oss/lv2/fil4#uiscale</Key>
+    <Value>AACAPw==</Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Int</Type>
+    <Key>http://gareus.org/oss/lv2/fil4#fftmode</Key>
+    <Value>ARIAAA==</Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Int</Type>
+    <Key>http://gareus.org/oss/lv2/fil4#fftchannel</Key>
+    <Value>/////w==</Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://kxstudio.sf.net/ns/carla/property</Type>
+    <Key>CarlaSkinIsCompacted</Key>
+    <Value>true</Value>
+   </CustomData>
+  </Data>
+ </Plugin>
+
+ <!-- x42-eq - Parametric Equalizer Stereo -->
+ <Plugin>
+  <Info>
+   <Type>LV2</Type>
+   <Name>x42-eq - Parametric Equalizer Stereo (2)</Name>
+   <URI>http://gareus.org/oss/lv2/fil4#stereo</URI>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x0</Options>
+
+   <Parameter>
+    <Index>0</Index>
+    <Name>Enable</Name>
+    <Symbol>enable</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>1</Index>
+    <Name>Gain</Name>
+    <Symbol>gain</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>3</Index>
+    <Name>Reset Peak Hold</Name>
+    <Symbol>peakreset</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>4</Index>
+    <Name>Highpass</Name>
+    <Symbol>HighPass</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>5</Index>
+    <Name>Highpass Frequency</Name>
+    <Symbol>HPfreq</Symbol>
+    <Value>20</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>6</Index>
+    <Name>HighPass Resonance</Name>
+    <Symbol>HPQ</Symbol>
+    <Value>0.699999988079071</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>7</Index>
+    <Name>Lowpass</Name>
+    <Symbol>LowPass</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>8</Index>
+    <Name>Lowpass Frequency</Name>
+    <Symbol>LPfreq</Symbol>
+    <Value>20000</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>9</Index>
+    <Name>LowPass Resonance</Name>
+    <Symbol>LPQ</Symbol>
+    <Value>0.970823645591736</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>10</Index>
+    <Name>Lowshelf</Name>
+    <Symbol>LSsec</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>11</Index>
+    <Name>Lowshelf Frequency</Name>
+    <Symbol>LSfreq</Symbol>
+    <Value>32.2460708618164</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>12</Index>
+    <Name>Lowshelf Bandwidth</Name>
+    <Symbol>LSq</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>13</Index>
+    <Name>Lowshelf Gain</Name>
+    <Symbol>LSgain</Symbol>
+    <Value>-6</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>14</Index>
+    <Name>Section 1</Name>
+    <Symbol>sec1</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>15</Index>
+    <Name>Frequency 1</Name>
+    <Symbol>freq1</Symbol>
+    <Value>94.4565582275391</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>16</Index>
+    <Name>Bandwidth 1</Name>
+    <Symbol>q1</Symbol>
+    <Value>0.227930635213852</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>17</Index>
+    <Name>Gain 1</Name>
+    <Symbol>gain1</Symbol>
+    <Value>2.80000114440918</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>18</Index>
+    <Name>Section 2</Name>
+    <Symbol>sec2</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>19</Index>
+    <Name>Frequency 2</Name>
+    <Symbol>freq2</Symbol>
+    <Value>403.228485107422</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>20</Index>
+    <Name>Bandwidth 2</Name>
+    <Symbol>q2</Symbol>
+    <Value>0.287174612283707</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>21</Index>
+    <Name>Gain 2</Name>
+    <Symbol>gain2</Symbol>
+    <Value>-3.80000019073486</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>22</Index>
+    <Name>Section 3</Name>
+    <Symbol>sec3</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>23</Index>
+    <Name>Frequency 3</Name>
+    <Symbol>freq3</Symbol>
+    <Value>1259.5986328125</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>24</Index>
+    <Name>Bandwidth 3</Name>
+    <Symbol>q3</Symbol>
+    <Value>0.954841673374176</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>25</Index>
+    <Name>Gain 3</Name>
+    <Symbol>gain3</Symbol>
+    <Value>-1.19999885559082</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>26</Index>
+    <Name>Section 4</Name>
+    <Symbol>sec4</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>27</Index>
+    <Name>Frequency 4</Name>
+    <Symbol>freq4</Symbol>
+    <Value>306.105010986328</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>28</Index>
+    <Name>Bandwidth 4</Name>
+    <Symbol>q4</Symbol>
+    <Value>0.189464583992958</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>29</Index>
+    <Name>Gain 4</Name>
+    <Symbol>gain4</Symbol>
+    <Value>2.20000076293945</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>30</Index>
+    <Name>Highshelf</Name>
+    <Symbol>HSsec</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>31</Index>
+    <Name>Highshelf Frequency</Name>
+    <Symbol>HSfreq</Symbol>
+    <Value>8830.330078125</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>32</Index>
+    <Name>Highshelf Bandwidth</Name>
+    <Symbol>HSq</Symbol>
+    <Value>1.01395916938782</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>33</Index>
+    <Name>Highshelf Gain</Name>
+    <Symbol>HSgain</Symbol>
+    <Value>1.80000114440918</Value>
+   </Parameter>
+
+   <CustomData>
+    <Type>http://kxstudio.sf.net/ns/carla/property</Type>
+    <Key>CarlaSkinIsCompacted</Key>
+    <Value>false</Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Float</Type>
+    <Key>http://gareus.org/oss/lv2/fil4#dbscale</Key>
+    <Value>AADwQQ==</Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Float</Type>
+    <Key>http://gareus.org/oss/lv2/fil4#fftgain</Key>
+    <Value>AAAAAA==</Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Float</Type>
+    <Key>http://gareus.org/oss/lv2/fil4#uiscale</Key>
+    <Value>AADcQw==</Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Int</Type>
+    <Key>http://gareus.org/oss/lv2/fil4#fftmode</Key>
+    <Value>ARIAAA==</Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Int</Type>
+    <Key>http://gareus.org/oss/lv2/fil4#fftchannel</Key>
+    <Value>/////w==</Value>
+   </CustomData>
+  </Data>
+ </Plugin>
+
+ <ExternalPatchbay>
+  <Connection>
+   <Source>system:capture_1</Source>
+   <Target>PulseAudio JACK Source:front-left</Target>
+  </Connection>
+  <Connection>
+   <Source>system:capture_2</Source>
+   <Target>PulseAudio JACK Source:front-right</Target>
+  </Connection>
+  <Connection>
+   <Source>PulseAudio JACK Sink:front-left</Source>
+   <Target>x42-eq - Parametric Equalizer Stereo:In Left</Target>
+  </Connection>
+  <Connection>
+   <Source>PulseAudio JACK Sink:front-left</Source>
+   <Target>x42-eq - Parametric Equalizer Stereo (2):In Left</Target>
+  </Connection>
+  <Connection>
+   <Source>PulseAudio JACK Sink:front-right</Source>
+   <Target>x42-eq - Parametric Equalizer Stereo:In Right</Target>
+  </Connection>
+  <Connection>
+   <Source>PulseAudio JACK Sink:front-right</Source>
+   <Target>x42-eq - Parametric Equalizer Stereo (2):In Right</Target>
+  </Connection>
+  <Connection>
+   <Source>x42-eq - Parametric Equalizer Stereo:Out Left</Source>
+   <Target>system:playback_1</Target>
+  </Connection>
+  <Connection>
+   <Source>x42-eq - Parametric Equalizer Stereo:Out Right</Source>
+   <Target>system:playback_2</Target>
+  </Connection>
+  <Connection>
+   <Source>x42-eq - Parametric Equalizer Stereo (2):Out Left</Source>
+   <Target>system:playback_3</Target>
+  </Connection>
+  <Connection>
+   <Source>x42-eq - Parametric Equalizer Stereo (2):Out Right</Source>
+   <Target>system:playback_4</Target>
+  </Connection>
+  <Positions>
+   <Position x1="1317" y1="929" x2="2041" y2="1027">
+    <Name>system</Name>
+   </Position>
+   <Position x1="1180" y1="1145">
+    <Name>PulseAudio JACK Sink</Name>
+   </Position>
+   <Position x1="1645" y1="815">
+    <Name>PulseAudio JACK Source</Name>
+   </Position>
+   <Position x1="1721" y1="928" pluginId="0">
+    <Name>x42-eq - Parametric Equalizer Stereo</Name>
+   </Position>
+   <Position x1="1652" y1="1125" pluginId="1">
+    <Name>x42-eq - Parametric Equalizer Stereo (2)</Name>
+   </Position>
+  </Positions>
+ </ExternalPatchbay>
+</CARLA-PROJECT>

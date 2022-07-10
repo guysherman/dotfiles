@@ -35,7 +35,7 @@ read -n1 -s -r -p $'Once complete, press any key to continue...'
 echo ""
 
 sudo mkdir -p /usr/lib/lv2
-sudo tar -C /usr/lib/lv2 -xzf ./downloads/Harrison.lv2.tar.gz
+sudo tar -C /usr/lib/lv2 -xzf ./downloads/Harrison.lv2.tgz
 
 echo ""
 echo "Please download the ava plugins tarball to $HOME/dotfiles/downloads/harrison-ava-linux.tgz"
@@ -45,7 +45,7 @@ echo ""
 
 sudo mkdir -p /usr/lib/lxvst
 mkdir -p ./tmp/ava
-tar -C ./tmp/ava -xzvf ./downloads/harrison-ava-linx.tgz
+tar -C ./tmp/ava -xzvf ./downloads/harrison-ava-linux.tgz
 sudo cp ./tmp/ava/Harrison_AVA/vst/* /usr/lib/lxvst/
 
 

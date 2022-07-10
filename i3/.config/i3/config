@@ -209,9 +209,10 @@ assign [class="DBeaver"] $ws6
 assign [class="QjackCtl"] $ws9
 assign [class="Pavucontrol"] $ws9
 assign [class="Pulseeffects"] $ws9
+assign [title="VCV Rack.*"] $ws6
+assign [class="Hydrogen"] $ws6
 assign [class="Ardour-6.9.0"] $ws7
 assign [class="Ardour"] $ws7
-assign [title="VCV Rack Pro 2.0.3b"] $ws8
 assign [class="Carla2"] $ws8
 
 # I want everything else to just go to WS10

@@ -1,4 +1,4 @@
-export KITTYMUX_STATE_DIR=$HOME/.local/state
+export KITTYMUX_STATE_DIR=$HOME/.local/state/kittymux
 
 # virtualenv and virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
