@@ -35,7 +35,7 @@ call plug#begin(stdpath('data').'/plugged')
   source $HOME/.config/nvim/plugins/telescope.vim
   source $HOME/.config/nvim/plugins/grep.vim
   source $HOME/.config/nvim/plugins/harpoon.vim
-  source $HOME/.config/nvim/plugins/vim-rooter.vim
+  "source $HOME/.config/nvim/plugins/vim-rooter.vim
   source $HOME/.config/nvim/plugins/vim-kitty-navigator.vim
   source $HOME/.config/nvim/plugins/vim-bbye.vim
   

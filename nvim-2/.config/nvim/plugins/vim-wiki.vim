@@ -1,12 +1,12 @@
 Plug 'lervag/wiki.vim'
+Plug 'lervag/lists.vim'
 
 let g:wikiw_root = '~/Amazon WorkDocs Drive/My Documents/notes'
 let g:wiki_filetypes = ['md']
 let g:wiki_link_extension = '.md'
 
-nnoremap <leader>wlf :WikiLinkFollow<CR>
-nnoremap <leader>wlj :WikiLinkNext<CR>
-nnoremap <leader>wlk :WikiLinkPrev<CR>
+let g:lists_filetypes = ['md']
+
 
 nnoremap <leader>wj :WikiJournal<CR>
 nnoremap <leader>wjj :WikiJournalNext<CR>

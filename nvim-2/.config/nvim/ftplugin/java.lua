@@ -11,7 +11,7 @@ local function get_workspace_dir()
   return env.WORKSPACE and env.WORKSPACE or util.path.join(env.HOME, 'workspace')
 end
 
-local root_dir = require('jdtls.setup').find_root({ 'packageInfo', 'pom.xml', 'settings.gradle', 'setting.gradle.kts', 'mvnw', 'gradlew' }, 'Config')
+local root_dir = require('jdtls.setup').find_root({ 'packageInfo', '.mvnroot' }, 'Config')
 
 local ws_folders_lsp = {}
 local ws_folders_jdtls = {}
@@ -25,6 +25,12 @@ if root_dir then
     file:close()
   end
 end
+
+local lombokPath = util.path.join(env.HOME, '.local/bin/lombok.jar')
+local javaxAnnotationApiPath = util.path.join(env.HOME, '.local/bin/javx.annotation-api-1.3.2.jar')
+local javaAgent = '-javaagent:' .. lombokPath
+local lombokBootclassPath = '-Xbootclasspath/a:' .. lombokPath
+local javaxAnnotationBootClassPath = '-Xbootclasspath/a:' .. javaxAnnotationApiPath
 
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
@@ -47,6 +53,9 @@ local config = {
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+    javaAgent,
+    --lombokBootclassPath,
+    --javaxAnnotationBootClassPath,
 
     -- 💀
     '-jar', '/usr/local/Cellar/jdtls/1.11.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',

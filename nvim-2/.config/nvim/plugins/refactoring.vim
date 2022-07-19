@@ -1,4 +1,4 @@
-Plug '/home/guy/source/refactoring.nvim'
+Plug 'ThePrimeagen/refactoring.nvim'
 
 function RefactoringSetup()
   lua require('guy.refactoring')
