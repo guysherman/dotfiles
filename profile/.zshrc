@@ -124,9 +124,16 @@ if [ -f ~/.profile ]; then
   source ~/.profile
 fi
 
-if [ -f ~/.dir_colors ]; then  
-  eval `dircolors ~/.dir_colors`
-fi  
+DIRCOLORS=dircolors
+if [ `uname` = "Darwin" ]; then
+  export LSCOLORS=""
+  export LSCOLORS=Gxfxcxdxbxegedabagacad
+else
+  if [ -f ~/.dir_colors ]; then  
+    eval `$DIRCOLORS ~/.dir_colors`
+  fi  
+fi
+
 
 
 export AWS_PAGER=""
