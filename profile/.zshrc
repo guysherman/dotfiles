@@ -129,7 +129,7 @@ if [ -f ~/.dir_colors ]; then
 fi  
 
 
-
+export AWS_PAGER=""
 autoload -Uz compinit
 compinit
 source $HOME/.config/.zshrc-platform.sh
