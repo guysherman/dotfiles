@@ -102,3 +102,25 @@ nnoremap <leader>k :m .-2<CR>==
 
 " Buffer list stuff
 nnoremap <leader>bda :%bd<CR>
+
+function! CloseOtherBuffer()
+    let l:bufnr = bufnr()
+    execute "only"
+    for buffer in getbufinfo()
+        if !buffer.listed
+            continue
+        endif
+        if buffer.bufnr == l:bufnr
+            continue
+        else
+            if buffer.changed
+                echo buffer.name . " has changed, save first"
+                continue
+            endif
+            let l:cmd = "bdelete " . buffer.bufnr
+            execute l:cmd
+        endif
+    endfor
+endfunction
+
+nnoremap <leader>o :call CloseOtherBuffer()<CR>
