@@ -100,6 +100,9 @@ vnoremap K :m '<-2'<CR>gv=gv
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
 
+" Special paste
+xnoremap <leader>p "_dP
+
 " Buffer list stuff
 nnoremap <leader>bda :%bd<CR>
 
