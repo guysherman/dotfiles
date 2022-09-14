@@ -146,6 +146,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+export ARDUINO_DIR="$HOME/Arduino"
+[ -s "$ARDUINO_DIR/zsh_completion" ] && \. "$ARDUINO_DIR/zsh_completion"
+fpath=($ARDUINO_DIR/zsh_completion $fpath)
+
 
 if [[ -n $KITTY_INSTALLATION_DIR && -n $ABDUCO_SESSION ]]; then
     export KITTY_SHELL_INTEGRATION="enabled"
@@ -153,4 +157,8 @@ if [[ -n $KITTY_INSTALLATION_DIR && -n $ABDUCO_SESSION ]]; then
     kitty-integration
     unfunction kitty-integration
     tput rmcup
+fi
+
+if [[ $TERMINAL_PROGRAM = "WezTerm" ]]; then
+  source ~/dotfiles/wezterm/.config/wezterm/wezterm.sh
 fi

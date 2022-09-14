@@ -29,7 +29,8 @@ call plug#begin(stdpath('data').'/plugged')
   source $HOME/.config/nvim/plugins/markdown-preview.nvim.vim
   source $HOME/.config/nvim/plugins/vim-yaml-folds.vim
   "source $HOME/.config/nvim/plugins/vim-clang-format.vim
-
+  source $HOME/.config/nvim/plugins/arduino.vim
+  
   " Navigation / Search
   source $HOME/.config/nvim/plugins/nerdtree.vim
   source $HOME/.config/nvim/plugins/telescope.vim
