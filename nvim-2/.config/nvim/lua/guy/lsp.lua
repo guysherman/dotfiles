@@ -21,7 +21,8 @@ local desired_servers = {
   "terraformls",
   "yamlls",
   "pyright",
-  "ccls"
+  "ccls",
+  "rust_analyzer"
 }
 
 local missing_servers = {}
@@ -213,6 +214,10 @@ else
 
   -- c++
   require("lspconfig").ccls.setup(config(with_defaults("ccls")))
+
+  -- rust
+  require("lspconfig").rust_analyzer.setup(config(with_defaults("rust_analyzer")))
+
 
 
   --require("lspconfig").metals.setup({})
