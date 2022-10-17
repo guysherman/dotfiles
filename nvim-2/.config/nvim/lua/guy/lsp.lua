@@ -21,7 +21,7 @@ local desired_servers = {
   "terraformls",
   "yamlls",
   "pyright",
-  "ccls",
+  --  "ccls",
   "rust_analyzer"
 }
 
