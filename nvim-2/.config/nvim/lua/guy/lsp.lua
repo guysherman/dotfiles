@@ -213,7 +213,7 @@ else
   require("lspconfig").pyright.setup(config(with_defaults("pyright")))
 
   -- c++
-  require("lspconfig").ccls.setup(config(with_defaults("ccls")))
+  require("lspconfig").ccls.setup({})
 
   -- rust
   require("lspconfig").rust_analyzer.setup(config(with_defaults("rust_analyzer")))
