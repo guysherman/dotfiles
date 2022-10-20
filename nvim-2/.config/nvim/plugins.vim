@@ -32,7 +32,8 @@ call plug#begin(stdpath('data').'/plugged')
   source $HOME/.config/nvim/plugins/arduino.vim
   
   " Navigation / Search
-  source $HOME/.config/nvim/plugins/nerdtree.vim
+  "source $HOME/.config/nvim/plugins/nerdtree.vim
+  source $HOME/.config/nvim/plugins/nvim-tree.vim
   source $HOME/.config/nvim/plugins/telescope.vim
   source $HOME/.config/nvim/plugins/grep.vim
   source $HOME/.config/nvim/plugins/harpoon.vim
