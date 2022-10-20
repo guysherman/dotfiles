@@ -23,8 +23,6 @@
 local api = vim.api
 local cmd = vim.cmd
 
-vim.opt_global.shortmess:remove("F"):append("c")
-
 -- LSP mappings
 -- completion related settings
 -- This is similiar to what I use
@@ -48,8 +46,7 @@ metals_config.settings = {
 -- metals_config.init_options.statusBarProvider = "on"
 
 -- Example if you are using cmp how to make sure the correct capabilities for snippets are set
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-metals_config.capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Debug settings if you're using nvim-dap
 local dap = require("dap")
@@ -79,7 +76,7 @@ metals_config.on_attach = function(client, bufnr)
 end
 
 -- Autocmd that will actually be in charging of starting the whole thing
-local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })
+local nvim_metals_group = api.nvim_create_augroup("nvim_metals", { clear = true })
 api.nvim_create_autocmd("FileType", {
   -- NOTE: You may or may not want java included here. You will need it if you
   -- want basic Java support but it may also conflict if you are using
