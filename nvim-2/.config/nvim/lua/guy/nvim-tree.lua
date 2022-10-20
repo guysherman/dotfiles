@@ -6,4 +6,4 @@ require("nvim-tree").setup()
 
 local options = { noremap = true }
 vim.api.nvim_set_keymap('n', '<c-n>n', ':execute \'NvimTreeToggle\' getcwd()<CR>', options)
-vim.api.nvim_set_keymap('n', '<c-n>f', ':NvimTreeFindFileToggle', options)
+vim.api.nvim_set_keymap('n', '<c-n>f', ':NvimTreeFindFileToggle<CR>', options)
