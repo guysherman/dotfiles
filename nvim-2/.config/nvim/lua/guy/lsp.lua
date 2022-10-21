@@ -126,7 +126,7 @@ else
         -- Set custom stuff for some lanugage servers
         if client.name == "tsserver" then
           -- In this case we don't want tsserver to do formatting, because diagnosticls does it
-          client.resolved_capabilities.document_formatting = false
+          client.server_capabilities.document_formatting = false
         end
         -- Mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
