@@ -58,14 +58,14 @@ local config = {
     --javaxAnnotationBootClassPath,
 
     -- 💀
-    '-jar', '/usr/local/Cellar/jdtls/1.11.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+    '-jar', '/usr/local/Cellar/jdtls/1.17.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
     -- Must point to the                                                     Change this to
     -- eclipse.jdt.ls installation                                           the actual version
 
 
     -- 💀
-    '-configuration', '/usr/local/Cellar/jdtls/1.11.0/libexec/config_mac',
+    '-configuration', '/usr/local/Cellar/jdtls/1.17.0/libexec/config_mac',
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
     -- Must point to the                      Change to one of `linux`, `win` or `mac`
     -- eclipse.jdt.ls installation            Depending on your system.

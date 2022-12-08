@@ -80,6 +80,8 @@ nnoremap Y yg$
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
 
 " Break up the undo sequence when we type certain characters
 inoremap , ,<c-g>u

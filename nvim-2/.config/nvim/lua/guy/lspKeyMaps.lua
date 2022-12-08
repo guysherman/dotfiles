@@ -23,7 +23,7 @@ function M.setup(opts)
   map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   map('n', ']g', ':lua vim.diagnostic.goto_next()<CR>', opts)
   map('n', '[g', ':lua vim.diagnostic.goto_prev()<CR>', opts)
-  map('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  map('n', '<leader>f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opts)
 end
 
 return M

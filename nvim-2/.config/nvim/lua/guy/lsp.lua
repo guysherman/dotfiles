@@ -22,7 +22,8 @@ local desired_servers = {
   "yamlls",
   "pyright",
   --  "ccls",
-  "rust_analyzer"
+  "rust_analyzer",
+  "solargraph"
 }
 
 local missing_servers = {}
@@ -126,11 +127,11 @@ else
         -- Set custom stuff for some lanugage servers
         if client.name == "tsserver" then
           -- In this case we don't want tsserver to do formatting, because diagnosticls does it
-          client.server_capabilities.document_formatting = false
+          client.server_capabilities.documentFormattingProvider = false
         end
         -- Mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
-        vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+        --vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format { async = true }]]
       end,
       root_dir = root_dir
     }, _config or {})
@@ -217,6 +218,9 @@ else
 
   -- rust
   require("lspconfig").rust_analyzer.setup(config(with_defaults("rust_analyzer")))
+
+  -- solargraph/ruby
+  require("lspconfig").solargraph.setup(config(with_defaults("solargraph")))
 
 
 
