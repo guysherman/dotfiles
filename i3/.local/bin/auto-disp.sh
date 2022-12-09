@@ -39,6 +39,11 @@ if [ -n "$conHdmi" ]; then
     autorandr --load home
     runuser -l guy -c 'DISPLAY=:0 feh --bg-fill /home/guy/Pictures/wallpaper --bg-fill /home/guy/Pictures/wallpaper'
     runuser -l guy -c 'DISPLAY=:0 betterlockscreen -u /home/guy/Pictures/wallpaper --blur 1 --fx blur'
+  elif [ "$shaHdmi" = "e32726385e81b96c612ba46988726aa9589d7574" ]; then # Home, other switcher
+    echo "LG Ultrawide"
+    autorandr --load home
+    runuser -l guy -c 'DISPLAY=:0 feh --bg-fill /home/guy/Pictures/wallpaper --bg-fill /home/guy/Pictures/wallpaper'
+    runuser -l guy -c 'DISPLAY=:0 betterlockscreen -u /home/guy/Pictures/wallpaper --blur 1 --fx blur'
   elif [ "$shaHdmi" = "28e8d323e82234bb3792ab281d265a7edcbb1658" ]; then # Office
     echo "Dell 4k"
     autorandr --load work

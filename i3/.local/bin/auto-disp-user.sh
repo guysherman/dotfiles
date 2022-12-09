@@ -15,6 +15,11 @@ if [ -n "$conHdmi" ]; then
     autorandr --load home
     update-wallpaper.sh
     update-lockscreen.sh
+  elif [ "$shaHdmi" = "e32726385e81b96c612ba46988726aa9589d7574" ]; then # Home, other switcher
+    echo "LG Ultrawide"
+    autorandr --load home
+    update-wallpaper.sh
+    update-lockscreen.sh
   elif [ "$shaHdmi" = "28e8d323e82234bb3792ab281d265a7edcbb1658" ]; then # Office
     echo "Dell 4k"
     autorandr --load work
