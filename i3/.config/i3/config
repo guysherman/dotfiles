@@ -274,5 +274,9 @@ client.focused_inactive $background $background $otherText  $otherText    $backg
 client.unfocused        $darkgBg    $darkgBg    $otherText  $otherText    $darkgBg
 
 bindsym $mod+Escape exec /home/guy/.config/rofi/applets/applets/powermenu.sh
+bindsym $mod+F10 exec /home/guy/.config/rofi/rnm/rofi-network-manager.sh
+bindsym $mod+F9 exec /home/guy/.config/rofi/udisks/udisks.sh
+bindsym $mod+Shift+b exec /home/guy/.config/rofi/applets/applets/battery.sh
+bindsym $mod+F7 exec --no-startup-id pavucontrol
 
 exec --no-startup-id update-lockscreen.sh
