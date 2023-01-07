@@ -1,10 +1,10 @@
-output HDMI-1
+output HDMI1
 crtc 0
 mode 3840x2160
 pos 0x0
 primary
 rate 30.00
-output eDP-1
+output eDP1
 crtc 1
 mode 1920x1080
 pos 5120x361

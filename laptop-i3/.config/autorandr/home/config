@@ -1,6 +1,6 @@
-output eDP-1
+output eDP1
 off
-output HDMI-1
+output HDMI1
 crtc 1
 mode 2560x1080
 pos 0x0

@@ -18,7 +18,7 @@ font pango:cantarell 10
 
 gaps outer -5
 gaps inner 12
-gaps bottom 32
+#gaps bottom 32
 for_window [class="^.*"] border pixel 0
 
 
@@ -27,7 +27,7 @@ for_window [class="^.*"] border pixel 0
 #font pango:DejaVu Sans Mono 8
 
 exec --no-startup-id picom
-exec --no-startup-id start-polybar.sh
+#exec --no-startup-id start-polybar.sh
 exec --no-startup-id pulseeffects --gapplication-service &
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so

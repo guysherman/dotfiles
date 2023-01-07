@@ -27,7 +27,7 @@ if [ -n "$conHdmi" ]; then
     update-lockscreen.sh
   else                                            # Probably a projector
     echo "Some other shit $shaHdmi"
-    xrandr --output eDP-1 --auto --output HDMI-1 --auto --same-as eDP-1
+    xrandr --output eDP1 --auto --output HDMI1 --auto --same-as eDP-1
     update-wallpaper.sh
     update-lockscreen.sh
   fi
