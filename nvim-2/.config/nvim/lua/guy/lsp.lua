@@ -251,7 +251,7 @@ else
 
   local snippets_paths = function()
     local plugins = { "friendly-snippets" }
-    local paths = {}
+    local paths = { "$HOME/.config/nvim/snippets" }
     local path
     local root_path = vim.fn.stdpath('data') .. "/plugged/"
     for _, plug in ipairs(plugins) do

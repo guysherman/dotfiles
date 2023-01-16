@@ -1,0 +1,10 @@
+{
+	"AWS Header": {
+		"prefix": "aws_head",
+		"body": [
+		  "/*",
+		  "* Copyright ${CURRENT_YEAR} Amazon.com, Inc. or its affiliates. All Rights Reserved.",
+		  "*/"
+		]
+	}
+}

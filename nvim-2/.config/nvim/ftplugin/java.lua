@@ -5,11 +5,30 @@ local env = {
   JAVA_HOME = os.getenv 'JAVA_HOME',
   JDTLS_HOME = os.getenv 'JDTLS_HOME',
   WORKSPACE = os.getenv 'WORKSPACE',
+  PLATFORM = vim.loop.os_uname().sysname,
 }
 
 local function get_workspace_dir()
   return env.WORKSPACE and env.WORKSPACE or util.path.join(env.HOME, 'workspace')
 end
+
+local function get_cellar_path()
+  if env.PLATFORM == "Darwin" then
+    return '/usr/local/Cellar'
+  else
+    return '/home/linuxbrew/.linuxbrew/Cellar'
+  end
+end
+
+local function get_jdtls_config()
+  if env.PLATFORM == "Darwin" then
+    return 'libexec/config_mac'
+  else
+    return 'libexec/config_linux'
+  end
+end
+
+
 
 local root_dir = require('jdtls.setup').find_root({ 'packageInfo', '.mvnroot' }, 'Config')
 
@@ -31,6 +50,9 @@ local javaxAnnotationApiPath = util.path.join(env.HOME, '.local/bin/javx.annotat
 local javaAgent = '-javaagent:' .. lombokPath
 local lombokBootclassPath = '-Xbootclasspath/a:' .. lombokPath
 local javaxAnnotationBootClassPath = '-Xbootclasspath/a:' .. javaxAnnotationApiPath
+local jdtlsPath = util.path.join(get_cellar_path(), 'jdtls/1.18.0')
+local jdtlsJarPath = util.path.join(jdtlsPath, 'libexec/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar')
+local jdtlsConfigPath = util.path.join(jdtlsPath, get_jdtls_config())
 
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
@@ -58,14 +80,14 @@ local config = {
     --javaxAnnotationBootClassPath,
 
     -- 💀
-    '-jar', '/usr/local/Cellar/jdtls/1.17.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+    '-jar', jdtlsJarPath,
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
     -- Must point to the                                                     Change this to
     -- eclipse.jdt.ls installation                                           the actual version
 
 
     -- 💀
-    '-configuration', '/usr/local/Cellar/jdtls/1.17.0/libexec/config_mac',
+    '-configuration', jdtlsConfigPath,
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
     -- Must point to the                      Change to one of `linux`, `win` or `mac`
     -- eclipse.jdt.ls installation            Depending on your system.
