@@ -40,9 +40,9 @@ end
 
 local function get_jdtls_config()
   if env.PLATFORM == "Darwin" then
-    return 'libexec/config_mac'
+    return 'config_mac'
   else
-    return 'libexec/config_linux'
+    return 'config_linux'
   end
 end
 
@@ -68,8 +68,8 @@ local javaxAnnotationApiPath = util.path.join(env.HOME, '.local/bin/javx.annotat
 local javaAgent = '-javaagent:' .. lombokPath
 local lombokBootclassPath = '-Xbootclasspath/a:' .. lombokPath
 local javaxAnnotationBootClassPath = '-Xbootclasspath/a:' .. javaxAnnotationApiPath
-local jdtlsPath = util.path.join(get_cellar_path(), 'jdtls/1.18.0')
-local jdtlsJarPath = util.path.join(jdtlsPath, 'libexec/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar')
+local jdtlsPath = util.path.join(env.HOME, '.local/share/jdtls/1.12.0')
+local jdtlsJarPath = util.path.join(jdtlsPath, 'plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar')
 local jdtlsConfigPath = util.path.join(jdtlsPath, get_jdtls_config())
 
 
