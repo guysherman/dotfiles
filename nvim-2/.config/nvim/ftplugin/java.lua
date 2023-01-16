@@ -10,10 +10,14 @@ local env = {
 
 local function get_workspace_name()
   local cwd = vim.fn.getcwd(0)
-  local _, workplace_end = string.find(cwd, "workplace/" )
+  local _, workplace_end = string.find(cwd, "workplace/guysnz/" )
+  if workplace_end == nil then
+    _, workplace_end = string.find(cwd, "workplace/")
+  end
   if workplace_end == nil then
     return "default"
   end
+
   local workplace_relative_path = string.sub(cwd, workplace_end+1)
   local workspace_end, _ = string.find(workplace_relative_path, "/")
   local workspace_name = string.sub(workplace_relative_path, 0, workspace_end-1)
