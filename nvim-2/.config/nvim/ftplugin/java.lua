@@ -23,7 +23,7 @@ end
 
 local function get_workspace_dir()
   local workspace_dir = util.path.join(env.HOME, 'workspace')
-  return env.WORKSPACE and env.WORKSPACE or util.path.join(workspace_dir, get_workspace_name())
+  return util.path.join(workspace_dir, get_workspace_name())
 end
 
 local function get_cellar_path()
