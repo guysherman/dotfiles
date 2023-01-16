@@ -8,34 +8,8 @@ local env = {
   PLATFORM = vim.loop.os_uname().sysname,
 }
 
-local function get_workspace_name()
-  local cwd = vim.fn.getcwd(0)
-  local _, workplace_end = string.find(cwd, "workplace/guysnz/" )
-  if workplace_end == nil then
-    _, workplace_end = string.find(cwd, "workplace/")
-  end
-  if workplace_end == nil then
-    return "default"
-  end
-
-  local workplace_relative_path = string.sub(cwd, workplace_end+1)
-  local workspace_end, _ = string.find(workplace_relative_path, "/")
-  local workspace_name = string.sub(workplace_relative_path, 0, workspace_end-1)
-
-  return workspace_name
-end
-
 local function get_workspace_dir()
-  local workspace_dir = util.path.join(env.HOME, 'workspace')
-  return util.path.join(workspace_dir, get_workspace_name())
-end
-
-local function get_cellar_path()
-  if env.PLATFORM == "Darwin" then
-    return '/usr/local/Cellar'
-  else
-    return '/home/linuxbrew/.linuxbrew/Cellar'
-  end
+  return env.WORKSPACE and env.WORKSPACE or util.path.join(env.HOME, 'workspace')
 end
 
 local function get_jdtls_config()
