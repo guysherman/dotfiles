@@ -15,6 +15,7 @@ call plug#begin(stdpath('data').'/plugged')
   source $HOME/.config/nvim/plugins/nerdcommenter.vim
   source $HOME/.config/nvim/plugins/auto-pairs.vim
   source $HOME/.config/nvim/plugins/vim-surround.vim
+  source $HOME/.config/nvim/xplat/clipboard.vim
   
   "Syntax Highlighting
   source $HOME/.config/nvim/plugins/vim-js.vim
