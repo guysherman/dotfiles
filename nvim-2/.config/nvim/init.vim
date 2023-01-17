@@ -9,6 +9,7 @@ set clipboard+=unnamedplus
 
 colorscheme monokai-soda
 
+source $HOME/.config/xplat/clipboard.vim
 source $HOME/.config/nvim/plugins.vim
 "source $HOME/.config/nvim/config/clang_format.vim
 "source $HOME/.config/nvim/config/cpp_format.vim
