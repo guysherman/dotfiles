@@ -1,5 +1,7 @@
 output eDP1
 off
+output VIRTUAL1
+off
 output HDMI1
 crtc 1
 mode 2560x1080

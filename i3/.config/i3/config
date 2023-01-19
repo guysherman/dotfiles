@@ -128,7 +128,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+s split h
 
 # split in vertical orientation
-bindsym $mod+Shift+v split v
+bindsym $mod+Shift+d split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -263,7 +263,7 @@ bindsym $mod+r mode "resize"
 # screenshots
 bindsym --release Print exec "scrot 'Screenshot_%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/'"
 bindsym --release $mod+Print exec --no-startup-id "scrot -u 'Screenshot_%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/'"
-bindsym --release $mod+Shift+Print exec --no-startup-id "scrot -sf 'Screenshot_%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/'"
+bindsym --release $mod+Shift+Print exec --no-startup-id "scrot -s -f 'Screenshot_%Y-%m-%d_%T.png' -e 'mv $f ~/Pictures/'"
 
 # Colours
 set $darkgBg #0c0e15
