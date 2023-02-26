@@ -3,8 +3,9 @@ local lsp_install = require("nvim-lsp-installer")
 local diagnosticls = require("diagnosticls-configs")
 local lspconfig = require("lspconfig")
 local cmp = require("cmp")
-local luasnip = require("luasnip")
+--local luasnip = require("luasnip")
 local lspkind = require("lspkind")
+--local cmp_luasnip = require("cmp_luasnip")
 
 local root_dir = lspconfig.util.root_pattern('.git', 'package.json', '.gitignore', 'pom.xml', 'go.mod')
 local desired_servers = {
@@ -62,10 +63,22 @@ else
     path = "[Path]",
   }
 
+  require('snippy').setup({
+    mappings = {
+      is = {
+        ['<Tab>'] = 'expand_or_advance',
+        ['<S-Tab>'] = 'previous',
+      },
+      nx = {
+        ['<leader>x'] = 'cut_text',
+      },
+    },
+  })
+
   cmp.setup({
     snippet = {
       expand = function(args)
-        require("luasnip").lsp_expand(args.body)
+        require("snippy").expand_snippet(args.body)
       end,
     },
     window = {
@@ -107,7 +120,7 @@ else
 
     sources = {
       { name = "nvim_lsp" },
-      { name = "luasnip" },
+      { name = "snippy" },
       { name = "buffer" },
       { name = "path" },
       { name = "nvim_lua" }
@@ -263,11 +276,11 @@ else
     return paths
   end
 
-  require("luasnip.loaders.from_vscode").lazy_load({
-    paths = snippets_paths(),
-    include = nil, -- Load all languages
-    exclude = {},
-  })
+  --require("luasnip.loaders.from_vscode").lazy_load({
+    --paths = snippets_paths(),
+    --include = nil, -- Load all languages
+    --exclude = {},
+  --})
 
   keymaps.setup(opts)
 
