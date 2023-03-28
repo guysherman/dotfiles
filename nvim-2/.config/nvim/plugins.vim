@@ -5,6 +5,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall
 endif
 
+
 call plug#begin(stdpath('data').'/plugged')
   source $HOME/.config/nvim/plugins/lua.vim
   source $HOME/.config/nvim/plugins/nvim-dap.vim
@@ -57,6 +58,9 @@ call plug#begin(stdpath('data').'/plugged')
 
   " Extra
   source $HOME/.config/nvim/plugins/vim-wiki.vim
+
+  source $HOME/.config/nvim/plugins/platform-specific-plugins.vim
+  
 call plug#end()
 
 doautocmd User PlugLoaded

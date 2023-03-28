@@ -2,7 +2,9 @@ local keymaps = require("guy.lspKeyMaps")
 local lsp_install = require("nvim-lsp-installer")
 local diagnosticls = require("diagnosticls-configs")
 local lspconfig = require("lspconfig")
+local configs = require 'lspconfig.configs'
 local cmp = require("cmp")
+local platformlsp = require('guy.platform-lsp')
 --local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 --local cmp_luasnip = require("cmp_luasnip")
@@ -40,6 +42,20 @@ for _, server_name in pairs(desired_servers) do
   end
 end
 
+-- Check if the config is already defined (useful when reloading this file)
+if not configs.barium then
+    configs.barium = {
+        default_config = {
+            cmd = {'barium'};
+            filetypes = {'brazil-config'};
+            root_dir = function(fname)
+                return lspconfig.util.find_git_ancestor(fname)
+            end;
+            settings = {};
+        };
+    }
+end
+
 if #missing_servers > 0 then
   print("Installing missing servers")
   --lsp_install.install_sync(missing_servers)
@@ -49,6 +65,22 @@ if #missing_servers > 0 then
 else
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+  vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+    vim.lsp.handlers.hover,
+    {border = 'rounded'}
+  )
+
+  vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+    vim.lsp.handlers.signature_help,
+    {border = 'rounded'}
+  )
+
+  vim.diagnostic.config({
+    float = {
+      border = 'rounded',
+    },
+  })
 
   -- nvim-cmp - copied liberally from @Theprimeagen
   local has_words_before = function()
@@ -281,7 +313,7 @@ else
     --include = nil, -- Load all languages
     --exclude = {},
   --})
-
-  keymaps.setup(opts)
-
+  platformlsp.setup()
 end
+
+

@@ -2,3 +2,9 @@
 snippet aws "AWS File Header"
 	 // Copyright `!lua os.date('%Y')` Amazon.com, Inc. or its affiliates. All Rights Reserved.
 	
+# Tokio Test
+snippet ttest "Tokio Unit test function"
+	#[tokio::test]
+	async fn ${1:function_name}_test() {
+		${0}
+	}

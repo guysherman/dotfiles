@@ -1,4 +1,12 @@
 # AWS File Header
 snippet aws "AWS File Header"
 	 // Copyright `!lua os.date('%Y')` Amazon.com, Inc. or its affiliates. All Rights Reserved.
-	
+
+# Construct
+snippet constr "Boilerplate Construct"
+  export class ${1:ConstructName} extends Construct {
+    constructor(context: Construct, id: string, props: ${2:any}) {
+      super(context, id);
+    }
+		${0}
+  }
