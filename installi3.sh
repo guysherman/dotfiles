@@ -42,17 +42,24 @@ sudo apt install -y \
     libxcb-glx0 libxcb-glx0-dev uthash-dev libev-dev libconfig-dev libglu1-mesa-dev freeglut3-dev mesa-common-dev libdbus-1-dev
 
 # Build i3-gaps
-echo "# Building i3-gaps"
-pushd .tmp
-git clone https://github.com/Airblader/i3.git i3-gaps
-pushd i3-gaps
-git checkout gaps && git pull
-mkdir -p build
-meson setup build --prefix=/usr/local
-meson compile -C build
-sudo meson install -C build
-popd
-popd
+#echo "# Building i3-gaps"
+#pushd .tmp
+#git clone https://github.com/Airblader/i3.git i3-gaps
+#pushd i3-gaps
+#git checkout gaps && git pull
+#mkdir -p build
+#meson setup build --prefix=/usr/local
+#meson compile -C build
+#sudo meson install -C build
+#popd
+#popd
+
+# Install i3 from PPAs
+/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2023.02.18_all.deb keyring.deb SHA256:a511ac5f10cd811f8a4ca44d665f2fa1add7a9f09bef238cdfad8461f5239cc4
+sudo apt install ./keyring.deb
+echo "deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" | sudo tee /etc/apt/sources.list.d/sur5r-i3.list
+sudo apt update
+sudo apt install i3
 
 # Non apt installs specifically for i3 destktop environment
 echo "# Build and install i3lock-color"
