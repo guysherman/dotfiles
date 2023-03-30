@@ -88,6 +88,7 @@ echo "# Install rofi themes"
 pushd .tmp
 git clone https://github.com/adi1090x/rofi.git rofi-themes
 pushd rofi-themes
+git checkout 1.7.0
 ./setup.sh
 popd
 popd

@@ -150,6 +150,7 @@ export ARDUINO_DIR="$HOME/Arduino"
 [ -s "$ARDUINO_DIR/zsh_completion" ] && \. "$ARDUINO_DIR/zsh_completion"
 fpath=($ARDUINO_DIR/zsh_completion $fpath)
 
+export KITTY_REMOTE_TO="tcp:localhost:45876"
 
 if [[ -n $KITTY_INSTALLATION_DIR && -n $ABDUCO_SESSION ]]; then
     export KITTY_SHELL_INTEGRATION="enabled"

@@ -77,4 +77,9 @@ if [ -f "$HOME/.xinitrc" ]; then
   source $HOME/.xinitrc
 fi
 
+if [ -f "/usr/local/bin/i3-session-autostart.sh" ]; then
+  /usr/local/bin/i3-session-autostart.sh
+fi
+
+
 exec i3

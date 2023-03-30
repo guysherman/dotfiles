@@ -2,4 +2,6 @@
 downloads
 nvim/.config/nvim/pack
 tmp
-
+kitty/.local/share/nvim
+scripts/.local/bin/docker-compose
+scripts/.local/bin/kitty

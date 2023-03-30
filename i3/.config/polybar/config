@@ -397,7 +397,7 @@ content = 
 content-foreground = ${colors.mks_pink}
 content-padding = 2
 content-font = 6
-click-left = /home/guy/.config/rofi/applets/applets/powermenu.sh
+click-left = $HOME/.config/rofi/applets/applets/powermenu.sh
 
 [module/powermenu]
 type = custom/menu
