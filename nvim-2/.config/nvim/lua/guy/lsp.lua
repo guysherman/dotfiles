@@ -294,19 +294,19 @@ else
     },
   })
 
-  local snippets_paths = function()
-    local plugins = { "friendly-snippets" }
-    local paths = { "$HOME/.config/nvim/snippets" }
-    local path
-    local root_path = vim.fn.stdpath('data') .. "/plugged/"
-    for _, plug in ipairs(plugins) do
-      path = root_path .. plug
-      if vim.fn.isdirectory(path) ~= 0 then
-        table.insert(paths, path)
-      end
-    end
-    return paths
-  end
+  --local snippets_paths = function()
+    --local plugins = { "friendly-snippets" }
+    --local paths = { "$HOME/.config/nvim/snippets" }
+    --local path
+    --local root_path = vim.fn.stdpath('data') .. "/plugged/"
+    --for _, plug in ipairs(plugins) do
+      --path = root_path .. plug
+      --if vim.fn.isdirectory(path) ~= 0 then
+        --table.insert(paths, path)
+      --end
+    --end
+    --return paths
+  --end
 
   --require("luasnip.loaders.from_vscode").lazy_load({
     --paths = snippets_paths(),
@@ -314,6 +314,7 @@ else
     --exclude = {},
   --})
   platformlsp.setup()
+  keymaps.setup(opts)
 end
 
 
