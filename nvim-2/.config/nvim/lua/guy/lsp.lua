@@ -21,7 +21,7 @@ local desired_servers = {
   "html",
   "cssls",
   "jsonls",
-  "terraformls",
+  --"terraformls",
   "yamlls",
   "pyright",
   --  "ccls",
