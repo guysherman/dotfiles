@@ -1,1 +1,7 @@
-ACTION=="change", SUBSYSTEM=="drm", RUN+="/home/guy/.local/bin/auto-disp.sh"
+ACTION=="add", SUBSYSTEM=="drm", RUN+="/usr/local/bin/laptop-lid.sh"
+ACTION=="remove", SUBSYSTEM=="drm", RUN+="/usr/local/bin/laptop-lid.sh"
+
+
+ACTION=="add", SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="17e9", RUN+="/usr/local/bin/laptop-lid.sh"
+ACTION=="remove", ENV{PRODUCT}=="17e9/*", RUN+="/usr/local/bin/laptop-lid.sh"
+

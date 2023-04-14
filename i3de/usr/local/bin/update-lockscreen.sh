@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
 
-if [[ -z "$LOCKSCREEN" ]]; then
+if [[ -f "$HOME/lockscreen" ]]; then
+  LOCKSCREEN=$HOME/lockscreen
+elif [[ -z "$LOCKSCREEN" ]]; then
   LOCKSCREEN=/usr/local/share/i3de/ihearti3.jpg
 fi
 

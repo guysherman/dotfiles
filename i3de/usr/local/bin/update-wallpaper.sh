@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
 
-if [[ -z "$WALLPAPER" ]]; then
+if [[ -f "$HOME/wallpaper" ]]; then
+  WALLPAPER=$HOME/wallpaper
+elif [[ -z "$WALLPAPER" ]]; then
   WALLPAPER=/usr/local/share/i3de/ihearti3.jpg
 fi
 
