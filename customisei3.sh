@@ -15,7 +15,7 @@ sudo apt install -y wget curl ca-certificates apt-transport-https gnupg lsb-rele
 echo "# Install packages via apt"
 sudo apt update
 # Polybar
-sudo apt install -y numix-icon-theme-circle stow polybar
+sudo apt install -y numix-icon-theme-circle stow 
 
 if [ $1 == "laptop" ]; then
   # Packages for just the laptop
@@ -24,6 +24,7 @@ fi
 
 # Packages for building things
 sudo apt install -y git build-essential autoconf automake make pkg-config gcc bison flex check libtool python3 python3-pip \
+
 
 # Packages required to build rofi
 GDK_PIXBUF_PKG_NAME="libgdk-pixbuf-2.0-dev"
@@ -34,6 +35,24 @@ fi
 sudo apt install -y \
   libxml2-utils libxcb-ewmh-dev libxcb-ewmh2 libxcb-cursor-dev  libxcb-icccm4 libxcb-icccm4-dev \
   libpango-1.0-0 libpango1.0-dev libpangocairo-1.0-0 libstartup-notification0-dev $GDK_PIXBUF_PKG_NAME
+
+# Packages to build polybar
+sudo apt install -y libpulse-dev libjsoncpp-dev python3-xcbgen xcb-proto \
+  libuv1 libuv1-dev python3-sphinx python3-packaging
+
+# Build Polybar
+pushd .tmp
+git clone --recursive https://github.com/polybar/polybar
+pushd polybar
+mkdir -p build
+pushd build
+cmake ..
+make -j$(nproc)
+sudo make install
+popd
+popd
+popd
+
 
 echo "# Installing fonts"
 mkdir -p ~/.local/share/fonts
