@@ -18,7 +18,7 @@ font pango:cantarell 10
 
 gaps outer -5
 gaps inner 12
-gaps bottom 45
+gaps bottom 32
 for_window [class="^.*"] border pixel 0
 
 
@@ -86,7 +86,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 floating_modifier $mod
 
 # Set a key to set xrandr to laptop mode
-bindsym $mod+F2 exec --no-startup-id auto-disp-user.sh
+bindsym $mod+F2 exec --no-startup-id laptop-lid.sh
 # start a terminal
 bindsym $mod+Return exec kitty -o allow_remote_control=yes --single-instance --listen-on tcp:localhost:45876
 
