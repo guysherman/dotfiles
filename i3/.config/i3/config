@@ -187,16 +187,27 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-workspace $ws1 output HDMI-1 DVI-I-1-1 eDP-1
-workspace $ws2 output HDMI-1 DVI-I-1-1 eDP-1
-workspace $ws3 output eDP-1 HDMI-1 DVI-I-1-1
-workspace $ws4 output eDP-1 HDMI-1 DVI-I-1-1 
-workspace $ws5 output eDP-1 HDMI-1 DVI-I-1-1
-workspace $ws6 output HDMI-1 DVI-I-1-1 eDP-1
-workspace $ws7 output eDP-1 HDMI-1 DVI-I-1-1 
-workspace $ws8 output HDMI-1 DVI-I-1-1 eDP-1
-workspace $ws9 output HDMI-1 DVI-I-1-1 eDP-1
-workspace $ws0 output HDMI-1 DVI-I-1-1 eDP-1
+#workspace $ws1 output HDMI-1 DVI-I-1-1 eDP-1
+#workspace $ws2 output HDMI-1 DVI-I-1-1 eDP-1
+#workspace $ws3 output eDP-1 HDMI-1 DVI-I-1-1
+#workspace $ws4 output eDP-1 HDMI-1 DVI-I-1-1 
+#workspace $ws5 output eDP-1 HDMI-1 DVI-I-1-1
+#workspace $ws6 output HDMI-1 DVI-I-1-1 eDP-1
+#workspace $ws7 output eDP-1 HDMI-1 DVI-I-1-1 
+#workspace $ws8 output HDMI-1 DVI-I-1-1 eDP-1
+#workspace $ws9 output HDMI-1 DVI-I-1-1 eDP-1
+#workspace $ws0 output HDMI-1 DVI-I-1-1 eDP-1
+
+workspace $ws1 output primary
+workspace $ws2 output primary
+workspace $ws3 output secondary
+workspace $ws4 output secondary
+workspace $ws5 output secondary
+workspace $ws6 output primary
+workspace $ws7 output secondary
+workspace $ws8 output primary
+workspace $ws9 output primary
+workspace $ws0 output primary
 
 assign [title="YouTube Music"] $ws7
 assign [title="SoundCloud.*"] $ws7

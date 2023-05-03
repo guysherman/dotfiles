@@ -1,5 +1,12 @@
 #! /usr/bin/env bash
 
+# Work out the correct user name
+user_name=guy
+grep -q guy:x /etc/passwd
+if [[ $? == 1 ]]; then
+  user_name=guysnz
+fi
+
 # Thanks to the folks who answered here:
 # https://askubuntu.com/questions/1140329/how-to-run-a-script-when-the-lid-is-closed
 
@@ -21,11 +28,6 @@ export XDG_DATA_DIRS=/usr/share/i3:/home/ANT.AMAZON.COM/$user_name/.local/share/
 
 # Find out the device path to our graphics card:
 #cardPath=/sys/$(udevadm info -q path -n /dev/dri/card0)
-user_name=guy
-grep -q guy:x /etc/passwd
-if [[ $? == 1 ]]; then
-  user_name=$user_name
-fi
 
 # Count how many displays are connected
 num_displays=$(runuser -l $user_name -c 'DISPLAY=:0 xrandr' | grep -c ' connected')
