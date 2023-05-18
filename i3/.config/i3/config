@@ -20,6 +20,8 @@ gaps outer -5
 gaps inner 12
 gaps bottom 32
 for_window [class="^.*"] border pixel 0
+for_window [class="Dunst"] floating enable
+for_window [class="Gnome-calculator"] floating enable
 
 
 # Machine-specific startup
@@ -235,7 +237,7 @@ assign [class="Carla2"] $ws8
 include ~/.config/i3/env-monitor-assign.conf
 
 # I want everything else to just go to WS10
-assign [class="^(?!.*(Polkit-gnome-authentication-agent-1|Xdg-desktop-portal-gtk|Gcr-prompter|1Password|Todoist|Evolution-alarm-notify)).*"] $ws10
+assign [class="^(?!.*(Polkit-gnome-authentication-agent-1|Xdg-desktop-portal-gtk|Gcr-prompter|1Password|Todoist|Evolution-alarm-notify|Gnome-calculator)).*"] $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

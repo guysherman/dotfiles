@@ -1,2 +1,0 @@
-ACTION=="add", SUBSYSTEM=="input", RUN+="/usr/local/bin/keyboard-mapping.sh"
-
