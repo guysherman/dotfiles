@@ -238,7 +238,13 @@ else
   --})))
 
   -- tsserver
-  require("lspconfig").tsserver.setup(config(with_defaults("tsserver")))
+  require("lspconfig").tsserver.setup(config(with_defaults("tsserver", {
+    typescript = {
+      preferences = {
+        renameShorthandProperties = false,
+      }
+    }
+  })))
 
   -- html
   require("lspconfig").html.setup(config(with_defaults("html")))

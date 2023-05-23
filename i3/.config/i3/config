@@ -213,6 +213,7 @@ workspace $ws0 output primary
 
 assign [title="YouTube Music"] $ws7
 assign [title="SoundCloud.*"] $ws7
+assign [class="Spotify"] $ws7
 assign [class="kitty"] $ws1
 assign [class="Chromium"] $ws2
 assign [class="Google-chrome"] $ws2

@@ -1,2 +1,2 @@
 SUBSYSTEM=="input", SUBSYSTEMS=="usb", ACTION=="add", ATTRS{idVendor}=="1a2c", ATTRS{idProduct}=="9df4", RUN+="/usr/local/bin/keyboard-mapping.sh"
-
+SUBSYSTEM=="input", SUBSYSTEMS=="usb", ACTION=="add", ATTRS{idVendor}=="05ac", ATTRS{idProduct}=="024f", RUN+="/usr/local/bin/keyboard-mapping.sh"
