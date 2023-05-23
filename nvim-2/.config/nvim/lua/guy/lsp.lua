@@ -239,14 +239,10 @@ else
 
   -- tsserver
   require("lspconfig").tsserver.setup(config(with_defaults("tsserver", {
-    typescript = {
+    init_options = {
+      host_info = 'neovim',
       preferences = {
-        useAliasesForRenames = false,
-      }
-    },
-    javascript = {
-      preferences = {
-        useAliasesForRenames = false,
+        providePrefixAndSuffixTextForRename = true,
       }
     }
   })))
