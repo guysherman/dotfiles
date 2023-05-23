@@ -241,7 +241,12 @@ else
   require("lspconfig").tsserver.setup(config(with_defaults("tsserver", {
     typescript = {
       preferences = {
-        renameShorthandProperties = false,
+        useAliasesForRenames = false,
+      }
+    },
+    javascript = {
+      preferences = {
+        useAliasesForRenames = false,
       }
     }
   })))
