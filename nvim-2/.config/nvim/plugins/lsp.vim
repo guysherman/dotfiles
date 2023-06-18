@@ -1,7 +1,8 @@
 " LSP Support
+Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'mfussenegger/nvim-jdtls'
-Plug 'williamboman/nvim-lsp-installer'
 Plug 'creativenull/diagnosticls-configs-nvim'
 Plug 'scalameta/nvim-metals'
 Plug 'onsails/lspkind-nvim'
