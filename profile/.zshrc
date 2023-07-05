@@ -137,6 +137,7 @@ fi
 
 
 export AWS_PAGER=""
+autoload bashcompinit && bashcompinit
 autoload -Uz compinit
 compinit
 source $HOME/.config/.zshrc-platform.sh
