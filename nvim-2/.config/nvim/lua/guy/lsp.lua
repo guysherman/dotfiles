@@ -166,7 +166,7 @@ local function config(_config)
       end
       -- Mappings.
       -- See `:help vim.lsp.*` for documentation on any of the below functions
-      --vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format { async = true }]]
+      vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format {}]]
     end,
     root_dir = root_dir
   }, _config or {})
@@ -256,7 +256,11 @@ require("lspconfig").solargraph.setup(config())
 --require("lspconfig").metals.setup({})
 
 -- diagnosticls
-diagnosticls.init(config())
+diagnosticls.init(config({
+  default_config = false,
+  format = true,
+}))
+--require("lspconfig").diagnosticls.setup(config())
 local eslint = require("diagnosticls-configs.linters.eslint")
 local prettier = require("diagnosticls-configs.formatters.prettier")
 diagnosticls.setup({
