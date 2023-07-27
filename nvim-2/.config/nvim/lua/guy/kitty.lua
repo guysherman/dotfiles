@@ -24,17 +24,20 @@ end
 
 local function kitty_run_namespaced(cmd)
   local window_name = get_vimtest_name()
-  local kitty_ls = vim.fn.system("kitty @ --to \"$KITTY_LISTEN_ON\" ls")
-  local i, _ = string.find(kitty_ls, window_name)
+  local window_pattern = string.gsub(window_name, "%-", "%%-")
+  local kitty_ls = vim.fn.system('kitty @ --to \"$KITTY_LISTEN_ON\" ls')
+  print(window_name)
+  local i, _ = string.find(kitty_ls, window_pattern)
   local window_exists = i ~= nil
+  print(i)
 
   if not window_exists then
     vim.fn.system('kitty @ --to \"$KITTY_LISTEN_ON\" launch --type window --keep-focus --title \"' ..
-    window_name .. "\" \"$SHELL\"")
+      window_name .. "\" \"$SHELL\"")
   end
 
   vim.fn.system('kitty @ --to \"$KITTY_LISTEN_ON\" send-text --match title:\"' ..
-  window_name .. "\" \"" .. cmd .. "\\x0d\"")
+    window_name .. "\" \"" .. cmd .. "\\x0d\"")
   vim.fn.system('kitty @ --to \"$KITTY_LISTEN_ON\" focus-window --match title:\"' .. window_name .. " --no-response")
 end
 
