@@ -26,10 +26,8 @@ local function kitty_run_namespaced(cmd)
   local window_name = get_vimtest_name()
   local window_pattern = string.gsub(window_name, "%-", "%%-")
   local kitty_ls = vim.fn.system('kitty @ --to \"$KITTY_LISTEN_ON\" ls')
-  print(window_name)
   local i, _ = string.find(kitty_ls, window_pattern)
   local window_exists = i ~= nil
-  print(i)
 
   if not window_exists then
     vim.fn.system('kitty @ --to \"$KITTY_LISTEN_ON\" launch --type window --keep-focus --title \"' ..
