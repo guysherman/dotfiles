@@ -1,7 +1,7 @@
 [user]
 	email = guy@guysherman.com
 	name = Guy Sherman
-	signingkey = 020F3D8F4FE39EC9
+	signingkey = 9735422D59D4E1F9
 [init]
 	defaultBranch = main
 [pull]
