@@ -23,8 +23,9 @@ local desired_servers = {
   "jsonls",
   "yamlls",
   "pyright",
-  "rust_analyzer",
-  "solargraph"
+  --"rust_analyzer",
+  "solargraph",
+  "kotlin_language_server",
   --"jdtls",
   --"terraformls",
   --"ccls",
@@ -45,16 +46,16 @@ if not configs.barium then
 end
 
 mason.setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
+  ui = {
+    icons = {
+      package_installed = "✓",
+      package_pending = "➜",
+      package_uninstalled = "✗"
     }
+  }
 })
 mason_lspconfig.setup {
-    ensure_installed = desired_servers,
+  ensure_installed = desired_servers,
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -251,6 +252,8 @@ require("lspconfig").rust_analyzer.setup(config())
 -- solargraph/ruby
 require("lspconfig").solargraph.setup(config())
 
+-- kotlin
+require("lspconfig").kotlin_language_server.setup(config())
 
 
 --require("lspconfig").metals.setup({})
