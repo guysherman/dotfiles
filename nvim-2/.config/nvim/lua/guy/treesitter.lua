@@ -1,6 +1,6 @@
 require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "c", "cpp", "lua", "go", "java", "javascript", "typescript", "tsx" },
+  ensure_installed = { "c", "cpp", "lua", "go", "java", "javascript", "typescript", "tsx", "rust" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -25,3 +25,9 @@ require 'nvim-treesitter.configs'.setup {
     enable = true
   }
 }
+
+local vim = vim
+local opt = vim.opt
+
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"

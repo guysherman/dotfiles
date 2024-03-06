@@ -44,7 +44,9 @@ au BufNewFile,BufRead *.flow set filetype=javascript
 au BufNewFile,BufRead *.vue set filetype=vue
 au BufNewFile,BufRead *Dockerfile* set filetype=dockerfile
 
-autocmd FileType c,cpp,javascript,typescript,javascriptreact,typescriptreact,json,go setlocal foldmethod=syntax
+autocmd BufReadPost,FileReadPost * normal zR
+
+"autocmd FileType c,cpp,javascript,typescript,javascriptreact,typescriptreact,json,go setlocal foldmethod=syntax
 "autocmd FileType c,cpp,javascript,typescript,javascriptreact,typescriptreact,json,yaml,go setlocal nofoldenable
 autocmd FileType java setlocal shiftwidth=4 softtabstop=4 expandtab
 
