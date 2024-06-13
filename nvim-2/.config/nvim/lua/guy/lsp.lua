@@ -165,6 +165,12 @@ local function config(_config)
         -- In this case we don't want tsserver to do formatting, because diagnosticls does it
         client.server_capabilities.documentFormattingProvider = false
       end
+
+      if client.name == "html" then
+        -- In this case we don't want tsserver to do formatting, because diagnosticls does it
+        client.server_capabilities.documentFormattingProvider = false
+      end
+
       -- Mappings.
       -- See `:help vim.lsp.*` for documentation on any of the below functions
       vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format {}]]
