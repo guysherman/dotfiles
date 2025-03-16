@@ -1,7 +1,7 @@
 [user]
 	email = guy@guysherman.com
 	name = Guy Sherman
-	signingkey = 9735422D59D4E1F9
+	signingkey = 6623D3EC10876135
 [init]
 	defaultBranch = main
 [pull]
@@ -21,3 +21,5 @@
 	credentialStore = secretservice
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+[tag]
+	gpgSign = true
