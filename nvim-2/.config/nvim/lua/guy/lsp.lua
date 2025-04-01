@@ -13,7 +13,7 @@ local lspkind = require("lspkind")
 local root_dir = lspconfig.util.root_pattern('.git', 'package.json', '.gitignore', 'pom.xml', 'go.mod')
 local desired_servers = {
   "gopls",
-  "tsserver",
+  "ts_ls",
   "bashls",
   "vimls",
   "diagnosticls",
@@ -161,13 +161,19 @@ local function config(_config)
     capabilities = vim.lsp.protocol.make_client_capabilities(),
     on_attach = function(client, bufnr)
       -- Set custom stuff for some lanugage servers
-      if client.name == "tsserver" then
-        -- In this case we don't want tsserver to do formatting, because diagnosticls does it
+      if client.name == "ts_ls" then
+        -- In this case we don't want ts_ls to do formatting, because diagnosticls does it
         client.server_capabilities.documentFormattingProvider = false
       end
 
       if client.name == "html" then
-        -- In this case we don't want tsserver to do formatting, because diagnosticls does it
+        -- In this case we don't want ts_ls to do formatting, because diagnosticls does it
+        client.server_capabilities.documentFormattingProvider = false
+      end
+
+      if client.name == "pyright" then
+        -- we're using diagnosticls for pyright as well. this may be redundant as pyright already
+        -- doesn't do formatting, but just in case.
         client.server_capabilities.documentFormattingProvider = false
       end
 
@@ -221,8 +227,8 @@ require("lspconfig").vimls.setup(config())
 -- jdtls
 -- jdtls is set up in ftplugin/java.lua
 
--- tsserver
-require("lspconfig").tsserver.setup({
+-- ts_ls
+require("lspconfig").ts_ls.setup({
   init_options = {
     host_info = 'neovim',
     preferences = {
@@ -272,6 +278,8 @@ diagnosticls.init(config({
 --require("lspconfig").diagnosticls.setup(config())
 local eslint = require("diagnosticls-configs.linters.eslint")
 local prettier = require("diagnosticls-configs.formatters.prettier")
+local black = require("diagnosticls-configs.formatters.black")
+local flake = require("diagnosticls-configs.linters.flake8")
 diagnosticls.setup({
   ['javascript'] = {
     linter = eslint,
@@ -289,6 +297,10 @@ diagnosticls.setup({
     linter = eslint,
     formatter = prettier,
   },
+  ['python'] = {
+    linter = flake,
+    formatter = black,
+  }
 })
 
 platformlsp.setup()
