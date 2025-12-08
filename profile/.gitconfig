@@ -1,7 +1,7 @@
 [user]
 	email = guy@guysherman.com
 	name = Guy Sherman
-	signingkey = 6623D3EC10876135
+	signingkey = A56A720074C05852
 [init]
 	defaultBranch = main
 [pull]
@@ -15,11 +15,5 @@
 	gpgsign = true
 [fetch]
 	prune = true
-[credential]
-	helper = 
-	helper = /usr/bin/git-credential-manager-core
-	credentialStore = secretservice
-[credential "https://dev.azure.com"]
-	useHttpPath = true
 [tag]
 	gpgSign = true

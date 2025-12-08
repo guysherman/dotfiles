@@ -1,3 +1,12 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhistcnt =1
-let g:netrw_dirhist_1='/Volumes/workplace/VDSWorkspace/src/ViolaDataServiceCDK/lib/stacks'
+let g:netrw_dirhist_1='/Users/guy/dotfiles/profile'
+let g:netrw_dirhist_0='/Users/guy/dotfiles'
+let g:netrw_dirhist_9='/Users/guy/dotfiles/laptop'
+let g:netrw_dirhist_8='/Users/guy/dotfiles'
+let g:netrw_dirhist_7='/Users/guy/dotfiles/laptop'
+let g:netrw_dirhist_6='/Users/guy/dotfiles'
+let g:netrw_dirhist_5='/Users/guy/dotfiles/mac'
+let g:netrw_dirhist_4='/Users/guy/dotfiles/mac/.config'
+let g:netrw_dirhist_3='/Users/guy/dotfiles/mac'
+let g:netrw_dirhist_2='/Users/guy/dotfiles'

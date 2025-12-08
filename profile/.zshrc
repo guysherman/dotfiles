@@ -71,10 +71,7 @@ plugins=(
   virtualenv
   aws
   nvm
-  kubectl
-  yarn
   npm
-  terraform
   fzf
 )
 
@@ -113,15 +110,8 @@ prompt_dir() {
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias cf="cfiles"
-alias gprm="git pull --rebase origin main"
-alias gprmm="git pull --rebase origin master"
-alias gnb="git-newtrackedbranch.sh"
-alias cpc="yarn lint && yarn typecheck && yarn test"
-alias gpc="gh pr create"
-
-if [ -f ~/.profile ]; then
-  source ~/.profile
+if [ -f ~/.zprofile ]; then
+  source ~/.zprofile
 fi
 
 DIRCOLORS=dircolors
@@ -135,32 +125,13 @@ else
 fi
 
 
+eval "$(fnm env --use-on-cd)"
 
 export AWS_PAGER=""
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit
 compinit
-source $HOME/.config/.zshrc-platform.sh
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export ARDUINO_DIR="$HOME/Arduino"
-[ -s "$ARDUINO_DIR/zsh_completion" ] && \. "$ARDUINO_DIR/zsh_completion"
-fpath=($ARDUINO_DIR/zsh_completion $fpath)
 
 export KITTYMUX_REMOTE_TO="tcp:localhost:45876"
 
-if [[ -n $KITTY_INSTALLATION_DIR && -n $ABDUCO_SESSION ]]; then
-    export KITTY_SHELL_INTEGRATION="enabled"
-    autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
-    kitty-integration
-    unfunction kitty-integration
-    tput rmcup
-fi
-
-if [[ $TERMINAL_PROGRAM = "WezTerm" ]]; then
-  source ~/dotfiles/wezterm/.config/wezterm/wezterm.sh
-fi
+export GPG_TTY=$(tty)
