@@ -12,7 +12,7 @@ local lspkind = require("lspkind")
 
 local root_dir = lspconfig.util.root_pattern('.git', 'package.json', '.gitignore', 'pom.xml', 'go.mod')
 local desired_servers = {
-  "gopls",
+--  "gopls",
   "ts_ls",
   "bashls",
   "vimls",
@@ -24,8 +24,8 @@ local desired_servers = {
   "yamlls",
   "pyright",
   --"rust_analyzer",
-  "solargraph",
-  "kotlin_language_server",
+  --"solargraph",
+  --"kotlin_language_server",
   --"jdtls",
   --"terraformls",
   --"ccls",
@@ -189,7 +189,7 @@ end
 -- Languages
 
 -- lua, thanks @theprimeagen, makes it handle the neovim lua stuff
-require("lspconfig").lua_ls.setup(config({
+vim.lsp.config('lua_ls', {
   --cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
   settings = {
     Lua = {
@@ -212,23 +212,23 @@ require("lspconfig").lua_ls.setup(config({
       },
     },
   },
-}))
+})
 
 
 -- gopls
-require("lspconfig").gopls.setup(config())
+--vim.lsp.config('gopls', {})
 
 -- bashls
-require("lspconfig").bashls.setup(config())
+vim.lsp.config('bashls', {})
 
 -- vimls
-require("lspconfig").vimls.setup(config())
+vim.lsp.config('vimls', {})
 
 -- jdtls
 -- jdtls is set up in ftplugin/java.lua
 
 -- ts_ls
-require("lspconfig").ts_ls.setup({
+vim.lsp.config('ts_ls', {
   init_options = {
     host_info = 'neovim',
     preferences = {
@@ -238,34 +238,34 @@ require("lspconfig").ts_ls.setup({
 })
 
 -- html
-require("lspconfig").html.setup(config())
+vim.lsp.config('html', {})
 
 -- css
-require("lspconfig").cssls.setup(config())
+vim.lsp.config('cssls', {})
 
 -- josn
-require("lspconfig").jsonls.setup(config())
+vim.lsp.config('jsonls', {})
 
 -- terraform
 --require("lspconfig").terraformls.setup(config(with_defaults("terraformls")))
 
 -- yaml
-require("lspconfig").yamlls.setup(config())
+vim.lsp.config('yamlls', {})
 
 -- python
-require("lspconfig").pyright.setup(config())
+vim.lsp.config('pyright', {})
 
 -- c++
-require("lspconfig").ccls.setup({})
+vim.lsp.config('ccls', {})
 
 -- rust
-require("lspconfig").rust_analyzer.setup(config())
+vim.lsp.config('rust_analyzer', {})
 
 -- solargraph/ruby
-require("lspconfig").solargraph.setup(config())
+--vim.lsp.config('solargraph', {})
 
 -- kotlin
-require("lspconfig").kotlin_language_server.setup(config())
+--vim.lsp.config('kotlin_language_server', {})
 
 
 --require("lspconfig").metals.setup({})
