@@ -1,7 +1,7 @@
 [user]
-	email = guy@guysherman.com
+	email = guy.sherman@gotracksuit.com
 	name = Guy Sherman
-	signingkey = 3D2026AD7F917B8F
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDolqktkZsdVzmncIGtv4R/BCRWYsBSC238nf9UPeVgb
 [init]
 	defaultBranch = main
 [pull]
@@ -17,3 +17,7 @@
 	prune = true
 [tag]
 	gpgSign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign

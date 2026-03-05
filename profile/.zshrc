@@ -70,9 +70,8 @@ plugins=(
   git
   virtualenv
   aws
-  nvm
-  npm
   fzf
+  direnv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -135,3 +134,21 @@ compinit
 export KITTYMUX_REMOTE_TO="tcp:localhost:45876"
 
 export GPG_TTY=$(tty)
+export PATH=/Users/guy.sherman/Code/ssh-client-config/bin:$PATH
+
+# pnpm
+export PNPM_HOME="/Users/guy.sherman/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+alias dcc="devcontainer --docker-path=/usr/local/bin/finch --docker-compose-path=\"/usr/local/bin/finch compose\""
+alias yoloclaude="devcontainer up --workspace-folder . && launchclaude.sh"
+alias mkdevc="ln -s /Users/guy.sherman/Code/claudeland/.devcontainer ./.devcontainer"
+
+# added by Snowflake SnowflakeCLI installer v1.0
+export PATH=/Applications/SnowflakeCLI.app/Contents/MacOS/:/usr/local/bin:$PATH
+eval "$(/Users/guy.sherman/.local/bin/mise activate zsh)"
+

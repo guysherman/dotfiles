@@ -117,3 +117,6 @@ if ! shopt -oq posix; then
 fi
 
 . "$HOME/.cargo/env"
+
+# added by Snowflake SnowflakeCLI installer v1.0
+export PATH=/Applications/SnowflakeCLI.app/Contents/MacOS/:$PATH

@@ -5,7 +5,7 @@ mkdir -p ./.tmp
 # Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install neovim fzf ripgrep the_silver_searcher stow fnm gpg uv pinentry-mac
+brew install neovim fzf ripgrep the_silver_searcher stow fnm gpg uv pinentry-mac direnv
 brew install --cask kitty
 
 

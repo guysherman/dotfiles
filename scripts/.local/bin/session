@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# If $1 exists and is not null, use it; otherwise, use the current directory name
+SESSION_NAME="${1:-$(basename "$PWD")}"
+kitten @ set-tab-title $SESSION_NAME
+
+AGENT_WINDOW=$KITTY_WINDOW_ID
+# Set the current window title to agent
+kitten @ set-window-title -m id:$AGENT_WINDOW agent
+
+# Bind 'a' to the agent window
+kittymux -k a -w $AGENT_WINDOW
+
+# Create a terminal window and bind a key
+TERMINAL_WINDOW=$(kitten @ launch --cwd=current --title term --keep-focus zsh)
+kittymux -k s -w $TERMINAL_WINDOW
+
+# Create an editor window
+EDITOR_WINDOW=$(kitten @ launch --cwd=current --title editor --keep-focus zsh)
+kittymux -k f -w $EDITOR_WINDOW
+kitten @ send-text -m id:$EDITOR_WINDOW "nvim\n"
+
+launchclaude.sh
+
+
